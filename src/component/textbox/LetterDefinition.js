@@ -3,7 +3,7 @@ import Letter from './Letter';
 
 function LetterDefinition(props) {
   function DefineLetter() {
-    if (props.input !== '' && props.input === props.currentLetters) {
+    if (props.input !== '' && props.input === props.textToCompare) {
       return (
         <span className="green">
           <Letter
@@ -12,7 +12,7 @@ function LetterDefinition(props) {
         </span>
       )
     }
-    else if (props.input !== '' && props.input !== props.currentLetters) {
+    else if (props.input !== '' && props.input !== props.textToCompare) {
       return (
         <span className="red">
           <Letter

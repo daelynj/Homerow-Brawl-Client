@@ -8,11 +8,12 @@ function Board(props) {
   const [currentInput, setCurrentInput] = useState("");
 
   function renderTextBox() {
+    let textToCompare = text[currentWord].slice(0, currentInput.length);
     return (
       <TextBox
         text = {text}
         input = {currentInput}
-        currentWord = {currentWord}
+        textToCompare = {textToCompare}
       />
     )
   }

@@ -16,7 +16,7 @@ function Word(props) {
     return (
       <LetterDefinition
         key = {index}
-        currentLetters = {props.currentLetters}
+        textToCompare = {props.textToCompare}
         letter = {letter}
         input = {props.input}
       />
