@@ -1,13 +1,9 @@
 import React from 'react';
 import Letter from './Letter';
-import './Word.css'
 
 function LetterDefinition(props) {
   function DefineLetter() {
-    let inputLength = props.input.length;
-    let currentLetters = props.text[props.currentWord].slice(0, inputLength);
-  
-    if (props.input !== '' && props.input === currentLetters) {
+    if (props.input !== '' && props.input === props.currentLetters) {
       return (
         <span className="green">
           <Letter
@@ -16,7 +12,7 @@ function LetterDefinition(props) {
         </span>
       )
     }
-    else if (props.input !== '' && props.input !== currentLetters) {
+    else if (props.input !== '' && props.input !== props.currentLetters) {
       return (
         <span className="red">
           <Letter

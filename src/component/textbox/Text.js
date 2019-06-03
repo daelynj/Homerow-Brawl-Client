@@ -16,8 +16,7 @@ function Text(props) {
       <Word
         key = {index}
         word = {word}
-        text = {props.text}
-        currentWord = {props.currentWord}
+        currentLetters = {props.currentLetters}
         input = {props.input}
       />
     )
@@ -29,34 +28,5 @@ function Text(props) {
     </div>
   )
 }
-
-// function Text(props) {
-//   function generateWords() {
-//     let words = [];
-
-//     for (var i = 0; i < props.text.length; i++) {
-//       words[i] = renderWord(props.text[i], i);
-//     }
-//     return words;
-//   }
-
-//   function renderWord(word, index) {
-//     return (
-//       <Word
-//         key = {index}
-//         word = {word}
-//         // text = {props.text}
-//         // currentWord = {props.currentWord}
-//         // input = {props.input}
-//       />
-//     )
-//   }
-
-//   return (
-//     <div className="Text">
-//       {generateWords()}
-//     </div>
-//   )
-// }
 
 export default Text;

@@ -1,6 +1,5 @@
 import React from 'react';
 import LetterDefinition from './LetterDefinition';
-import Letter from './Letter';
 import './Word.css'
 
 function Word(props) {
@@ -17,9 +16,8 @@ function Word(props) {
     return (
       <LetterDefinition
         key = {index}
+        currentLetters = {props.currentLetters}
         letter = {letter}
-        text = {props.text}
-        currentWord = {props.currentWord}
         input = {props.input}
       />
     )

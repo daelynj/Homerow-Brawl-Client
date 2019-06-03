@@ -2,11 +2,12 @@ import React from 'react';
 import Text from './Text';
 
 function TextBox(props) {
+  let currentLetters = props.text[props.currentWord].slice(0, props.input.length);
   function renderText() {
     return (
       <Text
         text = {props.text}
-        currentWord = {props.currentWord}
+        currentLetters = {currentLetters}
         input = {props.input}
       />
     )
