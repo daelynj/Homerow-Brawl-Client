@@ -1,6 +1,6 @@
 import React from 'react';
 import Letter from './Letter';
-import './Word.css'
+import './css/Word.css';
 
 function Word(props) {
   function generateLetters() {

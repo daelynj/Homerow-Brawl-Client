@@ -1,6 +1,5 @@
 import React from 'react';
 import Word from './Word';
-import './Text.css';
 
 function Text(props) {
   function generateWords() {
