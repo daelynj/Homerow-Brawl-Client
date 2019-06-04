@@ -1,21 +1,16 @@
 import React from 'react';
 import Text from './Text';
+import './TextBox.css';
 
 function TextBox(props) {
-  function renderText() {
-    return (
+  return (
+    <div className="Text">
       <Text
         text = {props.text}
         textToCompare = {props.textToCompare}
         input = {props.input}
         currentWord = {props.currentWord}
       />
-    )
-  }
-
-  return (
-    <div className="TextBox">
-      {renderText()}
     </div>
   )
 }

@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import TextBox from './textbox/TextBox';
 import TypingBox from './typingbox/TypingBox';
+import Timer from './Timer'
 
 function Board(props) {
   const [text] = useState(props.text.split(" "));
   const [currentWord, setCurrentWord] = useState(0);
   const [currentInput, setCurrentInput] = useState("");
+  const [finishTime, setFinishTime] = useState(0);
+  const [start, setStart] = useState(false);
 
+  //this if statement only allows the text box to render while we have words
+  //to type so that we don't slice non-existent text (this results in a crash)
   function renderTextBox() {
     if (currentWord < text.length) {
       let textToCompare = text[currentWord].slice(0, currentInput.length);
@@ -28,6 +33,7 @@ function Board(props) {
           value = {currentInput}
           onChange = {setCurrentInput}
           onWordComplete = {checkWord}
+          start = {setStart}
         />
       )
     }
@@ -41,6 +47,27 @@ function Board(props) {
     }
   }
 
+  //only start the timer when a key is hit
+  function renderTimer() {
+    if (start) {
+      if (currentWord < text.length) {
+        return (
+          <Timer
+            time = {0}
+            finishTime = {setFinishTime}
+          />
+        )
+      }
+      else {
+        return "WPM: " + calculateWPM();
+      }
+    }
+  }
+  
+  function calculateWPM() {
+    return Math.round(text.length / (finishTime / 60));
+  }
+
   return (
     <div className="boxes">
       <div className="text-box">
@@ -48,7 +75,9 @@ function Board(props) {
       </div>
       <div className='typing-box'>
         {renderTypingBox()}
-        {/* {currentInput} */}
+      </div>
+      <div className="timer">
+        {renderTimer()}
       </div>
     </div>
   )

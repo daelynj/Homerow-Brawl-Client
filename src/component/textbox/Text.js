@@ -25,7 +25,7 @@ function Text(props) {
   }
 
   return (
-    <div className="Text">
+    <div className="Words">
       {generateWords()}
     </div>
   )

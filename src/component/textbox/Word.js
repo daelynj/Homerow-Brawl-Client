@@ -5,7 +5,6 @@ import './Word.css'
 function Word(props) {
   function generateLetters() {
     let letters = [];
-    let color = "black";
 
     for (var i = 0; i < props.word.length; i++) {
       letters[i] = renderLetter(props.word[i], setColor(i), i);

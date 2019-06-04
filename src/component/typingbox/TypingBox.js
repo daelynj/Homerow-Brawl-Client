@@ -1,8 +1,8 @@
 import React from 'react';
 
 function TypingBox(props) {
-
   function handleChange(event) {
+    props.start(true);
     props.onChange(event.target.value);
   }
 

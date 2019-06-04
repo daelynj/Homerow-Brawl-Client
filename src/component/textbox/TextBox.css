@@ -1,4 +1,4 @@
-div.Textbox {
+.Textbox {
   display: grid;
   width: 540px;
   grid-template-columns: 120px 120px 120px;
