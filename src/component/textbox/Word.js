@@ -1,26 +1,41 @@
 import React from 'react';
-import LetterDefinition from './LetterDefinition';
+import Letter from './Letter';
 import './Word.css'
 
 function Word(props) {
   function generateLetters() {
     let letters = [];
+    let color = "black";
 
     for (var i = 0; i < props.word.length; i++) {
-      letters[i] = renderLetter(props.word[i], i);
+      letters[i] = renderLetter(props.word[i], setColor(i), i);
     }
     return letters;
   }
 
-  function renderLetter(letter, index) {
+  function renderLetter(letter, color, index) {
     return (
-      <LetterDefinition
+      <Letter
         key = {index}
-        textToCompare = {props.textToCompare}
+        color = {color}
         letter = {letter}
-        input = {props.input}
       />
     )
+  }
+
+  function setColor(i) {
+    if (props.input[i] === props.word[i] && props.idx === props.currentWord) {
+      return "green";
+    }
+    else if (props.input[i] !== props.textToCompare[i] && props.idx === props.currentWord) {
+      return "red";
+    }
+    else if (props.idx < props.currentWord) {
+      return "green";
+    }
+    else {
+      return "black";
+    }
   }
 
   return (

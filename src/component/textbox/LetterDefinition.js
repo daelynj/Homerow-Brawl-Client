@@ -1,34 +1,18 @@
 import React from 'react';
-import Letter from './Letter';
 
 function LetterDefinition(props) {
   function DefineLetter() {
-    if (props.input !== '' && props.input === props.textToCompare) {
-      return (
-        <span className="green">
-          <Letter
-            letter = {props.letter}
-          />
-        </span>
-      )
+    if (props.input[props.idx] === props.word[props.idx] && props.idx === props.currentWord) {
+      return "green";
     }
-    else if (props.input !== '' && props.input !== props.textToCompare) {
-      return (
-        <span className="red">
-          <Letter
-            letter = {props.letter}
-          />
-        </span>
-      )
+    else if (props.input[props.idx] !== props.textToCompare[props.idx] && props.idx === props.currentWord) {
+      return "red";
+    }
+    else if (props.idx < props.currentWord) {
+      return "green";
     }
     else {
-      return (
-        <span className="black">
-        <Letter
-          letter = {props.letter}
-        />
-      </span>
-      )
+      return "black";
     }
   }
 

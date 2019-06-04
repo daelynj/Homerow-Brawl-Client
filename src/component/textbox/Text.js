@@ -15,9 +15,11 @@ function Text(props) {
     return (
       <Word
         key = {index}
+        idx = {index}
         word = {word}
         textToCompare = {props.textToCompare}
         input = {props.input}
+        currentWord = {props.currentWord}
       />
     )
   }

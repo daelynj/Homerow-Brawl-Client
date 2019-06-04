@@ -8,6 +8,7 @@ function TextBox(props) {
         text = {props.text}
         textToCompare = {props.textToCompare}
         input = {props.input}
+        currentWord = {props.currentWord}
       />
     )
   }
