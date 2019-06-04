@@ -22,13 +22,15 @@ function Board(props) {
   }
 
   function renderTypingBox() {
-    return (
-      <TypingBox
-        value = {currentInput}
-        onChange = {setCurrentInput}
-        onWordComplete = {checkWord}
-      />
-    )
+    if (currentWord < text.length) {
+      return (
+        <TypingBox
+          value = {currentInput}
+          onChange = {setCurrentInput}
+          onWordComplete = {checkWord}
+        />
+      )
+    }
   }
 
   function checkWord() {
