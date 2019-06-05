@@ -3,10 +3,9 @@ import Word from './Word';
 
 function Text(props) {
   function generateWords() {
-    let words = [];
-    for (var i = 0; i < props.text.length; i++) {
-      words[i] = renderWord(props.text[i], i);
-    }
+    let words = props.text.map((word, index) => {
+      return renderWord(word, index);
+    });
     return words;
   }
 
