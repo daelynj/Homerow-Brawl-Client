@@ -23,13 +23,13 @@ function Word(props) {
   }
 
   function setColor(i) {
-    if (props.input[i] === props.word[i] && props.idx === props.currentWord) {
+    if (props.input[i] === props.word[i] && props.wordLocation === props.currentWord) {
       return "green";
     }
-    else if (props.input[i] !== props.textToCompare[i] && props.idx === props.currentWord) {
+    else if (props.input[i] !== props.textToCompare[i] && props.wordLocation === props.currentWord) {
       return "red";
     }
-    else if (props.idx < props.currentWord) {
+    else if (props.wordLocation < props.currentWord) {
       return "green";
     }
     else {
