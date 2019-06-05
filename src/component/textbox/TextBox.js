@@ -5,7 +5,7 @@ function TextBox(props) {
   return (
     <div className="Text">
       <Text
-        text = {props.text}
+        words = {props.words}
         textToCompare = {props.textToCompare}
         input = {props.input}
         currentWord = {props.currentWord}

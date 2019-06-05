@@ -5,7 +5,7 @@ import Timer from './Timer'
 import WordsPerMinute from './WordsPerMinute';
 
 function Board(props) {
-  const [text] = useState(props.text.split(" "));
+  const [words] = useState(props.text.split(" "));
   const [currentWord, setCurrentWord] = useState(0);
   const [currentInput, setCurrentInput] = useState("");
   const [finishTime, setFinishTime] = useState(0);
@@ -14,11 +14,11 @@ function Board(props) {
   //this if statement only allows the text box to render while we have words
   //to type so that we don't slice non-existent text (this results in a crash)
   function renderTextBox() {
-    if (currentWord < text.length) {
-      let textToCompare = text[currentWord].slice(0, currentInput.length);
+    if (currentWord < words.length) {
+      let textToCompare = words[currentWord].slice(0, currentInput.length);
       return (
         <TextBox
-          text = {text}
+          words = {words}
           input = {currentInput}
           textToCompare = {textToCompare}
           currentWord = {currentWord}
@@ -28,7 +28,7 @@ function Board(props) {
   }
 
   function renderTypingBox() {
-    if (currentWord < text.length) {
+    if (currentWord < words.length) {
       return (
         <TypingBox
           value = {currentInput}
@@ -41,7 +41,7 @@ function Board(props) {
   }
 
   function checkWord() {
-    if (currentInput === text[currentWord]) {
+    if (currentInput === words[currentWord]) {
       setCurrentInput('');
       setCurrentWord(currentWord+1);
       return true;
@@ -51,7 +51,7 @@ function Board(props) {
   //only start the timer when a key is hit
   function renderTimer() {
     if (start) {
-      if (currentWord < text.length) {
+      if (currentWord < words.length) {
         return (
           <Timer
             time = {0}
@@ -62,7 +62,7 @@ function Board(props) {
       else {
         return (
           <WordsPerMinute
-            textLength = {text.length}
+            wordsLength = {words.length}
             finishTime = {finishTime}
           />
         )
