@@ -81,7 +81,7 @@ exports[`Word generateLetters renders the expected letters in red and black 1`] 
 </span>
 `;
 
-exports[`Word generateLetters renders the expected word in black 1`] = `
+exports[`Word generateLetters renders the expected letters in black 1`] = `
 <span
   className="Word"
 >
@@ -108,7 +108,7 @@ exports[`Word generateLetters renders the expected word in black 1`] = `
 </span>
 `;
 
-exports[`Word generateLetters renders the past words as green 1`] = `
+exports[`Word generateLetters renders the past letters as green 1`] = `
 <span
   className="Word"
 >

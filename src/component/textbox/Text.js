@@ -14,7 +14,7 @@ function Text(props) {
     return (
       <Word
         key = {index}
-        wordLocation = {index}
+        wordIndex = {index}
         word = {word}
         textToCompare = {props.textToCompare}
         input = {props.input}

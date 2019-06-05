@@ -7,7 +7,7 @@ describe("Word", () => {
     it("renders the expected word in black", () => {
       const tree = renderer.create(
         <Word
-          wordLocation = {0}
+          wordIndex = {0}
           word = {"this"}
           textToCompare = {""}
           input = {""}
@@ -20,7 +20,7 @@ describe("Word", () => {
     it("renders the expected letters in green and black", () => {
       const tree = renderer.create(
         <Word
-          wordLocation = {0}
+          wordIndex = {0}
           word = {"this"}
           textToCompare = {"th"}
           input = {"th"}
@@ -33,7 +33,7 @@ describe("Word", () => {
     it("renders the expected letters in red and black", () => {
       const tree = renderer.create(
         <Word
-          wordLocation = {0}
+          wordIndex = {0}
           word = {"this"}
           textToCompare = {"th"}
           input = {"mn"}
@@ -46,7 +46,7 @@ describe("Word", () => {
     it("renders the expected letters in green and red", () => {
       const tree = renderer.create(
         <Word
-          wordLocation = {0}
+          wordIndex = {0}
           word = {"this"}
           textToCompare = {"this"}
           input = {"thmn"}
@@ -59,7 +59,7 @@ describe("Word", () => {
     it("renders the past words as green", () => {
       const tree = renderer.create(
         <Word
-          wordLocation = {0}
+          wordIndex = {0}
           word = {"text"}
           textToCompare = {""}
           input = {""}
