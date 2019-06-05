@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WordsPerMinute renders the expected words per minute 1`] = `
+<div
+  className="wpm"
+>
+  WPM: 60
+</div>
+`;
