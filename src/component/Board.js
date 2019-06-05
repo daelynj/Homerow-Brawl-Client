@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextBox from './textbox/TextBox';
 import TypingBox from './typingbox/TypingBox';
 import Timer from './Timer'
+import WordsPerMinute from './WordsPerMinute';
 
 function Board(props) {
   const [text] = useState(props.text.split(" "));
@@ -59,13 +60,14 @@ function Board(props) {
         )
       }
       else {
-        return "WPM: " + calculateWPM();
+        return (
+          <WordsPerMinute
+            textLength = {text.length}
+            finishTime = {finishTime}
+          />
+        )
       }
     }
-  }
-  
-  function calculateWPM() {
-    return Math.round(text.length / (finishTime / 60));
   }
 
   return (
