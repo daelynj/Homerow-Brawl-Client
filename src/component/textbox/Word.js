@@ -6,8 +6,12 @@ function Word(props) {
   function generateLetters() {
     let letters = [];
 
-    for (var i = 0; i < props.word.length; i++) {
-      letters[i] = renderLetter(props.word[i], setColor(i), i);
+    for (var letterIndex = 0; letterIndex < props.word.length; letterIndex++) {
+      letters[letterIndex] = renderLetter(
+        props.word[letterIndex],
+        setColor(letterIndex),
+        letterIndex
+      );
     }
     return letters;
   }
@@ -22,14 +26,14 @@ function Word(props) {
     )
   }
 
-  function setColor(i) {
-    if (props.input[i] === props.word[i] && props.idx === props.currentWord) {
+  function setColor(letterIndex) {
+    if (props.input[letterIndex] === props.word[letterIndex] && props.wordIndex === props.currentWord) {
       return "green";
     }
-    else if (props.input[i] !== props.textToCompare[i] && props.idx === props.currentWord) {
+    else if (props.input[letterIndex] !== props.textToCompare[letterIndex] && props.wordIndex === props.currentWord) {
       return "red";
     }
-    else if (props.idx < props.currentWord) {
+    else if (props.wordIndex < props.currentWord) {
       return "green";
     }
     else {

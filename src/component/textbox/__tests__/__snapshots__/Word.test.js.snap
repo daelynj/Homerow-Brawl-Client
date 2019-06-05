@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Word generateLetters renders the expected letters in green and black 1`] = `
+<span
+  className="Word"
+>
+  <span
+    className="green"
+  >
+    t
+  </span>
+  <span
+    className="green"
+  >
+    h
+  </span>
+  <span
+    className="black"
+  >
+    i
+  </span>
+  <span
+    className="black"
+  >
+    s
+  </span>
+</span>
+`;
+
+exports[`Word generateLetters renders the expected letters in green and red 1`] = `
+<span
+  className="Word"
+>
+  <span
+    className="green"
+  >
+    t
+  </span>
+  <span
+    className="green"
+  >
+    h
+  </span>
+  <span
+    className="red"
+  >
+    i
+  </span>
+  <span
+    className="red"
+  >
+    s
+  </span>
+</span>
+`;
+
+exports[`Word generateLetters renders the expected letters in red and black 1`] = `
+<span
+  className="Word"
+>
+  <span
+    className="red"
+  >
+    t
+  </span>
+  <span
+    className="red"
+  >
+    h
+  </span>
+  <span
+    className="black"
+  >
+    i
+  </span>
+  <span
+    className="black"
+  >
+    s
+  </span>
+</span>
+`;
+
+exports[`Word generateLetters renders the expected letters in black 1`] = `
+<span
+  className="Word"
+>
+  <span
+    className="black"
+  >
+    t
+  </span>
+  <span
+    className="black"
+  >
+    h
+  </span>
+  <span
+    className="black"
+  >
+    i
+  </span>
+  <span
+    className="black"
+  >
+    s
+  </span>
+</span>
+`;
+
+exports[`Word generateLetters renders the past letters as green 1`] = `
+<span
+  className="Word"
+>
+  <span
+    className="green"
+  >
+    t
+  </span>
+  <span
+    className="green"
+  >
+    e
+  </span>
+  <span
+    className="green"
+  >
+    x
+  </span>
+  <span
+    className="green"
+  >
+    t
+  </span>
+</span>
+`;
