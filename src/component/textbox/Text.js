@@ -2,16 +2,8 @@ import React from 'react';
 import Word from './Word';
 
 function Text(props) {
-  function generateWords() {
-    let words = [];
-    for (var i = 0; i < props.text.length; i++) {
-      words[i] = renderWord(props.text[i], i);
-    }
-    return words;
-  }
-
-  function renderWord(word, index) {
-    return (
+  const generateWords = () => (
+    props.text.map((word, index) => (
       <Word
         key = {index}
         wordIndex = {index}
@@ -20,9 +12,9 @@ function Text(props) {
         input = {props.input}
         currentWord = {props.currentWord}
       />
-    )
-  }
-
+    ))
+  )
+  
   return (
     <div className="Words">
       {generateWords()}

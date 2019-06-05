@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders the expected text 1`] = `
+<div
+  className="Words"
+>
+  <span
+    className="Word"
+  >
+    <span
+      className="black"
+    >
+      T
+    </span>
+    <span
+      className="black"
+    >
+      h
+    </span>
+    <span
+      className="black"
+    >
+      i
+    </span>
+    <span
+      className="black"
+    >
+      s
+    </span>
+  </span>
+  <span
+    className="Word"
+  >
+    <span
+      className="black"
+    >
+      i
+    </span>
+    <span
+      className="black"
+    >
+      s
+    </span>
+  </span>
+  <span
+    className="Word"
+  >
+    <span
+      className="black"
+    >
+      t
+    </span>
+    <span
+      className="black"
+    >
+      e
+    </span>
+    <span
+      className="black"
+    >
+      x
+    </span>
+    <span
+      className="black"
+    >
+      t
+    </span>
+  </span>
+</div>
+`;
