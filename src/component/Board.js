@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TextBox from './textbox/TextBox';
+import Text from './text/Text';
 import TypingBox from './typingbox/TypingBox';
 import Timer from './Timer'
 import WordsPerMinute from './WordsPerMinute';
@@ -13,11 +13,11 @@ function Board(props) {
 
   //this if statement only allows the text box to render while we have words
   //to type so that we don't slice non-existent text (this results in a crash)
-  function renderTextBox() {
+  function renderText() {
     if (currentWord < words.length) {
       let textToCompare = words[currentWord].slice(0, currentInput.length);
       return (
-        <TextBox
+        <Text
           words = {words}
           input = {currentInput}
           textToCompare = {textToCompare}
@@ -71,9 +71,9 @@ function Board(props) {
   }
 
   return (
-    <div className="boxes">
-      <div className="text-box">
-        {renderTextBox()}
+    <div className="board">
+      <div className="text">
+        {renderText()}
       </div>
       <div className='typing-box'>
         {renderTypingBox()}
@@ -82,6 +82,7 @@ function Board(props) {
         {renderTimer()}
       </div>
     </div>
+
   )
 }
 
