@@ -6,7 +6,7 @@ describe("WordsPerMinute", () => {
   it("renders the expected words per minute", () => {
     const tree = renderer.create(
       <WordsPerMinute
-        textLength = {60}
+        wordsLength = {60}
         finishTime = {60}
       />
     ).toJSON();

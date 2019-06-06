@@ -3,7 +3,7 @@ import Word from './Word';
 
 function Text(props) {
   const generateWords = () => (
-    props.text.map((word, index) => (
+    props.words.map((word, index) => (
       <Word
         key = {index}
         wordIndex = {index}

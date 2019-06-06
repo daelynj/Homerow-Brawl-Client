@@ -6,7 +6,7 @@ describe("Text", () => {
   it("renders the expected text", () => {
     const tree = renderer.create(
       <Text
-        text = {["This", "is", "text"]}
+        words = {["This", "is", "text"]}
         textToCompare = {""}
         input = {""}
         currentWord = {0}
