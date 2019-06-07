@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TypingBox renders a textbox 1`] = `
+exports[`TypingBox renders an input field 1`] = `
 <div
   className="TypingBox"
 >
@@ -8,6 +8,7 @@ exports[`TypingBox renders a textbox 1`] = `
     onChange={[Function]}
     onKeyDown={[Function]}
     type="text"
+    value=""
   />
 </div>
 `;

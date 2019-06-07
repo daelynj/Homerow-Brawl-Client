@@ -7,64 +7,50 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe("TypingBox", () => {
-  it("renders a textbox", () => {
-    const TypingBoxComponent = renderer.create(<TypingBox/>).toJSON();
+  const onChange = jest.fn();
+  const start = jest.fn();
+  const onWordComplete = jest.fn().mockReturnValue(false);
+
+  const buildProps = (newProps = {}) => ({
+    value: "",
+    onChange,
+    onWordComplete,
+    start,
+    ...newProps,
+  });
+
+  it("renders an input field", () => {
+    const TypingBoxComponent = renderer.create(<TypingBox {...buildProps()}/>).toJSON();
     expect(TypingBoxComponent).toMatchSnapshot();
   });
 
-  it("renders correctly with no input", () => {
-    const props = {
-      value: ""
-    }
-    const TypingBoxComponent = mount(<TypingBox {...props}/>)
-    expect((TypingBoxComponent).prop("value")).toEqual("");
+  it("renders the input field as empty when we pass an empty value", () => {
+    const TypingBoxComponent = mount(<TypingBox {...buildProps()}/>);
+    const inputValue = TypingBoxComponent.find('input').props().value;
+
+    expect(inputValue).toEqual("");
   });
 
-  it("updates the typing box upon input", () => {
-    const onChange = jest.fn();
-    const start = jest.fn();
-    const props = {
-        value: "",
-        start,
-        onChange,
-      }
-    const TypingBoxComponent = mount(<TypingBox {...props}/>).find("input");
-
-    TypingBoxComponent.simulate('change', {target: {value: "t"}});
-    expect(start).toHaveBeenCalledWith(true);
-    expect(onChange).toHaveBeenCalledWith("t");
+  describe("when we start typing", () => {
+    const TypingBoxComponent = mount(<TypingBox {...buildProps()}/>);
+    TypingBoxComponent.find("input").simulate('change', {target: {value: "t"}});
+    
+    it("calls start", () => {expect(start).toHaveBeenCalledWith(true)});
+    it("calls onChange", () => {expect(onChange).toHaveBeenCalledWith("t")});
   });
 
-  it("allows spaces when the word being typed is not complete", () => {
-    const onChange = jest.fn();
-    const start = jest.fn();
-    const onWordComplete = jest.fn().mockReturnValue(false);
-    const props = {
-        value: "",
-        start,
-        onChange,
-        onWordComplete
-      }
-    const TypingBoxComponent = mount(<TypingBox {...props}/>).find("input");
+  describe("when we press a space", () => {
+    const TypingBoxComponent = mount(<TypingBox {...buildProps()}/>);
+    TypingBoxComponent.find("input").simulate('change', {target: {value: " "}});
 
-    TypingBoxComponent.simulate('change', {target: {value: " "}});
-    expect(start).toHaveBeenCalledWith(true);
-    expect(onChange).toHaveBeenCalledWith(" ");
+    it("calls onChange", () => {expect(onChange).toHaveBeenCalledWith(" ")});
   });
 
-  it("is emptied upon word completion", () => {
-    const onChange = jest.fn();
-    const start = jest.fn();
-    const onWordComplete = jest.fn().mockReturnValue(true);
-    const props = {
-        value: "",
-        start,
-        onChange,
-        onWordComplete
-      }
-    const TypingBoxComponent = mount(<TypingBox {...props}/>).find("input");
+  describe("when we complete a word", () => {
+    onWordComplete.mockReturnValueOnce(true);
+    const TypingBoxComponent = mount(<TypingBox {...buildProps()}/>);
+    TypingBoxComponent.find("input").simulate('keyDown', { keyCode: 32 });
 
-    TypingBoxComponent.simulate('keyDown', { keyCode: 32 });
-    expect(TypingBoxComponent.props().value).toEqual("");
+    it("renders the input field as empty", () => {expect(TypingBoxComponent.find('input').props().value).toEqual("")});
   });
 });
