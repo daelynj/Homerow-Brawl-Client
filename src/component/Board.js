@@ -9,7 +9,6 @@ function Board(props) {
   const [currentWord, setCurrentWord] = useState(0);
   const [currentInput, setCurrentInput] = useState("");
   const [finishTime, setFinishTime] = useState(0);
-  const [start, setStart] = useState(false);
 
   //this if statement only allows the text box to render while we have words
   //to type so that we don't slice non-existent text (this results in a crash)
@@ -34,7 +33,7 @@ function Board(props) {
           value = {currentInput}
           onChange = {setCurrentInput}
           onWordComplete = {checkWord}
-          start = {setStart}
+          setStart = {props.setStart}
         />
       )
     }
@@ -50,7 +49,7 @@ function Board(props) {
 
   //only start the timer when a key is hit
   function renderTimer() {
-    if (start) {
+    if (props.start) {
       if (currentWord < words.length) {
         return (
           <Timer
@@ -82,7 +81,6 @@ function Board(props) {
         {renderTimer()}
       </div>
     </div>
-
   )
 }
 

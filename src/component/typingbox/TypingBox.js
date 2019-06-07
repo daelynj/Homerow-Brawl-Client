@@ -2,7 +2,7 @@ import React from 'react';
 
 function TypingBox(props) {
   function handleChange(event) {
-    props.start(true);
+    props.setStart(true);
     props.onChange(event.target.value);
   }
 
