@@ -13,7 +13,8 @@ function Board(props) {
   //this if statement only allows the text box to render while we have words
   //to type so that we don't slice non-existent text (this results in a crash)
   function renderText() {
-    if (currentWord < words.length) {
+    //if (currentWord < words.length) {
+    if (!endGame()) {
       let textToCompare = words[currentWord].slice(0, currentInput.length);
       return (
         <Text
@@ -27,7 +28,7 @@ function Board(props) {
   }
 
   function renderTypingBox() {
-    if (currentWord < words.length) {
+    if (!endGame()) {
       return (
         <TypingBox
           value = {currentInput}
@@ -39,18 +40,10 @@ function Board(props) {
     }
   }
 
-  function checkWord() {
-    if (currentInput === words[currentWord]) {
-      setCurrentInput('');
-      setCurrentWord(currentWord+1);
-      return true;
-    }
-  }
-
   //only start the timer when a key is hit
   function renderTimer() {
     if (props.start) {
-      if (currentWord < words.length) {
+      if (!endGame()) {
         return (
           <Timer
             time = {0}
@@ -66,6 +59,25 @@ function Board(props) {
           />
         )
       }
+    }
+  }
+
+  function checkWord() {
+    if (currentInput === words[currentWord]) {
+      setCurrentInput('');
+      setCurrentWord(currentWord+1);
+      return true;
+    }
+  }
+
+  function endGame() {
+    if (currentWord < words.length) {
+      props.setEndGame(false);
+      return false;
+    }
+    else {
+      props.setEndGame(true);
+      return true;
     }
   }
 
