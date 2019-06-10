@@ -3,81 +3,75 @@ import Board from './Board';
 
 function Game() {
   const [words] = useState("this is text".split(" "));
-  const [currentWord, setCurrentWord] = useState(0);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentInput, setCurrentInput] = useState("");
   const [finishTime, setFinishTime] = useState(0);
   const [start, setStart] = useState(false);
 
   function gameController() {
+    return (
+      <Board
+        words = {words}
+        textToCompare = {findTextToCompare()}
+        currentInput = {currentInput}
+        setCurrentInput = {setCurrentInput}
+        currentWordIndex = {currentWordIndex}
+        setCurrentWordIndex = {setCurrentWordIndex}
+        start = {start}
+        setStart = {setStart}
+        finishTime = {finishTime}
+        setFinishTime = {setFinishTime}
+        checkWord = {checkWord}
+        renderTextAndInput = {shouldRenderTextAndInput()}
+        renderTimer = {shouldRenderTimer()}
+        renderWordsPerMinute = {shouldRenderWordsPerMinute()}
+      />
+    )
+  }
 
-    //game has not started
-    if (!endGame() && !start) {
-      let textToCompare = words[currentWord].slice(0, currentInput.length);
-      //render text
-      //render typing box
-      return (
-        <Board
-          words = {words}
-          textToCompare = {textToCompare}
-          currentInput = {currentInput}
-          setCurrentInput = {setCurrentInput}
-          currentWord = {currentWord}
-          setCurrentWord = {setCurrentWord}
-          start = {start}
-          setStart = {setStart}
-          renderText = {true}
-          renderTypingBox = {true}
-        />
-      )
+  function findTextToCompare() {
+    if (!endGame()) {
+      return words[currentWordIndex].slice(0, currentInput.length);
     }
-    //game has started
-    else if (!endGame() && start) {
-      let textToCompare = words[currentWord].slice(0, currentInput.length);
-      //render text
-      //render typing box
-      //render timer
-      return (
-        <Board
-          words = {words}
-          textToCompare = {textToCompare}
-          currentInput = {currentInput}
-          setCurrentInput = {setCurrentInput}
-          currentWord = {currentWord}
-          setCurrentWord = {setCurrentWord}
-          start = {start}
-          setStart = {setStart}
-          finishTime = {finishTime}
-          setFinishTime = {setFinishTime}
-          checkWord = {checkWord}
-          renderText = {true}
-          renderTypingBox = {true}
-          renderTimer = {true}
-        />
-      )
+  }
+
+  function shouldRenderTextAndInput() {
+    if (!endGame()) {
+      return true;
     }
-    //game is over
-    else if (endGame()) {
-      //render WPM
-      return (
-        <Board
-          words = {words}
-          finishTime = {finishTime}
-          renderWordsPerMinute = {true}
-        />
-      )
+    else {
+      return false;
+    }
+  }
+  
+  function shouldRenderTimer() {
+    if (!endGame() && start) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  function shouldRenderWordsPerMinute() {
+    if (endGame()) {
+      return true;
+    }
+    else {
+      return false;
     }
   }
 
   function checkWord() {
-    if (currentInput === words[currentWord]) {
+    if (currentInput === words[currentWordIndex]) {
       setCurrentInput('');
-      setCurrentWord(currentWord+1);
+      setCurrentWordIndex(currentWordIndex+1);
       return true;
     }
   }
 
   function endGame() {
-    if (currentWord < words.length) {
+    if (currentWordIndex < words.length) {
       return false;
     }
     else {

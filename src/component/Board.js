@@ -11,7 +11,7 @@ function Board(props) {
         words = {props.words}
         input = {props.currentInput}
         textToCompare = {props.textToCompare}
-        currentWord = {props.currentWord}
+        currentWordIndex = {props.currentWordIndex}
       />
     )
   }
@@ -48,10 +48,10 @@ function Board(props) {
   return (
     <div className="board">
       <div className="text">
-        {props.renderText && renderText()}
+        {props.renderTextAndInput && renderText()}
       </div>
       <div className='typing-box'>
-        {props.renderTypingBox && renderTypingBox()}
+        {props.renderTextAndInput && renderTypingBox()}
       </div>
       <div className="timer">
         {props.renderTimer && renderTimer()}

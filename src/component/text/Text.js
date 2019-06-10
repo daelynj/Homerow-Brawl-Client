@@ -10,7 +10,7 @@ function Text(props) {
         word = {word}
         textToCompare = {props.textToCompare}
         input = {props.input}
-        currentWord = {props.currentWord}
+        currentWordIndex = {props.currentWordIndex}
       />
     ))
   )
