@@ -8,25 +8,6 @@ function Game() {
   const [finishTime, setFinishTime] = useState(0);
   const [start, setStart] = useState(false);
 
-  function gameController() {
-    return (
-      <Board
-        words = {words}
-        textToCompare = {findTextToCompare()}
-        currentInput = {currentInput}
-        setCurrentInput = {setCurrentInput}
-        currentWordIndex = {currentWordIndex}
-        setCurrentWordIndex = {setCurrentWordIndex}
-        start = {start}
-        setStart = {setStart}
-        endGame = {endGame}
-        finishTime = {finishTime}
-        setFinishTime = {setFinishTime}
-        checkWord = {checkWord}
-      />
-    )
-  }
-
   const endGame = () => currentWordIndex < words.length ? false : true;
 
   function checkWord() {
@@ -46,7 +27,22 @@ function Game() {
   return (
     <div className="game">
       <div className="board">
-        {gameController()}
+        {
+          <Board
+            words = {words}
+            textToCompare = {findTextToCompare()}
+            currentInput = {currentInput}
+            setCurrentInput = {setCurrentInput}
+            currentWordIndex = {currentWordIndex}
+            setCurrentWordIndex = {setCurrentWordIndex}
+            start = {start}
+            setStart = {setStart}
+            endGame = {endGame}
+            finishTime = {finishTime}
+            setFinishTime = {setFinishTime}
+            checkWord = {checkWord}
+        />
+        }
       </div>
     </div>
   )
