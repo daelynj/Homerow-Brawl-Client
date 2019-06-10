@@ -7,9 +7,9 @@ describe("Text", () => {
     const tree = renderer.create(
       <Text
         words = {["This", "is", "text"]}
-        textToCompare = {""}
+        currentWordSubstring = {""}
         input = {""}
-        currentWord = {0}
+        currentWordIndex = {0}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
