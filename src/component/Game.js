@@ -29,38 +29,13 @@ function Game() {
     )
   }
 
-  function findTextToCompare() {
-    if (!endGame()) {
-      return words[currentWordIndex].slice(0, currentInput.length);
-    }
-  }
+  const shouldRenderTextAndInput = () => !endGame() ? true : false;
 
-  function shouldRenderTextAndInput() {
-    if (!endGame()) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-  
-  function shouldRenderTimer() {
-    if (!endGame() && start) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+  const shouldRenderTimer = () => !endGame() && start ? true : false;
 
-  function shouldRenderWordsPerMinute() {
-    if (endGame()) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+  const shouldRenderWordsPerMinute = () => endGame() ? true : false;
+
+  const endGame = () => currentWordIndex < words.length ? false : true;
 
   function checkWord() {
     if (currentInput === words[currentWordIndex]) {
@@ -70,12 +45,9 @@ function Game() {
     }
   }
 
-  function endGame() {
-    if (currentWordIndex < words.length) {
-      return false;
-    }
-    else {
-      return true;
+  function findTextToCompare() {
+    if (!endGame()) {
+      return words[currentWordIndex].slice(0, currentInput.length);
     }
   }
 
