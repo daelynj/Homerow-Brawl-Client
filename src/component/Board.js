@@ -1,96 +1,63 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Text from './text/Text';
 import TypingBox from './typingbox/TypingBox';
 import Timer from './Timer'
 import WordsPerMinute from './WordsPerMinute';
 
 function Board(props) {
-  const [words] = useState(props.text.split(" "));
-  const [currentWord, setCurrentWord] = useState(0);
-  const [currentInput, setCurrentInput] = useState("");
-  const [finishTime, setFinishTime] = useState(0);
-
-  //this if statement only allows the text box to render while we have words
-  //to type so that we don't slice non-existent text (this results in a crash)
   function renderText() {
-    //if (currentWord < words.length) {
-    if (!endGame()) {
-      let textToCompare = words[currentWord].slice(0, currentInput.length);
-      return (
-        <Text
-          words = {words}
-          input = {currentInput}
-          textToCompare = {textToCompare}
-          currentWord = {currentWord}
-        />
-      )
-    }
+    return (
+      <Text
+        words = {props.words}
+        input = {props.currentInput}
+        textToCompare = {props.textToCompare}
+        currentWord = {props.currentWord}
+      />
+    )
   }
 
   function renderTypingBox() {
-    if (!endGame()) {
-      return (
-        <TypingBox
-          value = {currentInput}
-          onChange = {setCurrentInput}
-          onWordComplete = {checkWord}
-          setStart = {props.setStart}
-        />
-      )
-    }
+    return (
+      <TypingBox
+        value = {props.currentInput}
+        onChange = {props.setCurrentInput}
+        onWordComplete = {props.checkWord}
+        setStart = {props.setStart}
+      />
+    )
   }
 
-  //only start the timer when a key is hit
   function renderTimer() {
-    if (props.start) {
-      if (!endGame()) {
-        return (
-          <Timer
-            time = {0}
-            finishTime = {setFinishTime}
-          />
-        )
-      }
-      else {
-        return (
-          <WordsPerMinute
-            wordsLength = {words.length}
-            finishTime = {finishTime}
-          />
-        )
-      }
-    }
+    return (
+      <Timer
+        time = {0}
+        finishTime = {props.setFinishTime}
+      />
+    )
   }
 
-  function checkWord() {
-    if (currentInput === words[currentWord]) {
-      setCurrentInput('');
-      setCurrentWord(currentWord+1);
-      return true;
-    }
-  }
-
-  function endGame() {
-    if (currentWord < words.length) {
-      props.setEndGame(false);
-      return false;
-    }
-    else {
-      props.setEndGame(true);
-      return true;
-    }
+  function renderWordsPerMinute() {
+    return (
+      <WordsPerMinute
+        wordsLength = {props.words.length}
+        finishTime = {props.finishTime}
+      />
+    )
   }
 
   return (
     <div className="board">
       <div className="text">
-        {renderText()}
+        {props.renderText && renderText()}
       </div>
       <div className='typing-box'>
-        {renderTypingBox()}
+        {props.renderTypingBox && renderTypingBox()}
       </div>
       <div className="timer">
-        {renderTimer()}
+        {props.renderTimer && renderTimer()}
+      </div>
+      <div className="wordsperminute">
+        {props.renderWordsPerMinute && renderWordsPerMinute()}
       </div>
     </div>
   )
