@@ -8,7 +8,7 @@ function Text(props) {
         key = {index}
         wordIndex = {index}
         word = {word}
-        textToCompare = {props.textToCompare}
+        currentWordSubstring = {props.currentWordSubstring}
         input = {props.input}
         currentWordIndex = {props.currentWordIndex}
       />

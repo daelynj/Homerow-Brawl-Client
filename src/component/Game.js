@@ -18,7 +18,7 @@ function Game() {
     }
   }
 
-  function findTextToCompare() {
+  function getCurrentWordSubstring() {
     if (!endGame()) {
       return words[currentWordIndex].slice(0, currentInput.length);
     }
@@ -30,7 +30,7 @@ function Game() {
         {
           <Board
             words = {words}
-            textToCompare = {findTextToCompare()}
+            currentWordSubstring = {getCurrentWordSubstring()}
             currentInput = {currentInput}
             setCurrentInput = {setCurrentInput}
             currentWordIndex = {currentWordIndex}

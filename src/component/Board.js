@@ -10,7 +10,7 @@ function Board(props) {
       <Text
         words = {props.words}
         input = {props.currentInput}
-        textToCompare = {props.textToCompare}
+        currentWordSubstring = {props.currentWordSubstring}
         currentWordIndex = {props.currentWordIndex}
       />
     )
@@ -48,7 +48,7 @@ function Board(props) {
   const shouldRenderTextAndInput = () => !props.endGame() ? true : false;
 
   const shouldRenderTimer = () => !props.endGame() && props.start ? true : false;
-  
+
   const shouldRenderWordsPerMinute = () => props.endGame() ? true : false;
 
   return (
