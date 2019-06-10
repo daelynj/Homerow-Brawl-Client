@@ -45,19 +45,25 @@ function Board(props) {
     )
   }
 
+  const shouldRenderTextAndInput = () => !props.endGame() ? true : false;
+
+  const shouldRenderTimer = () => !props.endGame() && props.start ? true : false;
+  
+  const shouldRenderWordsPerMinute = () => props.endGame() ? true : false;
+
   return (
     <div className="board">
       <div className="text">
-        {props.renderTextAndInput && renderText()}
+        {shouldRenderTextAndInput() && renderText()}
       </div>
       <div className='typing-box'>
-        {props.renderTextAndInput && renderTypingBox()}
+        {shouldRenderTextAndInput() && renderTypingBox()}
       </div>
       <div className="timer">
-        {props.renderTimer && renderTimer()}
+        {shouldRenderTimer() && renderTimer()}
       </div>
       <div className="wordsperminute">
-        {props.renderWordsPerMinute && renderWordsPerMinute()}
+        {shouldRenderWordsPerMinute() && renderWordsPerMinute()}
       </div>
     </div>
   )

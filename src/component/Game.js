@@ -19,21 +19,13 @@ function Game() {
         setCurrentWordIndex = {setCurrentWordIndex}
         start = {start}
         setStart = {setStart}
+        endGame = {endGame}
         finishTime = {finishTime}
         setFinishTime = {setFinishTime}
         checkWord = {checkWord}
-        renderTextAndInput = {shouldRenderTextAndInput()}
-        renderTimer = {shouldRenderTimer()}
-        renderWordsPerMinute = {shouldRenderWordsPerMinute()}
       />
     )
   }
-
-  const shouldRenderTextAndInput = () => !endGame() ? true : false;
-
-  const shouldRenderTimer = () => !endGame() && start ? true : false;
-
-  const shouldRenderWordsPerMinute = () => endGame() ? true : false;
 
   const endGame = () => currentWordIndex < words.length ? false : true;
 
@@ -61,30 +53,3 @@ function Game() {
 }
 
 export default Game;
-
-// return (
-//   <Board
-//     words = {words}
-
-//     currentInput = {currentInput}
-//     setCurrentInput = {setCurrentInput}
-
-//     currentWord = {currentWord}
-//     setCurrentWord = {setCurrentWord}
-
-//     endGame = {endGameCheck}
-
-//     start = {start}
-//     setStart = {setStart}
-
-//     checkWord = {checkWord}
-
-//     finishTime = {finishTime}
-//     setFinishTime = {setFinishTime}
-
-//     renderText = {true}
-//     renderTypingBox = {true}
-//     renderTimer = {true}
-//     renderWPM = {true}
-//   />
-// )
