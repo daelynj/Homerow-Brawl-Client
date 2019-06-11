@@ -1,8 +1,11 @@
 import React from 'react';
 import Board from '../Board';
-import renderer from 'react-test-renderer';
+import { mount, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-describe("Board", () => {
+configure({ adapter: new Adapter() });
+
+describe('Board', () => {
   const setStart = jest.fn();
   const setCurrentInput = jest.fn();
   const setCurrentWordIndex = jest.fn();
@@ -11,11 +14,11 @@ describe("Board", () => {
   const endGame = jest.fn();
 
   const buildProps = (newProps = {}) => ({
-    words: ["this", "is", "text"],
+    words: ['this', 'is', 'text'],
     start: false,
     setStart,
-    currentWordSubstring: "",
-    currentInput: "",
+    currentWordSubstring: '',
+    currentInput: '',
     setCurrentInput,
     currentWordIndex: 0,
     setCurrentWordIndex,
@@ -27,25 +30,41 @@ describe("Board", () => {
   });
 
   describe("the game before it's running", () => {
-    it("renders the expected components", () => {
-      const BoardComponent = renderer.create(<Board {...buildProps()}/>).toJSON();
-      expect(BoardComponent).toMatchSnapshot();
+    it('renders the expected components', () => {
+      const BoardComponent = mount(<Board {...buildProps()}/>);
+
+      expect(BoardComponent.find('Text').exists()).toBe(true);
+      expect(BoardComponent.find('TypingBox').exists()).toBe(true);
+
+      expect(BoardComponent.find('Timer').exists()).toBe(false);
+      expect(BoardComponent.find('WordsPerMinute').exists()).toBe(false);
     });
   });
 
   describe("the game once it's running", () => {
-    it("renders the expected components", () => {
-      const BoardComponent = renderer.create(<Board {...buildProps({start: true})}/>).toJSON();
-      expect(BoardComponent).toMatchSnapshot();
+    it('renders the expected components', () => {
+      const BoardComponent = mount(<Board {...buildProps({start: true})}/>);
+
+      expect(BoardComponent.find('Text').exists()).toBe(true);
+      expect(BoardComponent.find('TypingBox').exists()).toBe(true);
+      expect(BoardComponent.find('Timer').exists()).toBe(true);
+
+      expect(BoardComponent.find('WordsPerMinute').exists()).toBe(false);
     });
   });
   
-  describe("the game when it is finished", () => {
-    const endGame = jest.fn().mockReturnValue(true);
+  describe('the game when it is finished', () => {
+    it('renders the expected components', () => {
+      const endGame = jest.fn().mockReturnValue(true);
+      const BoardComponent = mount(
+        <Board {...buildProps({start: true, endGame: endGame})}/>
+      );
 
-    it("renders the expected components", () => {
-      const BoardComponent = renderer.create(<Board {...buildProps({start: true, endGame: endGame})}/>).toJSON();
-      expect(BoardComponent).toMatchSnapshot();
+      expect(BoardComponent.find('WordsPerMinute').exists()).toBe(true);
+
+      expect(BoardComponent.find('Text').exists()).toBe(false);
+      expect(BoardComponent.find('TypingBox').exists()).toBe(false);
+      expect(BoardComponent.find('Timer').exists()).toBe(false);
     });
   });
 });
