@@ -9,9 +9,17 @@ function TypingBox(props) {
   function detectSpace(event) {
     var code = event.keyCode || event.which;
     if (code === 32) {
-      if (props.onWordComplete()) {
+      if (checkWord()) {
         event.preventDefault();
       }
+    }
+  }
+
+  function checkWord() {
+    if (props.value === props.word) {
+      props.onChange('');
+      props.setCurrentWordIndex(props.currentWordIndex+1);
+      return true;
     }
   }
   

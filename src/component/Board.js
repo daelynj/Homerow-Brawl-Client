@@ -21,8 +21,10 @@ function Board(props) {
       <TypingBox
         value = {props.currentInput}
         onChange = {props.setCurrentInput}
-        onWordComplete = {props.checkWord}
         setStart = {props.setStart}
+        word = {props.words[props.currentWordIndex]}
+        setCurrentWordIndex = {props.setCurrentWordIndex}
+        currentWordIndex = {props.currentWordIndex}
       />
     )
   }
