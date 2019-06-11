@@ -27,13 +27,19 @@ function Word(props) {
   }
 
   function setColor(letterIndex) {
-    if (props.input[letterIndex] === props.word[letterIndex] && props.wordIndex === props.currentWord) {
+    if (
+      props.input[letterIndex] === props.word[letterIndex] &&
+      props.wordIndex === props.currentWordIndex
+    ) {
       return "green";
     }
-    else if (props.input[letterIndex] !== props.textToCompare[letterIndex] && props.wordIndex === props.currentWord) {
+    else if (
+      props.input[letterIndex] !== props.currentWordSubstring[letterIndex] &&
+      props.wordIndex === props.currentWordIndex
+    ) {
       return "red";
     }
-    else if (props.wordIndex < props.currentWord) {
+    else if (props.wordIndex < props.currentWordIndex) {
       return "green";
     }
     else {
