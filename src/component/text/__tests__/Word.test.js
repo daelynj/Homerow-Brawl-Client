@@ -9,9 +9,9 @@ describe("Word", () => {
         <Word
           wordIndex = {0}
           word = {"this"}
-          textToCompare = {""}
+          currentWordSubstring = {""}
           input = {""}
-          currentWord = {0}
+          currentWordIndex = {0}
         />
       ).toJSON();
       expect(tree).toMatchSnapshot();
@@ -22,9 +22,9 @@ describe("Word", () => {
         <Word
           wordIndex = {0}
           word = {"this"}
-          textToCompare = {"th"}
+          currentWordSubstring = {"th"}
           input = {"th"}
-          currentWord = {0}
+          currentWordIndex = {0}
         />
       ).toJSON();
       expect(tree).toMatchSnapshot();
@@ -35,9 +35,9 @@ describe("Word", () => {
         <Word
           wordIndex = {0}
           word = {"this"}
-          textToCompare = {"th"}
+          currentWordSubstring = {"th"}
           input = {"mn"}
-          currentWord = {0}
+          currentWordIndex = {0}
         />
       ).toJSON();
       expect(tree).toMatchSnapshot();
@@ -48,9 +48,9 @@ describe("Word", () => {
         <Word
           wordIndex = {0}
           word = {"this"}
-          textToCompare = {"this"}
+          currentWordSubstring = {"this"}
           input = {"thmn"}
-          currentWord = {0}
+          currentWordIndex = {0}
         />
       ).toJSON();
       expect(tree).toMatchSnapshot();
@@ -61,9 +61,9 @@ describe("Word", () => {
         <Word
           wordIndex = {0}
           word = {"text"}
-          textToCompare = {""}
+          currentWordSubstring = {""}
           input = {""}
-          currentWord = {1}
+          currentWordIndex = {1}
         />
       ).toJSON();
       expect(tree).toMatchSnapshot();
