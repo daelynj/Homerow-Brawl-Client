@@ -4,7 +4,6 @@ function Timer(props) {
   const [seconds, setSeconds] = useState(props.time);
 
   useEffect(() => {
-    //need to prevent this if we've unmounted
     var timerID = setTimeout(tick, 1000 );
 
     return function cleanup () {
