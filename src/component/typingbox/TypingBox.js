@@ -8,10 +8,8 @@ function TypingBox(props) {
 
   function detectSpace(event) {
     var code = event.keyCode || event.which;
-    if (code === 32) {
-      if (checkWord()) {
-        event.preventDefault();
-      }
+    if (code === 32 && checkWord()) {
+      event.preventDefault();
     }
   }
 
