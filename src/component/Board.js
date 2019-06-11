@@ -32,7 +32,6 @@ function Board(props) {
   function renderTimer() {
     return (
       <Timer
-        time = {0}
         finishTime = {props.setFinishTime}
       />
     )
