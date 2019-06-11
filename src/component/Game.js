@@ -41,7 +41,7 @@ function Game() {
             finishTime = {finishTime}
             setFinishTime = {setFinishTime}
             checkWord = {checkWord}
-        />
+          />
         }
       </div>
     </div>
