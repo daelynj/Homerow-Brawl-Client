@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Board from './Board';
+import React, { useState } from "react";
+import Board from "./Board";
 
 function Game() {
   const [words] = useState("this is text".split(" "));
@@ -8,7 +8,7 @@ function Game() {
   const [finishTime, setFinishTime] = useState(0);
   const [start, setStart] = useState(false);
 
-  const endGame = () => currentWordIndex < words.length ? false : true;
+  const endGame = () => (currentWordIndex < words.length ? false : true);
 
   function getCurrentWordSubstring() {
     if (!endGame()) {
@@ -21,22 +21,22 @@ function Game() {
       <div className="board">
         {
           <Board
-            words = {words}
-            currentWordSubstring = {getCurrentWordSubstring()}
-            currentInput = {currentInput}
-            setCurrentInput = {setCurrentInput}
-            currentWordIndex = {currentWordIndex}
-            setCurrentWordIndex = {setCurrentWordIndex}
-            start = {start}
-            setStart = {setStart}
-            endGame = {endGame}
-            finishTime = {finishTime}
-            setFinishTime = {setFinishTime}
-        />
+            words={words}
+            currentWordSubstring={getCurrentWordSubstring()}
+            currentInput={currentInput}
+            setCurrentInput={setCurrentInput}
+            currentWordIndex={currentWordIndex}
+            setCurrentWordIndex={setCurrentWordIndex}
+            start={start}
+            setStart={setStart}
+            endGame={endGame}
+            finishTime={finishTime}
+            setFinishTime={setFinishTime}
+          />
         }
       </div>
     </div>
-  )
+  );
 }
 
 export default Game;

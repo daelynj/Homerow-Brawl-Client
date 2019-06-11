@@ -1,6 +1,6 @@
-import React from 'react';
-import Letter from './Letter';
-import './css/Word.css';
+import React from "react";
+import Letter from "./Letter";
+import "./css/Word.css";
 
 function Word(props) {
   function generateLetters() {
@@ -17,13 +17,7 @@ function Word(props) {
   }
 
   function renderLetter(letter, color, index) {
-    return (
-      <Letter
-        key = {index}
-        color = {color}
-        letter = {letter}
-      />
-    )
+    return <Letter key={index} color={color} letter={letter} />;
   }
 
   function setColor(letterIndex) {
@@ -32,26 +26,19 @@ function Word(props) {
       props.wordIndex === props.currentWordIndex
     ) {
       return "green";
-    }
-    else if (
+    } else if (
       props.input[letterIndex] !== props.currentWordSubstring[letterIndex] &&
       props.wordIndex === props.currentWordIndex
     ) {
       return "red";
-    }
-    else if (props.wordIndex < props.currentWordIndex) {
+    } else if (props.wordIndex < props.currentWordIndex) {
       return "green";
-    }
-    else {
+    } else {
       return "black";
     }
   }
 
-  return (
-    <span className="Word">
-      {generateLetters()}
-    </span>
-  )
+  return <span className="Word">{generateLetters()}</span>;
 }
 
 export default Word;

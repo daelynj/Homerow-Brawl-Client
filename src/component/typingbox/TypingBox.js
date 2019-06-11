@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function TypingBox(props) {
   function handleChange(event) {
@@ -15,22 +15,22 @@ function TypingBox(props) {
 
   function checkWord() {
     if (props.value === props.word) {
-      props.onChange('');
-      props.setCurrentWordIndex(props.currentWordIndex+1);
+      props.onChange("");
+      props.setCurrentWordIndex(props.currentWordIndex + 1);
       return true;
     }
   }
-  
+
   return (
     <div className="TypingBox">
-      <input 
-        type="text" 
+      <input
+        type="text"
         value={props.value}
         onChange={handleChange}
         onKeyDown={detectSpace}
       />
     </div>
-  )
+  );
 }
 
 export default TypingBox;
