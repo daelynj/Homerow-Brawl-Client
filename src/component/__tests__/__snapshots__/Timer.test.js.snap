@@ -3,5 +3,6 @@
 exports[`Timer renders the Timer 1`] = `
 <div>
   Timer: 
+  0
 </div>
 `;
