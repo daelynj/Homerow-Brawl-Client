@@ -10,14 +10,6 @@ function Game() {
 
   const endGame = () => currentWordIndex < words.length ? false : true;
 
-  function checkWord() {
-    if (currentInput === words[currentWordIndex]) {
-      setCurrentInput('');
-      setCurrentWordIndex(currentWordIndex+1);
-      return true;
-    }
-  }
-
   function getCurrentWordSubstring() {
     if (!endGame()) {
       return words[currentWordIndex].slice(0, currentInput.length);
@@ -40,7 +32,6 @@ function Game() {
             endGame = {endGame}
             finishTime = {finishTime}
             setFinishTime = {setFinishTime}
-            checkWord = {checkWord}
         />
         }
       </div>
