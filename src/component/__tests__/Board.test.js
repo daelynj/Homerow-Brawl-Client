@@ -10,7 +10,6 @@ describe("Board", () => {
   const setCurrentInput = jest.fn();
   const setCurrentWordIndex = jest.fn();
   const setFinishTime = jest.fn();
-  const checkWord = jest.fn();
   const endGame = jest.fn();
 
   const buildProps = (newProps = {}) => ({
@@ -25,7 +24,6 @@ describe("Board", () => {
     endGame,
     finishTime: 0,
     setFinishTime,
-    checkWord,
     ...newProps
   });
 
