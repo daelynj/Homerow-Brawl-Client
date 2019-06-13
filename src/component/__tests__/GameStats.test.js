@@ -5,7 +5,13 @@ import renderer from "react-test-renderer";
 describe("GameStats", () => {
   it("renders the expected game stats", () => {
     const tree = renderer
-      .create(<GameStats wordsLength={60} finishTime={60} />)
+      .create(
+        <GameStats
+          words={"this is text".split(" ")}
+          finishTime={60}
+          incorrectLetters={3}
+        />
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
