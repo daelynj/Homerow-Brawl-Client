@@ -2,7 +2,7 @@ import React from "react";
 import Text from "./text/Text";
 import TypingBox from "./typingbox/TypingBox";
 import Timer from "./Timer";
-import WordsPerMinute from "./WordsPerMinute";
+import GameStats from "./GameStats";
 
 function Board(props) {
   function renderText() {
@@ -33,9 +33,9 @@ function Board(props) {
     return <Timer finishTime={props.setFinishTime} />;
   }
 
-  function renderWordsPerMinute() {
+  function renderGameStats() {
     return (
-      <WordsPerMinute
+      <GameStats
         wordsLength={props.words.length}
         finishTime={props.finishTime}
       />
@@ -47,7 +47,7 @@ function Board(props) {
   const shouldRenderTimer = () =>
     !props.endGame() && props.start ? true : false;
 
-  const shouldRenderWordsPerMinute = () => (props.endGame() ? true : false);
+  const shouldRenderGameStats = () => (props.endGame() ? true : false);
 
   return (
     <div className="board">
@@ -56,8 +56,8 @@ function Board(props) {
         {shouldRenderTextAndInput() && renderTypingBox()}
       </div>
       <div className="timer">{shouldRenderTimer() && renderTimer()}</div>
-      <div className="wordsperminute">
-        {shouldRenderWordsPerMinute() && renderWordsPerMinute()}
+      <div className="gamestats">
+        {shouldRenderGameStats() && renderGameStats()}
       </div>
     </div>
   );
