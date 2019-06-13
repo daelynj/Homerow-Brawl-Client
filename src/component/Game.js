@@ -7,6 +7,7 @@ function Game() {
   const [currentInput, setCurrentInput] = useState("");
   const [finishTime, setFinishTime] = useState(0);
   const [start, setStart] = useState(false);
+  const [incorrectLetters, setIncorrectLetters] = useState(0);
 
   const endGame = () => (currentWordIndex < words.length ? false : true);
 
@@ -14,6 +15,13 @@ function Game() {
     if (!endGame()) {
       return words[currentWordIndex].slice(0, currentInput.length);
     }
+  }
+
+  function checkLetter() {
+    if (currentInput !== getCurrentWordSubstring()) {
+      setIncorrectLetters(incorrectLetters + 1);
+    }
+    return;
   }
 
   return (
@@ -32,6 +40,8 @@ function Game() {
             endGame={endGame}
             finishTime={finishTime}
             setFinishTime={setFinishTime}
+            checkLetter={checkLetter}
+            incorrectLetters={incorrectLetters}
           />
         }
       </div>
