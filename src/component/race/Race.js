@@ -1,16 +1,20 @@
 import React from "react";
 import octane from "./images/octane.png";
-import "./css/Race.css";
 
 function Race(props) {
-  const wordsToAdvance = Math.round(props.wordsLength / 15);
+  const racePositions = 15;
+  const wordsToAdvance = Math.round(props.wordsLength / racePositions);
 
-  function calculatePosition() {
-    return "position" + Math.floor(props.currentWordIndex / wordsToAdvance);
-  }
   return (
-    <div className={calculatePosition()}>
-      <img src={octane} alt="Octane" />
+    <div>
+      <img
+        style={{
+          paddingLeft:
+            Math.floor(props.currentWordIndex / wordsToAdvance) + "em"
+        }}
+        src={octane}
+        alt="Octane"
+      />
     </div>
   );
 }

@@ -1,23 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Race renders an image at position 0 1`] = `
-<div
-  className="position0"
->
+<div>
   <img
     alt="Octane"
     src="octane.png"
+    style={
+      Object {
+        "paddingLeft": "0em",
+      }
+    }
   />
 </div>
 `;
 
 exports[`Race renders an image at position 1 1`] = `
-<div
-  className="position1"
->
+<div>
   <img
     alt="Octane"
     src="octane.png"
+    style={
+      Object {
+        "paddingLeft": "1em",
+      }
+    }
   />
 </div>
 `;
