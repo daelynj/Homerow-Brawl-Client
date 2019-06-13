@@ -8,11 +8,11 @@ describe("Word", () => {
       const tree = renderer
         .create(
           <Word
-            wordIndex={0}
+            onCurrentWord={true}
+            onPastWords={false}
             word={"this"}
             currentWordSubstring={""}
             input={""}
-            currentWordIndex={0}
           />
         )
         .toJSON();
@@ -23,11 +23,11 @@ describe("Word", () => {
       const tree = renderer
         .create(
           <Word
-            wordIndex={0}
+            onCurrentWord={true}
+            onPastWords={false}
             word={"this"}
             currentWordSubstring={"th"}
             input={"th"}
-            currentWordIndex={0}
           />
         )
         .toJSON();
@@ -38,11 +38,11 @@ describe("Word", () => {
       const tree = renderer
         .create(
           <Word
-            wordIndex={0}
+            onCurrentWord={true}
+            onPastWords={false}
             word={"this"}
             currentWordSubstring={"th"}
             input={"mn"}
-            currentWordIndex={0}
           />
         )
         .toJSON();
@@ -53,11 +53,11 @@ describe("Word", () => {
       const tree = renderer
         .create(
           <Word
-            wordIndex={0}
+            onCurrentWord={true}
+            onPastWords={false}
             word={"this"}
             currentWordSubstring={"this"}
             input={"thmn"}
-            currentWordIndex={0}
           />
         )
         .toJSON();
@@ -68,11 +68,11 @@ describe("Word", () => {
       const tree = renderer
         .create(
           <Word
-            wordIndex={0}
+            onCurrentWord={false}
+            onPastWords={true}
             word={"text"}
             currentWordSubstring={""}
             input={""}
-            currentWordIndex={1}
           />
         )
         .toJSON();
