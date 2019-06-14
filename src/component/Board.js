@@ -1,10 +1,20 @@
 import React from "react";
+import Race from "./race/Race";
 import Text from "./text/Text";
 import TypingBox from "./typingbox/TypingBox";
 import Timer from "./Timer";
 import WordsPerMinute from "./WordsPerMinute";
 
 function Board(props) {
+  function renderRace() {
+    return (
+      <Race
+        wordsLength={props.words.length}
+        currentWordIndex={props.currentWordIndex}
+      />
+    );
+  }
+
   function renderText() {
     return (
       <Text
@@ -51,6 +61,7 @@ function Board(props) {
 
   return (
     <div className="board">
+      <div className="race">{renderRace()}</div>
       <div className="text">{shouldRenderTextAndInput() && renderText()}</div>
       <div className="typing-box">
         {shouldRenderTextAndInput() && renderTypingBox()}
