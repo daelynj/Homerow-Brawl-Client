@@ -1,12 +1,16 @@
 import React from "react";
 
 function GameStats(props) {
-  function calculateAccuracy() {
+  function getLettersTyped() {
     var letters = 0;
     props.words.map(word => {
       return (letters = letters + word.length);
     });
+    return letters;
+  }
 
+  function calculateAccuracy() {
+    var letters = getLettersTyped();
     let accuracy = (
       ((letters - props.incorrectLetters) / letters) *
       100
@@ -14,14 +18,23 @@ function GameStats(props) {
 
     return accuracy > 0 ? accuracy : 0;
   }
+
+  //https://www.speedtypingonline.com/typing-equations
+  function calculateWPM() {
+    let allTypedEntries = getLettersTyped();
+    let averageWordLength = 5;
+    let timePlayed = props.finishTime / 60;
+    let grossWPM = allTypedEntries / averageWordLength / timePlayed;
+
+    return Math.round(grossWPM);
+  }
+
   return (
     <div>
       <div>{"words typed: " + props.words.length}</div>
-      <div>
-        {"WPM: " + Math.round(props.words.length / (props.finishTime / 60))}
-      </div>
+      <div>{"WPM: " + calculateWPM()}</div>
       <div>{"time: " + props.finishTime + " seconds"}</div>
-      <div>{"incorrect letters: " + props.incorrectLetters}</div>
+      <div>{"mistakes: " + props.incorrectLetters}</div>
       <div>{"accuracy: " + calculateAccuracy() + "%"}</div>
     </div>
   );

@@ -7,8 +7,10 @@ describe("GameStats", () => {
     const tree = renderer
       .create(
         <GameStats
-          words={"this is text".split(" ")}
-          finishTime={60}
+          words={"this is text that is being written in a typing test".split(
+            " "
+          )}
+          finishTime={15}
           incorrectLetters={3}
         />
       )
