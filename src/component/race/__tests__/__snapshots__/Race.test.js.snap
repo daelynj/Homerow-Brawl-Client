@@ -7,7 +7,7 @@ exports[`Race renders an image at position 0 1`] = `
     src="octane.png"
     style={
       Object {
-        "paddingLeft": "0em",
+        "paddingLeft": "0%",
       }
     }
   />
@@ -21,7 +21,7 @@ exports[`Race renders an image at position 1 1`] = `
     src="octane.png"
     style={
       Object {
-        "paddingLeft": "1em",
+        "paddingLeft": "7.5%",
       }
     }
   />
