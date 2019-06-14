@@ -2,11 +2,7 @@ import React from "react";
 
 function GameStats(props) {
   function getLettersTyped() {
-    var letters = 0;
-    props.words.map(word => {
-      return (letters = letters + word.length);
-    });
-    return letters;
+    return props.words.join("").length;
   }
 
   function calculateAccuracy() {
