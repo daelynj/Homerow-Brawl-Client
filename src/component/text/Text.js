@@ -6,11 +6,11 @@ function Text(props) {
     props.words.map((word, index) => (
       <Word
         key={index}
-        wordIndex={index}
+        onCurrentWord={index === props.currentWordIndex}
+        onPastWords={index < props.currentWordIndex}
         word={word}
         currentWordSubstring={props.currentWordSubstring}
         input={props.input}
-        currentWordIndex={props.currentWordIndex}
       />
     ));
 

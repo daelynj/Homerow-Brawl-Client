@@ -23,15 +23,15 @@ function Word(props) {
   function setColor(letterIndex) {
     if (
       props.input[letterIndex] === props.word[letterIndex] &&
-      props.wordIndex === props.currentWordIndex
+      props.onCurrentWord
     ) {
       return "green";
     } else if (
       props.input[letterIndex] !== props.currentWordSubstring[letterIndex] &&
-      props.wordIndex === props.currentWordIndex
+      props.onCurrentWord
     ) {
       return "red";
-    } else if (props.wordIndex < props.currentWordIndex) {
+    } else if (props.onPastWords) {
       return "green";
     } else {
       return "black";
