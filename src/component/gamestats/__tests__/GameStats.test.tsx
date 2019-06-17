@@ -1,5 +1,5 @@
-import React from "react";
-import GameStats from "../GameStats";
+import * as React from "react";
+import { GameStats } from "../GameStats";
 import renderer from "react-test-renderer";
 
 describe("GameStats", () => {
