@@ -13,7 +13,10 @@ export const GameStats = (props: Props) => {
 
   const calculateAccuracy = () => {
     let letters: number = getLettersTyped();
-    let accuracy: number = ((letters - props.incorrectLetters) / letters) * 100;
+    let accuracy: any = (
+      ((letters - props.incorrectLetters) / letters) *
+      100
+    ).toFixed(1);
 
     return accuracy > 0 ? accuracy : 0;
   };
