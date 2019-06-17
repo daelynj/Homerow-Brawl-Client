@@ -7,6 +7,7 @@ exports[`TypingBox renders an input field 1`] = `
   <input
     onChange={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     type="text"
     value=""
   />

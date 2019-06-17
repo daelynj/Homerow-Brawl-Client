@@ -35,6 +35,7 @@ function Board(props) {
         word={props.words[props.currentWordIndex]}
         setCurrentWordIndex={props.setCurrentWordIndex}
         currentWordIndex={props.currentWordIndex}
+        checkLetter={props.checkLetter}
       />
     );
   }
@@ -46,8 +47,9 @@ function Board(props) {
   function renderGameStats() {
     return (
       <GameStats
-        wordsLength={props.words.length}
+        words={props.words}
         finishTime={props.finishTime}
+        incorrectLetters={props.incorrectLetters}
       />
     );
   }

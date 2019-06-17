@@ -3,13 +3,19 @@
 exports[`GameStats renders the expected game stats 1`] = `
 <div>
   <div>
-    words typed: 60
+    words typed: 11
   </div>
   <div>
-    WPM: 60
+    WPM: 33
   </div>
   <div>
-    time: 60 seconds
+    time: 15 seconds
+  </div>
+  <div>
+    mistakes: 3
+  </div>
+  <div>
+    accuracy: 92.7%
   </div>
 </div>
 `;

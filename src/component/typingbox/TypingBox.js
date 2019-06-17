@@ -6,6 +6,13 @@ function TypingBox(props) {
     props.onChange(event.target.value);
   }
 
+  function detectBackspace(event) {
+    var code = event.keyCode || event.which;
+    if (code !== 8) {
+      props.checkLetter();
+    }
+  }
+
   function detectSpace(event) {
     var code = event.keyCode || event.which;
     if (code === 32 && checkWord()) {
@@ -26,8 +33,9 @@ function TypingBox(props) {
       <input
         type="text"
         value={props.value}
-        onChange={handleChange}
+        onKeyUp={detectBackspace}
         onKeyDown={detectSpace}
+        onChange={handleChange}
       />
     </div>
   );
