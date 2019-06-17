@@ -1,26 +1,26 @@
-import React from "react";
-import Letter from "./Letter";
+import * as React from "react";
+import { Letter } from "./Letter";
 import "./css/Word.css";
 
-function Word(props) {
-  function generateLetters() {
-    let letters = [];
+interface Props {
+  word: String;
+  input: string;
+  onCurrentWord: boolean;
+  currentWordSubstring: string;
+  onPastWords: boolean;
+}
 
-    for (var letterIndex = 0; letterIndex < props.word.length; letterIndex++) {
-      letters[letterIndex] = renderLetter(
-        props.word[letterIndex],
-        setColor(letterIndex),
-        letterIndex
-      );
-    }
-    return letters;
-  }
+export const Word = (props: Props) => {
+  const generateLetters = () =>
+    props.word
+      .split("")
+      .map((letter, index) => renderLetter(index, setColor(index), letter));
 
-  function renderLetter(letter, color, index) {
+  const renderLetter = (index: number, color: string, letter: string) => {
     return <Letter key={index} color={color} letter={letter} />;
-  }
+  };
 
-  function setColor(letterIndex) {
+  const setColor = (letterIndex: number) => {
     if (
       props.input[letterIndex] === props.word[letterIndex] &&
       props.onCurrentWord
@@ -36,9 +36,7 @@ function Word(props) {
     } else {
       return "black";
     }
-  }
+  };
 
   return <span className="Word">{generateLetters()}</span>;
-}
-
-export default Word;
+};

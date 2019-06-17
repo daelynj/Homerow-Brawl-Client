@@ -1,5 +1,5 @@
-import React from "react";
-import Word from "../Word";
+import * as React from "react";
+import { Word } from "../Word";
 import renderer from "react-test-renderer";
 
 describe("Word", () => {
