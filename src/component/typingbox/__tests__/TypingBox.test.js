@@ -1,5 +1,5 @@
 import React from "react";
-import TypingBox from "../TypingBox";
+import { TypingBox } from "../TypingBox";
 import renderer from "react-test-renderer";
 import { mount, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
@@ -10,6 +10,7 @@ describe("TypingBox", () => {
   const onChange = jest.fn();
   const setStart = jest.fn();
   const setCurrentWordIndex = jest.fn();
+  const checkLetter = jest.fn();
 
   const buildProps = (newProps = {}) => ({
     value: "",
@@ -18,6 +19,7 @@ describe("TypingBox", () => {
     word: "this",
     setCurrentWordIndex,
     currentWordIndex: 0,
+    checkLetter,
     ...newProps
   });
 
