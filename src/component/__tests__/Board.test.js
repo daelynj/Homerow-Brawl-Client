@@ -35,7 +35,7 @@ describe("Board", () => {
       expect(BoardComponent.find("TypingBox").exists()).toBe(true);
 
       expect(BoardComponent.find("Timer").exists()).toBe(false);
-      expect(BoardComponent.find("WordsPerMinute").exists()).toBe(false);
+      expect(BoardComponent.find("GameStats").exists()).toBe(false);
     });
   });
 
@@ -47,7 +47,7 @@ describe("Board", () => {
       expect(BoardComponent.find("TypingBox").exists()).toBe(true);
       expect(BoardComponent.find("Timer").exists()).toBe(true);
 
-      expect(BoardComponent.find("WordsPerMinute").exists()).toBe(false);
+      expect(BoardComponent.find("GameStats").exists()).toBe(false);
     });
   });
 
@@ -58,7 +58,7 @@ describe("Board", () => {
         <Board {...buildProps({ start: true, endGame: endGame })} />
       );
 
-      expect(BoardComponent.find("WordsPerMinute").exists()).toBe(true);
+      expect(BoardComponent.find("GameStats").exists()).toBe(true);
 
       expect(BoardComponent.find("Text").exists()).toBe(false);
       expect(BoardComponent.find("TypingBox").exists()).toBe(false);

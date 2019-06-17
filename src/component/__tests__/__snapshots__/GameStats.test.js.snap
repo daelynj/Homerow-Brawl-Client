@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameStats renders the expected game stats 1`] = `
+<div>
+  <div>
+    words typed: 60
+  </div>
+  <div>
+    WPM: 60
+  </div>
+  <div>
+    time: 60 seconds
+  </div>
+</div>
+`;
