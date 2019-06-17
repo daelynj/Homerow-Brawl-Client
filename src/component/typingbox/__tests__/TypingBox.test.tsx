@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { TypingBox } from "../TypingBox";
 import renderer from "react-test-renderer";
 import { mount, configure } from "enzyme";

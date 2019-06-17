@@ -1,32 +1,42 @@
-import React from "react";
+import * as React from "react";
 
-function TypingBox(props) {
-  function handleChange(event) {
+interface Props {
+  value: string;
+  onChange: (newInput: string) => void;
+  setStart: (newStart: boolean) => void;
+  checkLetter: () => void;
+  word: String;
+  setCurrentWordIndex: (newIndex: number) => void;
+  currentWordIndex: number;
+}
+
+export const TypingBox = (props: Props) => {
+  const handleChange = (event: any) => {
     props.setStart(true);
     props.onChange(event.target.value);
-  }
+  };
 
-  function detectBackspace(event) {
+  const detectBackspace = (event: any) => {
     var code = event.keyCode || event.which;
     if (code !== 8) {
       props.checkLetter();
     }
-  }
+  };
 
-  function detectSpace(event) {
+  const detectSpace = (event: any) => {
     var code = event.keyCode || event.which;
     if (code === 32 && checkWord()) {
       event.preventDefault();
     }
-  }
+  };
 
-  function checkWord() {
+  const checkWord = () => {
     if (props.value === props.word) {
       props.onChange("");
       props.setCurrentWordIndex(props.currentWordIndex + 1);
       return true;
     }
-  }
+  };
 
   return (
     <div className="TypingBox">
@@ -39,6 +49,4 @@ function TypingBox(props) {
       />
     </div>
   );
-}
-
-export default TypingBox;
+};
