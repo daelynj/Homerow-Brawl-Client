@@ -1,5 +1,5 @@
-import React from "react";
-import Race from "../Race";
+import * as React from "react";
+import { Race } from "../Race";
 import renderer from "react-test-renderer";
 import { mount, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
