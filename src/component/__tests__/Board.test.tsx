@@ -1,5 +1,5 @@
-import React from "react";
-import Board from "../Board";
+import * as React from "react";
+import { Board } from "../Board";
 import { mount, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
@@ -11,6 +11,7 @@ describe("Board", () => {
   const setCurrentWordIndex = jest.fn();
   const setFinishTime = jest.fn();
   const endGame = jest.fn();
+  const checkLetter = jest.fn();
 
   const buildProps = (newProps = {}) => ({
     words: ["this", "is", "text"],
@@ -24,6 +25,8 @@ describe("Board", () => {
     endGame,
     finishTime: 0,
     setFinishTime,
+    checkLetter,
+    incorrectLetters: 0,
     ...newProps
   });
 
@@ -33,6 +36,7 @@ describe("Board", () => {
 
       expect(BoardComponent.find("Text").exists()).toBe(true);
       expect(BoardComponent.find("TypingBox").exists()).toBe(true);
+      expect(BoardComponent.find("Race").exists()).toBe(true);
 
       expect(BoardComponent.find("Timer").exists()).toBe(false);
       expect(BoardComponent.find("GameStats").exists()).toBe(false);
@@ -46,6 +50,7 @@ describe("Board", () => {
       expect(BoardComponent.find("Text").exists()).toBe(true);
       expect(BoardComponent.find("TypingBox").exists()).toBe(true);
       expect(BoardComponent.find("Timer").exists()).toBe(true);
+      expect(BoardComponent.find("Race").exists()).toBe(true);
 
       expect(BoardComponent.find("GameStats").exists()).toBe(false);
     });
@@ -59,6 +64,7 @@ describe("Board", () => {
       );
 
       expect(BoardComponent.find("GameStats").exists()).toBe(true);
+      expect(BoardComponent.find("Race").exists()).toBe(true);
 
       expect(BoardComponent.find("Text").exists()).toBe(false);
       expect(BoardComponent.find("TypingBox").exists()).toBe(false);

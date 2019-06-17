@@ -1,28 +1,29 @@
-import React, { useState } from "react";
-import Board from "./Board";
+import * as React from "react";
+import { useState } from "react";
+import { Board } from "./Board";
 
-function Game() {
-  const [words] = useState("this is text".split(" "));
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentInput, setCurrentInput] = useState("");
-  const [finishTime, setFinishTime] = useState(0);
-  const [start, setStart] = useState(false);
-  const [incorrectLetters, setIncorrectLetters] = useState(0);
+export const Game = () => {
+  const [words] = useState<String[]>("this is text".split(" "));
+  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
+  const [currentInput, setCurrentInput] = useState<string>("");
+  const [finishTime, setFinishTime] = useState<number>(0);
+  const [start, setStart] = useState<boolean>(false);
+  const [incorrectLetters, setIncorrectLetters] = useState<number>(0);
 
   const endGame = () => (currentWordIndex < words.length ? false : true);
 
-  function getCurrentWordSubstring() {
+  const getCurrentWordSubstring = () => {
     if (!endGame()) {
       return words[currentWordIndex].slice(0, currentInput.length);
     }
-  }
+  };
 
-  function checkLetter() {
+  const checkLetter = () => {
     if (currentInput !== getCurrentWordSubstring()) {
       setIncorrectLetters(incorrectLetters + 1);
     }
     return;
-  }
+  };
 
   return (
     <div className="game">
@@ -47,6 +48,4 @@ function Game() {
       </div>
     </div>
   );
-}
-
-export default Game;
+};

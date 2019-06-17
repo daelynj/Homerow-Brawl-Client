@@ -1,5 +1,5 @@
-import React from "react";
-import Letter from "../Letter";
+import * as React from "react";
+import { Letter } from "../Letter";
 import renderer from "react-test-renderer";
 
 describe("Letter", () => {
