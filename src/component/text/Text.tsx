@@ -1,7 +1,14 @@
-import React from "react";
-import Word from "./Word";
+import * as React from "react";
+import { Word } from "./Word";
 
-function Text(props) {
+interface Props {
+  words: String[];
+  currentWordIndex: number;
+  currentWordSubstring: string;
+  input: string;
+}
+
+export const Text = (props: Props) => {
   const generateWords = () =>
     props.words.map((word, index) => (
       <Word
@@ -15,6 +22,4 @@ function Text(props) {
     ));
 
   return <div className="Words">{generateWords()}</div>;
-}
-
-export default Text;
+};

@@ -1,5 +1,5 @@
-import React from "react";
-import Text from "../Text";
+import * as React from "react";
+import { Text } from "../Text";
 import renderer from "react-test-renderer";
 
 describe("Text", () => {
