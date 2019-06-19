@@ -11,14 +11,15 @@ export const Game = () => {
   const [incorrectLetters, setIncorrectLetters] = useState<number>(0);
 
   const endGame = () => {
-    if (finalLetter()) {
+    if (onFinalLetter()) {
       setCurrentWordIndex(currentWordIndex + 1);
       return true;
-    } else {
-      return currentWordIndex < words.length ? false : true;
     }
+
+    return currentWordIndex < words.length ? false : true;
   };
-  const finalLetter = () => {
+
+  const onFinalLetter = () => {
     if (
       currentWordIndex === words.length - 1 &&
       currentInput === words[words.length - 1]
