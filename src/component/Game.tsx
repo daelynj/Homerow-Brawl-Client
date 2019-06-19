@@ -10,7 +10,23 @@ export const Game = () => {
   const [start, setStart] = useState<boolean>(false);
   const [incorrectLetters, setIncorrectLetters] = useState<number>(0);
 
-  const endGame = () => (currentWordIndex < words.length ? false : true);
+  const endGame = () => {
+    if (onFinalLetter()) {
+      setCurrentWordIndex(currentWordIndex + 1);
+      return true;
+    }
+
+    return currentWordIndex < words.length ? false : true;
+  };
+
+  const onFinalLetter = () => {
+    if (
+      currentWordIndex === words.length - 1 &&
+      currentInput === words[words.length - 1]
+    ) {
+      return true;
+    }
+  };
 
   const getCurrentWordSubstring = () => {
     if (!endGame()) {
