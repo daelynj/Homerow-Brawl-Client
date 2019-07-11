@@ -1,6 +1,4 @@
 import * as React from "react";
-import { Game } from "./Game";
+import { WebsocketController } from "./WebsocketController";
 
-export const App = () => {
-  return <Game />;
-};
+export const App = () => <WebsocketController />;
