@@ -2,7 +2,7 @@ import * as React from "react";
 import { Race } from "./race/Race";
 import { Text } from "./text/Text";
 import { TypingBox } from "./typingbox/TypingBox";
-import { Timer } from "./Timer/Timer";
+import { Timer } from "./timer/Timer";
 import { GameStats } from "./gamestats/GameStats";
 
 interface Props {

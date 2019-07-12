@@ -14,16 +14,43 @@ exports[`Race renders an image at position 0 1`] = `
 </div>
 `;
 
-exports[`Race renders an image at position 1 1`] = `
+exports[`Race renders an image at position 10% 1`] = `
 <div>
   <img
     alt="Octane"
     src="octane.png"
     style={
       Object {
-        "paddingLeft": "7.5%",
+        "paddingLeft": "0%",
       }
     }
   />
 </div>
+`;
+
+exports[`Race renders two images 1`] = `
+Array [
+  <div>
+    <img
+      alt="Octane"
+      src="octane.png"
+      style={
+        Object {
+          "paddingLeft": "0%",
+        }
+      }
+    />
+  </div>,
+  <div>
+    <img
+      alt="Octane"
+      src="octane.png"
+      style={
+        Object {
+          "paddingLeft": "0%",
+        }
+      }
+    />
+  </div>,
+]
 `;

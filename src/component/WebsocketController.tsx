@@ -3,8 +3,12 @@ import { Game } from "./Game";
 import Websocket from "react-websocket";
 import { useState } from "react";
 
-export const WebsocketController = () => {
-  const [socketOpen, setSocketOpen] = useState<boolean>(false);
+interface Props {
+  socketOpen: boolean;
+}
+
+export const WebsocketController = (props: Props) => {
+  const [socketOpen, setSocketOpen] = useState<boolean>(props.socketOpen);
   const [refWebSocket, setRefWebSocket] = useState<any>();
   const [raceState, setRaceState] = useState<any>(null);
   const [token, setToken] = useState<any>(null);
