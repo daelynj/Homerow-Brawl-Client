@@ -11,14 +11,12 @@ export const WebsocketController = (props: Props) => {
   const [socketOpen, setSocketOpen] = useState<boolean>(props.socketOpen);
   const [refWebSocket, setRefWebSocket] = useState<any>();
   const [raceState, setRaceState] = useState<any>(null);
-  const [token, setToken] = useState<any>(null);
   const [ID, setID] = useState<any>(null);
 
   const handleData = (data: any) => {
     let update = JSON.parse(data);
 
-    if (update.hasOwnProperty("token")) {
-      setToken(update.token);
+    if (update.hasOwnProperty("id")) {
       setID(update.id);
     } else if (update.hasOwnProperty("players")) {
       setRaceState(update);
@@ -39,7 +37,6 @@ export const WebsocketController = (props: Props) => {
 
   const updatePosition = (position: any) => {
     var positionUpdate = {
-      token: token,
       position: position
     };
 
