@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Board } from "./Board";
 
 interface Props {
-  updatePosition: (newPosition: any) => void;
-  setCountDown: (newCountDown: any) => void;
-  updateCountDown: (newCountDown: any) => void;
+  updatePosition: (newPosition: number) => void;
+  setCountDown: (newCountDown: boolean) => void;
+  updateCountDown: (newCountDown: boolean) => void;
   raceState: any;
   ID: number;
   countDown: boolean;

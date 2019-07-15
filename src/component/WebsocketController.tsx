@@ -36,7 +36,7 @@ export const WebsocketController = (props: Props) => {
     refWebSocket.sendMessage(JSON.stringify(message));
   };
 
-  const updatePosition = (position: any) => {
+  const updatePosition = (position: number) => {
     var positionUpdate = {
       position: position
     };
@@ -44,7 +44,7 @@ export const WebsocketController = (props: Props) => {
     sendMessage(positionUpdate);
   };
 
-  const updateCountDown = (countDown: any) => {
+  const updateCountDown = (countDown: boolean) => {
     var countDownUpdate = {
       token: token,
       countdown: countDown
