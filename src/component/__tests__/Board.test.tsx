@@ -13,6 +13,9 @@ describe("Board", () => {
   const endGame = jest.fn();
   const checkLetter = jest.fn();
   const updatePosition = jest.fn();
+  const setCountUp = jest.fn();
+  const setCountDown = jest.fn();
+  const updateCountDown = jest.fn();
 
   const buildProps = (newProps = {}) => ({
     words: ["this", "is", "text"],
@@ -31,6 +34,11 @@ describe("Board", () => {
     updatePosition,
     raceState: { players: [{ id: 1, position: 0 }] },
     ID: 1,
+    countUp: false,
+    countDown: false,
+    setCountUp,
+    setCountDown,
+    updateCountDown,
     ...newProps
   });
 
@@ -41,8 +49,8 @@ describe("Board", () => {
       expect(BoardComponent.find("Text").exists()).toBe(true);
       expect(BoardComponent.find("TypingBox").exists()).toBe(true);
       expect(BoardComponent.find("Race").exists()).toBe(true);
+      expect(BoardComponent.find("Timer").exists()).toBe(true);
 
-      expect(BoardComponent.find("Timer").exists()).toBe(false);
       expect(BoardComponent.find("GameStats").exists()).toBe(false);
     });
   });

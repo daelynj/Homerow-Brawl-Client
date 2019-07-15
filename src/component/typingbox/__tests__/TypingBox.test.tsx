@@ -20,6 +20,7 @@ describe("TypingBox", () => {
     setCurrentWordIndex,
     currentWordIndex: 0,
     checkLetter,
+    countUp: false,
     ...newProps
   });
 
@@ -30,52 +31,85 @@ describe("TypingBox", () => {
     expect(TypingBoxComponent).toMatchSnapshot();
   });
 
-  it("renders the input field as empty when we pass an empty value", () => {
-    const TypingBoxComponent = mount(<TypingBox {...buildProps()} />);
-    const inputValue = TypingBoxComponent.find("input").props().value;
+  describe("when the countUp timer has not started", () => {
+    it("renders the input field as empty when we pass a value", () => {
+      const TypingBoxComponent = mount(<TypingBox {...buildProps()} />);
 
-    expect(inputValue).toEqual("");
-  });
+      TypingBoxComponent.find("input").simulate("change", {
+        target: { value: "t" }
+      });
 
-  describe("when we start typing", () => {
-    const TypingBoxComponent = mount(<TypingBox {...buildProps()} />);
-    TypingBoxComponent.find("input").simulate("change", {
-      target: { value: "t" }
+      const inputValue = TypingBoxComponent.find("input").props().value;
+
+      expect(inputValue).toEqual("");
     });
 
-    it("calls start", () => {
-      expect(setStart).toHaveBeenCalledWith(true);
-    });
-    it("calls onChange", () => {
-      expect(onChange).toHaveBeenCalledWith("t");
-    });
-  });
+    describe("when we start typing", () => {
+      const onChange = jest.fn();
+      const TypingBoxComponent = mount(<TypingBox {...buildProps()} />);
+      TypingBoxComponent.find("input").simulate("change", {
+        target: { value: "t" }
+      });
 
-  describe("when we press a space", () => {
-    const TypingBoxComponent = mount(<TypingBox {...buildProps()} />);
-    TypingBoxComponent.find("input").simulate("change", {
-      target: { value: " " }
-    });
-
-    it("calls onChange", () => {
-      expect(onChange).toHaveBeenCalledWith(" ");
+      it("does not call onChange", () => {
+        expect(onChange).toHaveBeenCalledTimes(0);
+      });
     });
   });
 
-  describe("when we complete a word", () => {
-    const TypingBoxComponent = mount(<TypingBox {...buildProps()} />);
+  describe("when the countUp timer is started", () => {
+    it("renders the input field as empty when we pass an empty value", () => {
+      const TypingBoxComponent = mount(
+        <TypingBox {...buildProps({ countUp: true })} />
+      );
+      const inputValue = TypingBoxComponent.find("input").props().value;
 
-    TypingBoxComponent.find("input").simulate("change", {
-      target: { value: "this" }
-    });
-    TypingBoxComponent.find("input").simulate("keyDown", {
-      key: "Space",
-      keyCode: 32,
-      which: 32
+      expect(inputValue).toEqual("");
     });
 
-    it("renders the input field as empty", () => {
-      expect(TypingBoxComponent.find("input").props().value).toEqual("");
+    describe("when we start typing", () => {
+      const TypingBoxComponent = mount(
+        <TypingBox {...buildProps({ countUp: true })} />
+      );
+      TypingBoxComponent.find("input").simulate("change", {
+        target: { value: "t" }
+      });
+
+      it("calls onChange", () => {
+        expect(onChange).toHaveBeenCalledWith("t");
+      });
+    });
+
+    describe("when we press a space", () => {
+      const TypingBoxComponent = mount(
+        <TypingBox {...buildProps({ countUp: true })} />
+      );
+      TypingBoxComponent.find("input").simulate("change", {
+        target: { value: " " }
+      });
+
+      it("calls onChange", () => {
+        expect(onChange).toHaveBeenCalledWith(" ");
+      });
+    });
+
+    describe("when we complete a word", () => {
+      const TypingBoxComponent = mount(
+        <TypingBox {...buildProps({ countUp: true })} />
+      );
+
+      TypingBoxComponent.find("input").simulate("change", {
+        target: { value: "this" }
+      });
+      TypingBoxComponent.find("input").simulate("keyDown", {
+        key: "Space",
+        keyCode: 32,
+        which: 32
+      });
+
+      it("renders the input field as empty", () => {
+        expect(TypingBoxComponent.find("input").props().value).toEqual("");
+      });
     });
   });
 });
