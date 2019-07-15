@@ -20,5 +20,10 @@ export const Timer = (props: Props) => {
     setSeconds(seconds + 1);
   };
 
-  return <div>Timer: {seconds}</div>;
+  return (
+    <div>
+      <div>Go!</div>
+      Timer: {seconds}
+    </div>
+  );
 };
