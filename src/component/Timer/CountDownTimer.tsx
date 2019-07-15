@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 
 interface Props {
-  setCountUp: (newCountUp: any) => void;
+  setCountUp: (newCountUp: boolean) => void;
 }
 
 export const CountDownTimer = (props: Props) => {
