@@ -4,24 +4,28 @@ import { Text } from "./text/Text";
 import { TypingBox } from "./typingbox/TypingBox";
 import { Timer } from "./timer/Timer";
 import { GameStats } from "./gamestats/GameStats";
+import { CountDown } from "./timer/CountDown";
 
 interface Props {
-  words: String[];
-  currentWordSubstring: any;
-  currentInput: string;
   setCurrentInput: (newInput: string) => void;
-  currentWordIndex: number;
   setCurrentWordIndex: (newIndex: number) => void;
-  start: boolean;
-  setStart: (newStart: boolean) => void;
-  endGame: () => boolean;
-  finishTime: number;
+  setCountUp: (newCountUp: boolean) => void;
   setFinishTime: (newTime: number) => void;
-  checkLetter: () => void;
-  incorrectLetters: number;
   updatePosition: (newPosition: any) => void;
-  raceState: any;
+  setCountDown: (newCountDown: any) => void;
+  updateCountDown: (updateCountDown: any) => void;
+  endGame: () => boolean;
+  checkLetter: () => void;
+  currentWordIndex: number;
+  finishTime: number;
+  incorrectLetters: number;
   ID: number;
+  countDown: boolean;
+  countUp: boolean;
+  words: String[];
+  currentInput: string;
+  currentWordSubstring: any;
+  raceState: any;
 }
 
 export const Board = (props: Props) => {
@@ -46,9 +50,9 @@ export const Board = (props: Props) => {
 
   const renderTypingBox = () => (
     <TypingBox
+      countUp={props.countUp}
       value={props.currentInput}
       onChange={props.setCurrentInput}
-      setStart={props.setStart}
       word={props.words[props.currentWordIndex]}
       setCurrentWordIndex={props.setCurrentWordIndex}
       currentWordIndex={props.currentWordIndex}
@@ -56,7 +60,7 @@ export const Board = (props: Props) => {
     />
   );
 
-  const renderTimer = () => <Timer setFinishTime={props.setFinishTime} />;
+  const renderTimerUp = () => <Timer setFinishTime={props.setFinishTime} />;
 
   const renderGameStats = () => (
     <GameStats
@@ -66,10 +70,20 @@ export const Board = (props: Props) => {
     />
   );
 
+  const renderTimerDown = () => (
+    <CountDown
+      updateCountDown={props.updateCountDown}
+      countUp={props.countUp}
+      setCountUp={props.setCountUp}
+      countDown={props.countDown}
+      setCountDown={props.setCountDown}
+    />
+  );
+
   const shouldRenderTextAndInput = () => (!props.endGame() ? true : false);
 
   const shouldRenderTimer = () =>
-    !props.endGame() && props.start ? true : false;
+    !props.endGame() && props.countUp ? true : false;
 
   const shouldRenderGameStats = () => (props.endGame() ? true : false);
 
@@ -80,9 +94,12 @@ export const Board = (props: Props) => {
       <div className="typing-box">
         {shouldRenderTextAndInput() && renderTypingBox()}
       </div>
-      <div className="timer">{shouldRenderTimer() && renderTimer()}</div>
+      <div className="timerUp">{shouldRenderTimer() && renderTimerUp()}</div>
       <div className="gamestats">
         {shouldRenderGameStats() && renderGameStats()}
+      </div>
+      <div className="timerDown">
+        {!shouldRenderTimer() && renderTimerDown()}
       </div>
     </div>
   );

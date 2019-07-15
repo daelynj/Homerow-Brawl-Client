@@ -3,17 +3,18 @@ import * as React from "react";
 interface Props {
   value: string;
   onChange: (newInput: string) => void;
-  setStart: (newStart: boolean) => void;
   checkLetter: () => void;
   word: String;
   setCurrentWordIndex: (newIndex: number) => void;
   currentWordIndex: number;
+  countUp: boolean;
 }
 
 export const TypingBox = (props: Props) => {
   const handleChange = (event: any) => {
-    props.setStart(true);
-    props.onChange(event.target.value);
+    if (props.countUp === true) {
+      props.onChange(event.target.value);
+    }
   };
 
   const detectBackspace = (event: any) => {

@@ -4,8 +4,11 @@ import { Board } from "./Board";
 
 interface Props {
   updatePosition: (newPosition: any) => void;
+  setCountDown: (newCountDown: any) => void;
+  updateCountDown: (newCountDown: any) => void;
   raceState: any;
   ID: number;
+  countDown: boolean;
 }
 
 export const Game = (props: Props) => {
@@ -13,8 +16,8 @@ export const Game = (props: Props) => {
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
   const [currentInput, setCurrentInput] = useState<string>("");
   const [finishTime, setFinishTime] = useState<number>(0);
-  const [start, setStart] = useState<boolean>(false);
   const [incorrectLetters, setIncorrectLetters] = useState<number>(0);
+  const [countUp, setCountUp] = useState<boolean>(false);
 
   const endGame = () => {
     if (onFinalLetter()) {
@@ -52,6 +55,11 @@ export const Game = (props: Props) => {
       <div className="board">
         {
           <Board
+            updateCountDown={props.updateCountDown}
+            countDown={props.countDown}
+            setCountDown={props.setCountDown}
+            countUp={countUp}
+            setCountUp={setCountUp}
             ID={props.ID}
             raceState={props.raceState}
             updatePosition={props.updatePosition}
@@ -61,8 +69,6 @@ export const Game = (props: Props) => {
             setCurrentInput={setCurrentInput}
             currentWordIndex={currentWordIndex}
             setCurrentWordIndex={setCurrentWordIndex}
-            start={start}
-            setStart={setStart}
             endGame={endGame}
             finishTime={finishTime}
             setFinishTime={setFinishTime}

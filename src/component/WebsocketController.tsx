@@ -12,6 +12,7 @@ export const WebsocketController = (props: Props) => {
   const [refWebSocket, setRefWebSocket] = useState<any>();
   const [raceState, setRaceState] = useState<any>(null);
   const [ID, setID] = useState<any>(null);
+  const [countDown, setCountDown] = useState<boolean>(false);
 
   const handleData = (data: any) => {
     let update = JSON.parse(data);
@@ -43,8 +44,24 @@ export const WebsocketController = (props: Props) => {
     sendMessage(positionUpdate);
   };
 
+  const updateCountDown = (countDown: any) => {
+    var countDownUpdate = {
+      token: token,
+      countdown: countDown
+    };
+
+    sendMessage(countDownUpdate);
+  };
+
   const renderGame = () => (
-    <Game updatePosition={updatePosition} ID={ID} raceState={raceState} />
+    <Game
+      countDown={countDown}
+      setCountDown={setCountDown}
+      updatePosition={updatePosition}
+      updateCountDown={updateCountDown}
+      ID={ID}
+      raceState={raceState}
+    />
   );
 
   return (
