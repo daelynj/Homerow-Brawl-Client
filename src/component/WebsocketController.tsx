@@ -21,6 +21,8 @@ export const WebsocketController = (props: Props) => {
       setID(update.id);
     } else if (update.hasOwnProperty("players")) {
       setRaceState(update);
+    } else if (update.hasOwnProperty("countdown")) {
+      setCountDown(update.countdown);
     }
   };
 
