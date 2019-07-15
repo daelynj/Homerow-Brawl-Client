@@ -48,7 +48,6 @@ export const WebsocketController = (props: Props) => {
 
   const updateCountDown = (countDown: boolean) => {
     var countDownUpdate = {
-      token: token,
       countdown: countDown
     };
 
