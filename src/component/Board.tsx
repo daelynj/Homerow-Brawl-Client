@@ -2,7 +2,7 @@ import * as React from "react";
 import { Race } from "./race/Race";
 import { Text } from "./text/Text";
 import { TypingBox } from "./typingbox/TypingBox";
-import { Timer } from "./Timer/Timer";
+import { Timer } from "./timer/Timer";
 import { GameStats } from "./gamestats/GameStats";
 
 interface Props {
@@ -19,11 +19,17 @@ interface Props {
   setFinishTime: (newTime: number) => void;
   checkLetter: () => void;
   incorrectLetters: number;
+  updatePosition: (newPosition: any) => void;
+  raceState: any;
+  ID: number;
 }
 
 export const Board = (props: Props) => {
   const renderRace = () => (
     <Race
+      ID={props.ID}
+      raceState={props.raceState}
+      updatePosition={props.updatePosition}
       wordsLength={props.words.length}
       currentWordIndex={props.currentWordIndex}
     />

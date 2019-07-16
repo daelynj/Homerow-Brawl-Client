@@ -2,7 +2,13 @@ import * as React from "react";
 import { useState } from "react";
 import { Board } from "./Board";
 
-export const Game = () => {
+interface Props {
+  updatePosition: (newPosition: any) => void;
+  raceState: any;
+  ID: number;
+}
+
+export const Game = (props: Props) => {
   const [words] = useState<String[]>("this is text".split(" "));
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
   const [currentInput, setCurrentInput] = useState<string>("");
@@ -46,6 +52,9 @@ export const Game = () => {
       <div className="board">
         {
           <Board
+            ID={props.ID}
+            raceState={props.raceState}
+            updatePosition={props.updatePosition}
             words={words}
             currentWordSubstring={getCurrentWordSubstring()}
             currentInput={currentInput}

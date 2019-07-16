@@ -12,6 +12,7 @@ describe("Board", () => {
   const setFinishTime = jest.fn();
   const endGame = jest.fn();
   const checkLetter = jest.fn();
+  const updatePosition = jest.fn();
 
   const buildProps = (newProps = {}) => ({
     words: ["this", "is", "text"],
@@ -27,6 +28,9 @@ describe("Board", () => {
     setFinishTime,
     checkLetter,
     incorrectLetters: 0,
+    updatePosition,
+    raceState: { players: [{ id: 1, position: 0 }] },
+    ID: 1,
     ...newProps
   });
 
