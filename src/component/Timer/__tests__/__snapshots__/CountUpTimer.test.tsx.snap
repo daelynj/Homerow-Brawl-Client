@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountUpTimer renders the CountUpTimer 1`] = `
+<div>
+  <div>
+    Go!
+  </div>
+  Timer: 
+  0
+</div>
+`;

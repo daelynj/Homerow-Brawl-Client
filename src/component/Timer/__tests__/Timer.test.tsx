@@ -1,38 +1,60 @@
 import * as React from "react";
 import { Timer } from "../Timer";
 import renderer from "react-test-renderer";
+import { mount, configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+
+configure({ adapter: new Adapter() });
 
 describe("Timer", () => {
   jest.useFakeTimers();
   const setFinishTime = jest.fn();
+  const setCountDown = jest.fn();
+  const setCountUp = jest.fn();
+  const updateCountDown = jest.fn();
 
-  it("renders the Timer", () => {
-    const tree = renderer
-      .create(<Timer setFinishTime={setFinishTime} />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+  const buildProps = (newProps = {}) => ({
+    setCountDown,
+    setCountUp,
+    updateCountDown,
+    countDown: false,
+    countUp: false,
+    setFinishTime,
+    ...newProps
   });
 
-  it("calls tick every 1000 miliseconds", () => {
-    const TimerComponent = renderer.create(
-      <Timer setFinishTime={setFinishTime} />
-    );
+  describe("when the game has not been started", () => {
+    it("renders the CountDownButton", () => {
+      const wrapper = mount(<Timer {...buildProps()} />);
+      const tree = renderer.create(<Timer {...buildProps()} />).toJSON();
 
-    expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
-    expect(setTimeout).toHaveBeenCalledTimes(1);
-
-    TimerComponent.update(<Timer setFinishTime={setFinishTime} />);
-
-    expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
-    expect(setTimeout).toHaveBeenCalledTimes(2);
+      expect(wrapper.find("CountDownButton").length).toEqual(1);
+      expect(tree).toMatchSnapshot();
+    });
   });
 
-  it("sets the finish time when unmounted", () => {
-    const TimerComponent = renderer.create(
-      <Timer setFinishTime={setFinishTime} />
-    );
-    TimerComponent.unmount();
+  describe("when the button has been pressed", () => {
+    it("renders the CountDownTimer", () => {
+      let timer = <Timer {...buildProps({ countDown: true })} />;
+      const wrapper = mount(timer);
+      const tree = renderer.create(timer).toJSON();
 
-    expect(setFinishTime).toHaveBeenCalled();
+      expect(wrapper.find("CountDownButton").length).toEqual(0);
+      expect(wrapper.find("CountDownTimer").length).toEqual(1);
+      expect(tree).toMatchSnapshot();
+    });
+  });
+
+  describe("when the CountDownTimer is finished", () => {
+    it("renders the CountUpTimer", () => {
+      let timer = <Timer {...buildProps({ countDown: true, countUp: true })} />;
+      const wrapper = mount(timer);
+      const tree = renderer.create(timer).toJSON();
+
+      expect(wrapper.find("CountDownButton").length).toEqual(0);
+      expect(wrapper.find("CountDownTimer").length).toEqual(0);
+      expect(wrapper.find("CountUpTimer").length).toEqual(1);
+      expect(tree).toMatchSnapshot();
+    });
   });
 });

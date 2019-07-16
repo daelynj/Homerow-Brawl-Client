@@ -1,8 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Timer renders the Timer 1`] = `
+exports[`Timer when the CountDownTimer is finished renders the CountUpTimer 1`] = `
 <div>
-  Timer: 
-  0
+  <div>
+    <div>
+      Go!
+    </div>
+    Timer: 
+    0
+  </div>
+</div>
+`;
+
+exports[`Timer when the button has been pressed renders the CountDownTimer 1`] = `
+<div>
+  <div>
+    Timer: 
+    5
+  </div>
+</div>
+`;
+
+exports[`Timer when the game has not been started renders the CountDownButton 1`] = `
+<div>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Start Game
+    </button>
+  </div>
 </div>
 `;

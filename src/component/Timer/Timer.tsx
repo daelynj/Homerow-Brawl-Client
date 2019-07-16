@@ -1,24 +1,38 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { CountDownButton } from "./button/CountDownButton";
+import { CountDownTimer } from "./CountDownTimer";
+import { CountUpTimer } from "./CountUpTimer";
 
 interface Props {
-  setFinishTime: (newTime: number) => void;
+  setCountDown: (newCountDown: boolean) => void;
+  setCountUp: (newCountUp: boolean) => void;
+  updateCountDown: (updateCountDown: boolean) => void;
+  countDown: boolean;
+  countUp: boolean;
+  setFinishTime: (newFinishTime: number) => void;
 }
 
 export const Timer = (props: Props) => {
-  const [seconds, setSeconds] = useState<number>(0);
+  const renderCountDownTimer = () => (
+    <CountDownTimer setCountUp={props.setCountUp} />
+  );
 
-  useEffect(() => {
-    let timerID = setTimeout(tick, 1000);
+  const renderCountUpTimer = () => (
+    <CountUpTimer setFinishTime={props.setFinishTime} />
+  );
 
-    return function cleanup() {
-      props.setFinishTime(seconds);
-    };
-  });
+  const renderButton = () => (
+    <CountDownButton
+      updateCountDown={props.updateCountDown}
+      setCountDown={props.setCountDown}
+    />
+  );
 
-  const tick = () => {
-    setSeconds(seconds + 1);
-  };
-
-  return <div>Timer: {seconds}</div>;
+  return (
+    <div>
+      {!props.countDown && renderButton()}
+      {!props.countUp && props.countDown && renderCountDownTimer()}
+      {props.countUp && renderCountUpTimer()}
+    </div>
+  );
 };

@@ -12,6 +12,7 @@ export const WebsocketController = (props: Props) => {
   const [refWebSocket, setRefWebSocket] = useState<any>();
   const [raceState, setRaceState] = useState<any>(null);
   const [ID, setID] = useState<any>(null);
+  const [countDown, setCountDown] = useState<boolean>(false);
 
   const handleData = (data: any) => {
     let update = JSON.parse(data);
@@ -20,6 +21,8 @@ export const WebsocketController = (props: Props) => {
       setID(update.id);
     } else if (update.hasOwnProperty("players")) {
       setRaceState(update);
+    } else if (update.hasOwnProperty("countdown")) {
+      setCountDown(update.countdown);
     }
   };
 
@@ -35,7 +38,7 @@ export const WebsocketController = (props: Props) => {
     refWebSocket.sendMessage(JSON.stringify(message));
   };
 
-  const updatePosition = (position: any) => {
+  const updatePosition = (position: number) => {
     var positionUpdate = {
       position: position
     };
@@ -43,8 +46,23 @@ export const WebsocketController = (props: Props) => {
     sendMessage(positionUpdate);
   };
 
+  const updateCountDown = (countDown: boolean) => {
+    var countDownUpdate = {
+      countdown: countDown
+    };
+
+    sendMessage(countDownUpdate);
+  };
+
   const renderGame = () => (
-    <Game updatePosition={updatePosition} ID={ID} raceState={raceState} />
+    <Game
+      countDown={countDown}
+      setCountDown={setCountDown}
+      updatePosition={updatePosition}
+      updateCountDown={updateCountDown}
+      ID={ID}
+      raceState={raceState}
+    />
   );
 
   return (
