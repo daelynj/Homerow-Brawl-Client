@@ -5,6 +5,7 @@ import { useState } from "react";
 
 interface Props {
   socketOpen: boolean;
+  path: string;
 }
 
 export const WebsocketController = (props: Props) => {
@@ -68,7 +69,7 @@ export const WebsocketController = (props: Props) => {
   return (
     <>
       <Websocket
-        url="ws://localhost:3000"
+        url={"ws://localhost:3000/".concat(props.path)}
         onMessage={handleData}
         onOpen={handleOpen}
         onClose={handleClose}
