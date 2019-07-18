@@ -1,23 +1,46 @@
 import * as React from "react";
 import { useState } from "react";
-import { WebsocketController } from "./WebsocketController";
-import { Welcome } from "./Welcome";
+import { WebsocketController } from "./websocket/WebsocketController";
+import { Welcome } from "./welcome/Welcome";
 
 export const App = () => {
-  const [path, setPath] = useState<string>(window.location.pathname.slice(1));
+  const [path] = useState<string>(window.location.pathname.slice(1));
+  const [roomStatus, setRoomStatus] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const renderWelcome = () => <Welcome />;
-  const renderWebsocketController = () => (
-    <WebsocketController socketOpen={false} path={path} />
-  );
+  const roomExists = () => {
+    fetchAPI();
 
-  const shouldRenderWelcome = () => (path === "" ? true : false);
+    return roomStatus === true ? true : false;
+  };
+
+  const fetchAPI = () => {
+    fetch("http://localhost:2300/api/rooms/" + path, {
+      method: "GET",
+      mode: "cors"
+    })
+      .then(response => response.json())
+      .then(
+        result => {
+          if (result.id === parseInt(path)) {
+            setRoomStatus(true);
+          }
+        },
+        error => {
+          setError(true);
+          setErrorMessage("room not found");
+        }
+      );
+  };
 
   return (
     <>
-      {console.log(path)}
-      <>{shouldRenderWelcome() && renderWelcome()}</>
-      <>{!shouldRenderWelcome() && renderWebsocketController()}</>
+      {path === "" && <Welcome />}
+      {path !== "" && roomExists() && (
+        <WebsocketController socketOpen={false} path={path} />
+      )}
+      {errorMessage}
     </>
   );
 };
