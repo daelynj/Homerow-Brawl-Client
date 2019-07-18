@@ -7,7 +7,9 @@ configure({ adapter: new Adapter() });
 
 describe("WebsocketController", () => {
   it("renders the Websocket component", () => {
-    const wrapper = mount(<WebsocketController socketOpen={false} />);
+    const wrapper = mount(
+      <WebsocketController path={"1"} socketOpen={false} />
+    );
 
     expect(wrapper.find("Websocket").length).toEqual(1);
     expect(wrapper.find("Game").length).toEqual(0);
@@ -15,7 +17,9 @@ describe("WebsocketController", () => {
 
   describe("when the websocket is open", () => {
     it("renders the Game component", () => {
-      const wrapper = mount(<WebsocketController socketOpen={true} />);
+      const wrapper = mount(
+        <WebsocketController path={"1"} socketOpen={true} />
+      );
 
       expect(wrapper.find("Websocket").length).toEqual(1);
       expect(wrapper.find("Game").length).toEqual(1);
