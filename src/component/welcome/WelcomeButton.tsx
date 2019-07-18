@@ -7,7 +7,7 @@ interface Props {
 
 export const WelcomeButton = (props: Props) => {
   const handleEvent = () => {
-    fetch("http://localhost:2300/api/rooms", {
+    fetch("http://localhost:3000/api/rooms", {
       method: "POST",
       mode: "cors"
     })

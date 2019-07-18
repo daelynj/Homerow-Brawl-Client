@@ -16,7 +16,7 @@ export const App = () => {
   };
 
   const fetchAPI = () => {
-    fetch("http://localhost:2300/api/rooms/" + path, {
+    fetch("http://localhost:3000/api/rooms/" + path, {
       method: "GET",
       mode: "cors"
     })
