@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Game } from "./Game";
+import { Game } from "../Game";
 import Websocket from "react-websocket";
 import { useState } from "react";
 
 interface Props {
   socketOpen: boolean;
+  path: string;
 }
 
 export const WebsocketController = (props: Props) => {
@@ -54,21 +55,10 @@ export const WebsocketController = (props: Props) => {
     sendMessage(countDownUpdate);
   };
 
-  const renderGame = () => (
-    <Game
-      countDown={countDown}
-      setCountDown={setCountDown}
-      updatePosition={updatePosition}
-      updateCountDown={updateCountDown}
-      ID={ID}
-      raceState={raceState}
-    />
-  );
-
   return (
     <>
       <Websocket
-        url="ws://localhost:3000"
+        url={"ws://localhost:3000/".concat(props.path)}
         onMessage={handleData}
         onOpen={handleOpen}
         onClose={handleClose}
@@ -78,7 +68,16 @@ export const WebsocketController = (props: Props) => {
           setRefWebSocket(Websocket);
         }}
       />
-      {socketOpen && renderGame()}
+      {socketOpen && (
+        <Game
+          countDown={countDown}
+          setCountDown={setCountDown}
+          updatePosition={updatePosition}
+          updateCountDown={updateCountDown}
+          ID={ID}
+          raceState={raceState}
+        />
+      )}
     </>
   );
 };

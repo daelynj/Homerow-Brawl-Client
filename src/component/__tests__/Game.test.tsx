@@ -6,11 +6,16 @@ import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 
 const updatePosition = jest.fn();
+const setCountDown = jest.fn();
+const updateCountDown = jest.fn();
 
 const buildProps = (newProps = {}) => ({
   updatePosition,
   raceState: { players: [{ id: 1, position: 0 }] },
   ID: 1,
+  setCountDown,
+  updateCountDown,
+  countDown: false,
   ...newProps
 });
 
