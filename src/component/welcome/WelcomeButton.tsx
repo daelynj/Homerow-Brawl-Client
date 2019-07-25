@@ -1,32 +1,11 @@
 import * as React from "react";
+
 interface Props {
-  setRoomID: (newRoomID: number) => void;
-  setIsLoaded: (newIsLoaded: boolean) => void;
-  setError: (newError: any) => void;
+  handleEvent: (newEvent: any) => any;
 }
 
-export const WelcomeButton = (props: Props) => {
-  const handleEvent = () => {
-    fetch("http://localhost:3000/api/rooms", {
-      method: "POST",
-      mode: "cors"
-    })
-      .then(response => response.json())
-      .then(
-        result => {
-          props.setRoomID(result.id);
-          props.setIsLoaded(true);
-        },
-        error => {
-          props.setIsLoaded(true);
-          props.setError(error);
-        }
-      );
-  };
-
-  return (
-    <div>
-      <button onClick={handleEvent}>Generate lobby</button>
-    </div>
-  );
-};
+export const WelcomeButton = (props: Props) => (
+  <div>
+    <button onClick={props.handleEvent}>Generate lobby</button>
+  </div>
+);
