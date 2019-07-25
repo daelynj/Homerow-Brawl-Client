@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountDownButton The button render renders a Start game button 1`] = `
+<div>
+  <button
+    onClick={[MockFunction]}
+  >
+    Start Game
+  </button>
+</div>
+`;

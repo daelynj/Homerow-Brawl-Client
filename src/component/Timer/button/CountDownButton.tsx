@@ -1,19 +1,11 @@
 import * as React from "react";
 
 interface Props {
-  setCountDown: (newCountDown: any) => void;
-  updateCountDown: (updateCountDown: any) => void;
+  handleEvent: (newEvent: any) => void;
 }
 
-export const CountDownButton = (props: Props) => {
-  const handleEvent = () => {
-    props.setCountDown(true);
-    props.updateCountDown(true);
-  };
-
-  return (
-    <div>
-      <button onClick={handleEvent}>Start Game</button>
-    </div>
-  );
-};
+export const CountDownButton = (props: Props) => (
+  <div>
+    <button onClick={props.handleEvent}>Start Game</button>
+  </div>
+);
