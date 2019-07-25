@@ -16,8 +16,9 @@ export const Race = (props: Props) => {
     ));
 
   const updatePosition = () => {
-    let new_position: number =
-      (props.currentWordIndex / props.wordsLength) * 100;
+    let new_position: number = Math.round(
+      (props.currentWordIndex / props.wordsLength) * 100
+    );
     let old_position: number = props.raceState.players.find(byID).position;
 
     if (old_position !== new_position) {

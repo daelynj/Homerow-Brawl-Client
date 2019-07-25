@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { WelcomeButton } from "./WelcomeButton";
+import { createRoomAPI } from "./api/createRoomAPI";
 
 export const Welcome = () => {
   const [roomID, setRoomID] = useState<any>(-1);
@@ -11,9 +12,7 @@ export const Welcome = () => {
     <div>
       {roomID < 0 && (
         <WelcomeButton
-          setRoomID={setRoomID}
-          setIsLoaded={setIsLoaded}
-          setError={setError}
+          handleEvent={createRoomAPI(setRoomID, setIsLoaded, setError)}
         />
       )}
       {!error && isLoaded && window.location.href + roomID}

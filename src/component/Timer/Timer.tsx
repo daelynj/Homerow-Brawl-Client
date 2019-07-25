@@ -21,16 +21,14 @@ export const Timer = (props: Props) => {
     <CountUpTimer setFinishTime={props.setFinishTime} />
   );
 
-  const renderButton = () => (
-    <CountDownButton
-      updateCountDown={props.updateCountDown}
-      setCountDown={props.setCountDown}
-    />
-  );
+  const handleEvent = () => {
+    props.setCountDown(true);
+    props.updateCountDown(true);
+  };
 
   return (
     <div>
-      {!props.countDown && renderButton()}
+      {!props.countDown && <CountDownButton handleEvent={handleEvent} />}
       {!props.countUp && props.countDown && renderCountDownTimer()}
       {props.countUp && renderCountUpTimer()}
     </div>
