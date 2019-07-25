@@ -41,6 +41,7 @@ export const WebsocketController = (props: Props) => {
 
   const updatePosition = (position: number) => {
     var positionUpdate = {
+      id: ID,
       position: position
     };
 
