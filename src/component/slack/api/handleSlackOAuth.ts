@@ -24,6 +24,8 @@ const getSlackOAuth = (code: any, setAuthenticated: any, setName: any) => {
   var entryURL = "http://" + window.location.host + window.location.pathname;
   var data: any = { code: code, redirectURI: entryURL };
 
+  console.log(entryURL);
+
   fetch("http://localhost:3000/api/slack/oauth", {
     method: "POST",
     mode: "cors",
@@ -32,6 +34,7 @@ const getSlackOAuth = (code: any, setAuthenticated: any, setName: any) => {
   })
     .then(response => response.json())
     .then(result => {
+      console.log(result);
       setAuthenticated(result.authenticated);
       setName(result.name);
     });
