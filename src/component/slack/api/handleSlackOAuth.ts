@@ -27,6 +27,7 @@ const getSlackOAuth = (code: any, setAuthenticated: any, setName: any) => {
   fetch("http://localhost:3000/api/slack/oauth", {
     method: "POST",
     mode: "cors",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   })
     .then(response => response.json())
