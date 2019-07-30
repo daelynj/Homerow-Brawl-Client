@@ -1,25 +1,28 @@
 import * as React from "react";
 import { useState } from "react";
-import { fetchRoomAPI } from "./api/fetchRoomAPI";
-import { WebsocketController } from "./websocket/WebsocketController";
-import { Welcome } from "./welcome/Welcome";
+import { SignOn } from "./welcome/SignOn";
+import { SlackButton } from "./slack/SlackButton";
+import * as slack from "./slack/api/handleSlackOAuth";
 
 export const App = () => {
-  const [path] = useState<string>(window.location.pathname.slice(1));
-  const [roomStatus, setRoomStatus] = useState<boolean>(false);
+  const [authenticated, setAuthenticated] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
 
-  const roomExists = () => {
-    fetchRoomAPI(path, setRoomStatus);
+  const slackSignIn = () => {
+    var entryURL = "http://" + window.location.host + window.location.pathname;
 
-    return roomStatus === true ? true : false;
+    window.location.href =
+      "https://slack.com/oauth/authorize?scope=identity.basic&client_id=708370195111.695122331683&redirect_uri=" +
+      entryURL +
+      "&state=goodtimes";
   };
 
   return (
     <>
-      {path === "" && <Welcome />}
-      {path !== "" && roomExists() && (
-        <WebsocketController socketOpen={false} path={path} />
-      )}
+      {!authenticated && <SlackButton handleEvent={slackSignIn} />}
+      {!authenticated &&
+        slack.handleURL(authenticated, setAuthenticated, setName)}
+      {authenticated && <SignOn name={name} />}
     </>
   );
 };

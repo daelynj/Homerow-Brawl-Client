@@ -6,6 +6,7 @@ import { useState } from "react";
 interface Props {
   socketOpen: boolean;
   path: string;
+  name: string;
 }
 
 export const WebsocketController = (props: Props) => {

@@ -15,7 +15,7 @@ export const Welcome = () => {
           handleEvent={createRoomAPI(setRoomID, setIsLoaded, setError)}
         />
       )}
-      {!error && isLoaded && window.location.href + roomID}
+      {!error && isLoaded && window.location.origin + "/" + roomID}
       {error && error.message}
     </div>
   );
