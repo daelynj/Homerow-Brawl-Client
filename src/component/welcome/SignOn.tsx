@@ -4,11 +4,7 @@ import { fetchRoomAPI } from "../api/fetchRoomAPI";
 import { WebsocketController } from "../websocket/WebsocketController";
 import { Welcome } from "./Welcome";
 
-interface Props {
-  name: string;
-}
-
-export const SignOn = (props: Props) => {
+export const SignOn = () => {
   const [path] = useState<string>(window.location.pathname.slice(1));
   const [roomStatus, setRoomStatus] = useState<boolean>(false);
 
@@ -22,7 +18,7 @@ export const SignOn = (props: Props) => {
     <>
       {path === "" && <Welcome />}
       {path !== "" && roomExists() && (
-        <WebsocketController socketOpen={false} path={path} name={props.name} />
+        <WebsocketController socketOpen={false} path={path} />
       )}
     </>
   );

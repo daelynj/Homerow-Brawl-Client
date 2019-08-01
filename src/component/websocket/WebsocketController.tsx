@@ -6,20 +6,22 @@ import { useState } from "react";
 interface Props {
   socketOpen: boolean;
   path: string;
-  name: string;
 }
 
 export const WebsocketController = (props: Props) => {
   const [socketOpen, setSocketOpen] = useState<boolean>(props.socketOpen);
   const [refWebSocket, setRefWebSocket] = useState<any>();
   const [raceState, setRaceState] = useState<any>(null);
+  const [name, setName] = useState<any>(null);
   const [ID, setID] = useState<any>(null);
   const [countDown, setCountDown] = useState<boolean>(false);
+  const [uuid] = useState<any>(sessionStorage.getItem("uuid"));
 
   const handleData = (data: any) => {
     let update = JSON.parse(data);
 
-    if (update.hasOwnProperty("id")) {
+    if (update.hasOwnProperty("name") && Object.keys(update).length === 2) {
+      setName(update.name);
       setID(update.id);
     } else if (update.hasOwnProperty("players")) {
       setRaceState(update);
@@ -30,6 +32,7 @@ export const WebsocketController = (props: Props) => {
 
   const handleOpen = () => {
     setSocketOpen(true);
+    updateJoin(uuid);
   };
 
   const handleClose = () => {
@@ -40,9 +43,19 @@ export const WebsocketController = (props: Props) => {
     refWebSocket.sendMessage(JSON.stringify(message));
   };
 
+  const updateJoin = (uuid: string) => {
+    var joinUpdate = {
+      uuid: uuid
+    };
+
+    sendMessage(joinUpdate);
+  };
+
   const updatePosition = (position: number) => {
     var positionUpdate = {
       id: ID,
+      uuid: uuid,
+      name: name,
       position: position
     };
 
@@ -51,6 +64,7 @@ export const WebsocketController = (props: Props) => {
 
   const updateCountDown = (countDown: boolean) => {
     var countDownUpdate = {
+      uuid: uuid,
       countdown: countDown
     };
 
@@ -76,8 +90,9 @@ export const WebsocketController = (props: Props) => {
           setCountDown={setCountDown}
           updatePosition={updatePosition}
           updateCountDown={updateCountDown}
-          ID={ID}
+          name={name}
           raceState={raceState}
+          ID={ID}
         />
       )}
     </>

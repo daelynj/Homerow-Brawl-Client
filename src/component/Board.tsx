@@ -18,6 +18,7 @@ interface Props {
   currentWordIndex: number;
   finishTime: number;
   incorrectLetters: number;
+  name: string;
   ID: number;
   countDown: boolean;
   countUp: boolean;
@@ -74,6 +75,7 @@ export const Board = (props: Props) => {
         {
           <Race
             ID={props.ID}
+            name={props.name}
             raceState={props.raceState}
             updatePosition={props.updatePosition}
             wordsLength={props.words.length}

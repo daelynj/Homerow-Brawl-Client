@@ -6,7 +6,6 @@ import * as slack from "./slack/api/handleSlackOAuth";
 
 export const App = () => {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
-  const [name, setName] = useState<string>("");
 
   const slackSignIn = () => {
     var entryURL = "http://" + window.location.host + window.location.pathname;
@@ -19,10 +18,12 @@ export const App = () => {
 
   return (
     <>
-      {!authenticated && <SlackButton handleEvent={slackSignIn} />}
-      {!authenticated &&
-        slack.handleURL(authenticated, setAuthenticated, setName)}
-      {authenticated && <SignOn name={name} />}
+      {!sessionStorage.getItem("authenticated") && (
+        <SlackButton handleEvent={slackSignIn} />
+      )}
+      {!sessionStorage.getItem("authenticated") &&
+        slack.handleURL(setAuthenticated)}
+      {sessionStorage.getItem("authenticated") && <SignOn />}
     </>
   );
 };

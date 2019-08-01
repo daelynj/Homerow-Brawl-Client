@@ -6,6 +6,7 @@ interface Props {
   currentWordIndex: number;
   updatePosition: (newPosition: any) => void;
   raceState: any;
+  name: string;
   ID: number;
 }
 
