@@ -13,7 +13,7 @@ interface Props {
 export const Race = (props: Props) => {
   const generateRace = () =>
     props.raceState.players.map((player: any, index: number) => (
-      <Player key={index} position={player.position} />
+      <Player key={index} position={player.position} name={player.name} />
     ));
 
   const updatePosition = () => {
