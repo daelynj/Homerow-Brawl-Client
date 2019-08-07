@@ -45,6 +45,7 @@ export const WebsocketController = (props: Props) => {
 
   const updateJoin = (uuid: string) => {
     var joinUpdate = {
+      type: "join",
       uuid: uuid
     };
 
@@ -53,6 +54,7 @@ export const WebsocketController = (props: Props) => {
 
   const updatePosition = (position: number) => {
     var positionUpdate = {
+      type: "position",
       id: ID,
       uuid: uuid,
       name: name,
@@ -64,6 +66,7 @@ export const WebsocketController = (props: Props) => {
 
   const updateCountDown = (countDown: boolean) => {
     var countDownUpdate = {
+      type: "countdown",
       uuid: uuid,
       countdown: countDown
     };
