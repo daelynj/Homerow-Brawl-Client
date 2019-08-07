@@ -20,12 +20,12 @@ export const WebsocketController = (props: Props) => {
   const handleData = (data: any) => {
     let update = JSON.parse(data);
 
-    if (update.hasOwnProperty("name") && Object.keys(update).length === 2) {
+    if (update.type === "join") {
       setName(update.name);
       setID(update.id);
-    } else if (update.hasOwnProperty("players")) {
+    } else if (update.type === "position") {
       setRaceState(update);
-    } else if (update.hasOwnProperty("countdown")) {
+    } else if (update.type === "countdown") {
       setCountDown(update.countdown);
     }
   };
