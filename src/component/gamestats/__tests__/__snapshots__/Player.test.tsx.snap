@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player renders the described Player 1`] = `
+<span>
+  <div>
+    name: octane
+  </div>
+  <div>
+    WPM: 100
+  </div>
+  <div>
+    accuracy: 75%
+  </div>
+  <div>
+    words typed: 50
+  </div>
+  <div>
+    time: 50 seconds
+  </div>
+  <div>
+    mistakes: 3
+  </div>
+</span>
+`;
