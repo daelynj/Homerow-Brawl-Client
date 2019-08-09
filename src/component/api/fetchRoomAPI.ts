@@ -1,5 +1,5 @@
 export const fetchRoomAPI = (path: any, setRoomStatus: any) => {
-  fetch("http://localhost:3000/api/rooms/" + path, {
+  fetch("https://typinggame-server.herokuapp.com/api/rooms/" + path, {
     method: "GET",
     mode: "cors"
   })

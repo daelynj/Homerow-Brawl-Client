@@ -15,7 +15,11 @@ interface Props {
 }
 
 export const Game = (props: Props) => {
-  const [words] = useState<String[]>("this is text".split(" "));
+  const [words] = useState<String[]>(
+    "This is text that you are typing in a typing game! Can you believe someone got paid $20/hr to make this game? Pretty insane, right?".split(
+      " "
+    )
+  );
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
   const [currentInput, setCurrentInput] = useState<string>("");
   const [finishTime, setFinishTime] = useState<number>(0);

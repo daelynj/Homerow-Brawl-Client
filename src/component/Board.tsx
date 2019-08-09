@@ -80,7 +80,7 @@ export const Board = (props: Props) => {
       <div className="text">{!props.endGame() && renderText()}</div>
       <div className="typing-box">{!props.endGame() && renderTypingBox()}</div>
       <div className="timer">{!props.endGame() && renderTimer()}</div>
-      <div className="gamestats">
+      <span className="gamestats">
         {
           <GameStats
             ID={props.ID}
@@ -92,7 +92,7 @@ export const Board = (props: Props) => {
             statsState={props.statsState}
           />
         }
-      </div>
+      </span>
     </div>
   );
 };

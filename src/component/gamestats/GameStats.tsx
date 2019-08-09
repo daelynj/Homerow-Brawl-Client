@@ -35,12 +35,13 @@ export const GameStats = (props: Props) => {
 
     if (props.statsState === null) {
       props.updateStats(new_stats);
-    } else {
-      let old_stats = props.statsState.players.find(byID).words_typed;
+    } else if (typeof props.statsState.players.find(byID) === "undefined") {
+      props.updateStats(new_stats);
+      // let old_stats = props.statsState.players.find(byID).words_typed;
 
-      if (old_stats !== new_stats.wordsTyped) {
-        props.updateStats(new_stats);
-      }
+      // if (old_stats !== new_stats.wordsTyped) {
+      //   props.updateStats(new_stats);
+      // }
     }
   };
 

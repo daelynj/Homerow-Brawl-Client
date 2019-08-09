@@ -95,7 +95,7 @@ export const WebsocketController = (props: Props) => {
   return (
     <>
       <Websocket
-        url={"ws://localhost:3000/".concat(props.path)}
+        url={"ws://typinggame-server.herokuapp.com/".concat(props.path)}
         onMessage={handleData}
         onOpen={handleOpen}
         onClose={handleClose}
