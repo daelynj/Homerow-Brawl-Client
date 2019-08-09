@@ -6,7 +6,6 @@ import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 
 describe("Board", () => {
-  const setStart = jest.fn();
   const setCurrentInput = jest.fn();
   const setCurrentWordIndex = jest.fn();
   const setFinishTime = jest.fn();
@@ -16,11 +15,11 @@ describe("Board", () => {
   const setCountUp = jest.fn();
   const setCountDown = jest.fn();
   const updateCountDown = jest.fn();
+  const updateStats = jest.fn();
 
   const buildProps = (newProps = {}) => ({
     words: ["this", "is", "text"],
     start: false,
-    setStart,
     currentWordSubstring: "",
     currentInput: "",
     setCurrentInput,
@@ -39,6 +38,9 @@ describe("Board", () => {
     setCountUp,
     setCountDown,
     updateCountDown,
+    updateStats,
+    name: "octane",
+    statsState: null,
     ...newProps
   });
 
@@ -50,8 +52,7 @@ describe("Board", () => {
       expect(BoardComponent.find("TypingBox").exists()).toBe(true);
       expect(BoardComponent.find("Race").exists()).toBe(true);
       expect(BoardComponent.find("Timer").exists()).toBe(true);
-
-      expect(BoardComponent.find("GameStats").exists()).toBe(false);
+      expect(BoardComponent.find("GameStats").exists()).toBe(true);
     });
   });
 
@@ -63,8 +64,7 @@ describe("Board", () => {
       expect(BoardComponent.find("TypingBox").exists()).toBe(true);
       expect(BoardComponent.find("Timer").exists()).toBe(true);
       expect(BoardComponent.find("Race").exists()).toBe(true);
-
-      expect(BoardComponent.find("GameStats").exists()).toBe(false);
+      expect(BoardComponent.find("GameStats").exists()).toBe(true);
     });
   });
 

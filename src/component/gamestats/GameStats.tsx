@@ -1,43 +1,59 @@
 import * as React from "react";
+import { Player } from "./Player";
 
 interface Props {
+  updateStats: (newStats: any) => void;
+  statsState: any;
+  endGame: () => boolean;
   words: String[];
   incorrectLetters: number;
   finishTime: number;
+  ID: number;
 }
 
 export const GameStats = (props: Props) => {
-  const getLettersTyped = () => {
-    return props.words.join("").length;
+  const generateStats = () =>
+    props.statsState.players.map((player: any, index: number) => (
+      <Player
+        key={index}
+        name={player.name}
+        WPM={player.wpm}
+        accuracy={player.accuracy}
+        wordsTyped={player.words_typed}
+        time={player.time}
+        mistakes={player.mistakes}
+      />
+    ));
+
+  const updateStats = () => {
+    let new_stats = {
+      wordsTyped: props.words.length,
+      time: props.finishTime,
+      mistakes: props.incorrectLetters,
+      lettersTyped: props.words.join("").length
+    };
+
+    if (props.statsState === null) {
+      props.updateStats(new_stats);
+    } else {
+      let old_stats = props.statsState.players.find(byID).words_typed;
+
+      if (old_stats !== new_stats.wordsTyped) {
+        props.updateStats(new_stats);
+      }
+    }
   };
 
-  const calculateAccuracy = () => {
-    let letters: number = getLettersTyped();
-    let accuracy: any = (
-      ((letters - props.incorrectLetters) / letters) *
-      100
-    ).toFixed(1);
-
-    return accuracy > 0 ? accuracy : 0;
-  };
-
-  //https://www.speedtypingonline.com/typing-equations
-  const calculateWPM = () => {
-    let allTypedEntries: number = getLettersTyped();
-    let averageWordLength: number = 5;
-    let timePlayed: number = props.finishTime / 60;
-    let grossWPM: number = allTypedEntries / averageWordLength / timePlayed;
-
-    return Math.round(grossWPM);
+  const byID = (player: any) => {
+    if (player.id === props.ID) {
+      return player;
+    }
   };
 
   return (
-    <div>
-      <div>{"words typed: " + props.words.length}</div>
-      <div>{"WPM: " + calculateWPM()}</div>
-      <div>{"time: " + props.finishTime + " seconds"}</div>
-      <div>{"mistakes: " + props.incorrectLetters}</div>
-      <div>{"accuracy: " + calculateAccuracy() + "%"}</div>
-    </div>
+    <>
+      {props.statsState !== null && generateStats()}
+      {props.endGame() && updateStats()}
+    </>
   );
 };

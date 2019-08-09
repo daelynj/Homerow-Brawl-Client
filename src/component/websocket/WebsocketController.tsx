@@ -12,6 +12,7 @@ export const WebsocketController = (props: Props) => {
   const [socketOpen, setSocketOpen] = useState<boolean>(props.socketOpen);
   const [refWebSocket, setRefWebSocket] = useState<any>();
   const [raceState, setRaceState] = useState<any>(null);
+  const [statsState, setStatsState] = useState<any>(null);
   const [name, setName] = useState<any>(null);
   const [ID, setID] = useState<any>(null);
   const [countDown, setCountDown] = useState<boolean>(false);
@@ -27,6 +28,8 @@ export const WebsocketController = (props: Props) => {
       setRaceState(update);
     } else if (update.type === "countdown") {
       setCountDown(update.countdown);
+    } else if (update.type === "stats") {
+      setStatsState(update);
     }
   };
 
@@ -74,6 +77,21 @@ export const WebsocketController = (props: Props) => {
     sendMessage(countDownUpdate);
   };
 
+  const updateStats = (stats: any) => {
+    var statsUpdate = {
+      type: "stats",
+      uuid: uuid,
+      id: ID,
+      name: name,
+      words_typed: stats.wordsTyped,
+      time: stats.time,
+      mistakes: stats.mistakes,
+      letters_typed: stats.lettersTyped
+    };
+
+    sendMessage(statsUpdate);
+  };
+
   return (
     <>
       <Websocket
@@ -89,10 +107,12 @@ export const WebsocketController = (props: Props) => {
       />
       {socketOpen && (
         <Game
+          statsState={statsState}
           countDown={countDown}
           setCountDown={setCountDown}
           updatePosition={updatePosition}
           updateCountDown={updateCountDown}
+          updateStats={updateStats}
           name={name}
           raceState={raceState}
           ID={ID}

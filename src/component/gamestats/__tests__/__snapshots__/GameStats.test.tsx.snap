@@ -1,21 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GameStats renders the expected game stats 1`] = `
-<div>
+<span>
+  <div>
+    name: octane
+  </div>
+  <div>
+    WPM: 120
+  </div>
+  <div>
+    accuracy: 86%
+  </div>
   <div>
     words typed: 11
   </div>
   <div>
-    WPM: 33
-  </div>
-  <div>
-    time: 15 seconds
+    time: 7 seconds
   </div>
   <div>
     mistakes: 3
   </div>
-  <div>
-    accuracy: 92.7%
-  </div>
-</div>
+</span>
+`;
+
+exports[`GameStats renders two stat blocks 1`] = `
+Array [
+  <span>
+    <div>
+      name: octane
+    </div>
+    <div>
+      WPM: 120
+    </div>
+    <div>
+      accuracy: 86%
+    </div>
+    <div>
+      words typed: 11
+    </div>
+    <div>
+      time: 7 seconds
+    </div>
+    <div>
+      mistakes: 3
+    </div>
+  </span>,
+  <span>
+    <div>
+      name: dominus
+    </div>
+    <div>
+      WPM: 60
+    </div>
+    <div>
+      accuracy: 100%
+    </div>
+    <div>
+      words typed: 11
+    </div>
+    <div>
+      time: 14 seconds
+    </div>
+    <div>
+      mistakes: 0
+    </div>
+  </span>,
+]
 `;
