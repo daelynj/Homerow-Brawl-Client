@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./css/Player.css";
 
 interface Props {
   name: string;
@@ -10,7 +11,7 @@ interface Props {
 }
 
 export const Player = (props: Props) => (
-  <span>
+  <span className="Player">
     <div>{"name: " + props.name}</div>
     <div>{"WPM: " + props.WPM}</div>
     <div>{"accuracy: " + props.accuracy + "%"}</div>
