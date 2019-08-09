@@ -6,7 +6,9 @@ interface Props {
   updatePosition: (newPosition: number) => void;
   setCountDown: (newCountDown: boolean) => void;
   updateCountDown: (newCountDown: boolean) => void;
+  updateStats: (newStats: any) => void;
   raceState: any;
+  statsState: any;
   name: string;
   countDown: boolean;
   ID: number;
@@ -76,6 +78,8 @@ export const Game = (props: Props) => {
             checkLetter={checkLetter}
             incorrectLetters={incorrectLetters}
             ID={props.ID}
+            updateStats={props.updateStats}
+            statsState={props.statsState}
           />
         }
       </div>

@@ -8,6 +8,7 @@ configure({ adapter: new Adapter() });
 const updatePosition = jest.fn();
 const setCountDown = jest.fn();
 const updateCountDown = jest.fn();
+const updateStats = jest.fn();
 
 const buildProps = (newProps = {}) => ({
   updatePosition,
@@ -16,6 +17,9 @@ const buildProps = (newProps = {}) => ({
   setCountDown,
   updateCountDown,
   countDown: false,
+  updateStats,
+  name: "octane",
+  statsState: null,
   ...newProps
 });
 

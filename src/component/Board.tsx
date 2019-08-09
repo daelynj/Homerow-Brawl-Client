@@ -15,6 +15,7 @@ interface Props {
   updateCountDown: (updateCountDown: boolean) => void;
   endGame: () => boolean;
   checkLetter: () => void;
+  updateStats: (newStats: any) => void;
   currentWordIndex: number;
   finishTime: number;
   incorrectLetters: number;
@@ -26,6 +27,7 @@ interface Props {
   currentInput: string;
   currentWordSubstring: any;
   raceState: any;
+  statsState: any;
 }
 
 export const Board = (props: Props) => {
@@ -61,14 +63,6 @@ export const Board = (props: Props) => {
     />
   );
 
-  const renderGameStats = () => (
-    <GameStats
-      words={props.words}
-      finishTime={props.finishTime}
-      incorrectLetters={props.incorrectLetters}
-    />
-  );
-
   return (
     <div className="board">
       <div className="race">
@@ -86,7 +80,19 @@ export const Board = (props: Props) => {
       <div className="text">{!props.endGame() && renderText()}</div>
       <div className="typing-box">{!props.endGame() && renderTypingBox()}</div>
       <div className="timer">{!props.endGame() && renderTimer()}</div>
-      <div className="gamestats">{props.endGame() && renderGameStats()}</div>
+      <div className="gamestats">
+        {
+          <GameStats
+            ID={props.ID}
+            endGame={props.endGame}
+            words={props.words}
+            finishTime={props.finishTime}
+            incorrectLetters={props.incorrectLetters}
+            updateStats={props.updateStats}
+            statsState={props.statsState}
+          />
+        }
+      </div>
     </div>
   );
 };

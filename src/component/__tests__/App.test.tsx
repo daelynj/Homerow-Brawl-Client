@@ -10,6 +10,6 @@ describe("App", () => {
     const wrapper = mount(<App />);
 
     expect(wrapper.find("WebsocketController").length).toEqual(0);
-    expect(wrapper.find("Welcome").length).toEqual(1);
+    expect(wrapper.find("Welcome").length).toEqual(0);
   });
 });
