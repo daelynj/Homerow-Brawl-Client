@@ -7,14 +7,12 @@ interface Props {
 }
 
 export const Player = (props: Props) => (
-  <div>
+  <div
+    style={{
+      paddingLeft: props.position + "%"
+    }}
+  >
     {props.name}
-    <img
-      style={{
-        paddingLeft: props.position + "%"
-      }}
-      src={octane}
-      alt="Octane"
-    />
+    <img src={octane} alt="Octane" />
   </div>
 );
