@@ -18,11 +18,15 @@ export const App = () => {
 
   return (
     <>
-      {!sessionStorage.getItem("authenticated") && (
-        <SlackButton handleEvent={slackSignIn} />
-      )}
+      {!sessionStorage.getItem("authenticated") &&
+        window.location.href.length < 45 && (
+          <SlackButton handleEvent={slackSignIn} />
+        )}
       {!sessionStorage.getItem("authenticated") &&
         slack.handleURL(setAuthenticated)}
+      {!sessionStorage.getItem("authenticated") &&
+        window.location.href.length > 45 &&
+        "authenticating..."}
       {sessionStorage.getItem("authenticated") && <SignOn />}
     </>
   );
