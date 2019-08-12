@@ -17,6 +17,7 @@ export const WebsocketController = (props: Props) => {
   const [ID, setID] = useState<any>(null);
   const [countDown, setCountDown] = useState<boolean>(false);
   const [uuid] = useState<any>(sessionStorage.getItem("uuid"));
+  const [gameInProgress, setGameInProgress] = useState<boolean>(false);
 
   const handleData = (data: any) => {
     let update = JSON.parse(data);
@@ -30,6 +31,8 @@ export const WebsocketController = (props: Props) => {
       setCountDown(update.countdown);
     } else if (update.type === "stats") {
       setStatsState(update);
+    } else if (update.type === "game_started") {
+      setGameInProgress(true);
     }
   };
 
@@ -105,7 +108,8 @@ export const WebsocketController = (props: Props) => {
           setRefWebSocket(Websocket);
         }}
       />
-      {socketOpen && (
+      {gameInProgress && "Game in progress"}
+      {!gameInProgress && socketOpen && (
         <Game
           statsState={statsState}
           countDown={countDown}
