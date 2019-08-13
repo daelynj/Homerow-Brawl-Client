@@ -40,14 +40,12 @@ export const TypingBox = (props: Props) => {
   };
 
   return (
-    <div className="TypingBox">
-      <input
-        type="text"
-        value={props.value}
-        onKeyUp={detectBackspace}
-        onKeyDown={detectSpace}
-        onChange={handleChange}
-      />
-    </div>
+    <input
+      type="text"
+      value={props.value}
+      onKeyUp={detectBackspace}
+      onKeyDown={detectSpace}
+      onChange={handleChange}
+    />
   );
 };

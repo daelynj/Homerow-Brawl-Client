@@ -9,7 +9,7 @@ export const Welcome = () => {
   const [error, setError] = useState<any>(false);
 
   return (
-    <div>
+    <>
       {roomID < 0 && (
         <WelcomeButton
           handleEvent={createRoomAPI(setRoomID, setIsLoaded, setError)}
@@ -17,6 +17,6 @@ export const Welcome = () => {
       )}
       {!error && isLoaded && window.location.origin + "/" + roomID}
       {error && error.message}
-    </div>
+    </>
   );
 };

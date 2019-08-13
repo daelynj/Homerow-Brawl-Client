@@ -21,9 +21,9 @@ export const CountUpTimer = (props: Props) => {
   };
 
   return (
-    <div>
+    <>
       <div>Go!</div>
       Timer: {seconds}
-    </div>
+    </>
   );
 };

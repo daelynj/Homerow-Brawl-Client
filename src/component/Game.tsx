@@ -16,9 +16,7 @@ interface Props {
 
 export const Game = (props: Props) => {
   const [words] = useState<String[]>(
-    "This is text that you are typing in a typing game! Can you believe someone got paid $20/hr to make this game? Pretty insane, right?".split(
-      " "
-    )
+    "This is text that you are typing in a typing game!".split(" ")
   );
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
   const [currentInput, setCurrentInput] = useState<string>("");
@@ -58,35 +56,33 @@ export const Game = (props: Props) => {
   };
 
   return (
-    <div className="game">
-      <div className="board">
-        {
-          <Board
-            updateCountDown={props.updateCountDown}
-            countDown={props.countDown}
-            setCountDown={props.setCountDown}
-            countUp={countUp}
-            setCountUp={setCountUp}
-            name={props.name}
-            raceState={props.raceState}
-            updatePosition={props.updatePosition}
-            words={words}
-            currentWordSubstring={getCurrentWordSubstring()}
-            currentInput={currentInput}
-            setCurrentInput={setCurrentInput}
-            currentWordIndex={currentWordIndex}
-            setCurrentWordIndex={setCurrentWordIndex}
-            endGame={endGame}
-            finishTime={finishTime}
-            setFinishTime={setFinishTime}
-            checkLetter={checkLetter}
-            incorrectLetters={incorrectLetters}
-            ID={props.ID}
-            updateStats={props.updateStats}
-            statsState={props.statsState}
-          />
-        }
-      </div>
-    </div>
+    <>
+      {
+        <Board
+          updateCountDown={props.updateCountDown}
+          countDown={props.countDown}
+          setCountDown={props.setCountDown}
+          countUp={countUp}
+          setCountUp={setCountUp}
+          name={props.name}
+          raceState={props.raceState}
+          updatePosition={props.updatePosition}
+          words={words}
+          currentWordSubstring={getCurrentWordSubstring()}
+          currentInput={currentInput}
+          setCurrentInput={setCurrentInput}
+          currentWordIndex={currentWordIndex}
+          setCurrentWordIndex={setCurrentWordIndex}
+          endGame={endGame}
+          finishTime={finishTime}
+          setFinishTime={setFinishTime}
+          checkLetter={checkLetter}
+          incorrectLetters={incorrectLetters}
+          ID={props.ID}
+          updateStats={props.updateStats}
+          statsState={props.statsState}
+        />
+      }
+    </>
   );
 };

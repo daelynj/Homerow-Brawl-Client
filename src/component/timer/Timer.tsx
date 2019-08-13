@@ -27,10 +27,10 @@ export const Timer = (props: Props) => {
   };
 
   return (
-    <div>
+    <>
       {!props.countDown && <CountDownButton handleEvent={handleEvent} />}
       {!props.countUp && props.countDown && renderCountDownTimer()}
       {props.countUp && renderCountUpTimer()}
-    </div>
+    </>
   );
 };

@@ -64,35 +64,31 @@ export const Board = (props: Props) => {
   );
 
   return (
-    <div className="board">
-      <div className="race">
-        {
-          <Race
-            ID={props.ID}
-            name={props.name}
-            raceState={props.raceState}
-            updatePosition={props.updatePosition}
-            wordsLength={props.words.length}
-            currentWordIndex={props.currentWordIndex}
-          />
-        }
-      </div>
-      <div className="text">{!props.endGame() && renderText()}</div>
-      <div className="typing-box">{!props.endGame() && renderTypingBox()}</div>
-      <div className="timer">{!props.endGame() && renderTimer()}</div>
-      <span className="gamestats">
-        {
-          <GameStats
-            ID={props.ID}
-            endGame={props.endGame}
-            words={props.words}
-            finishTime={props.finishTime}
-            incorrectLetters={props.incorrectLetters}
-            updateStats={props.updateStats}
-            statsState={props.statsState}
-          />
-        }
-      </span>
-    </div>
+    <>
+      {
+        <Race
+          ID={props.ID}
+          name={props.name}
+          raceState={props.raceState}
+          updatePosition={props.updatePosition}
+          wordsLength={props.words.length}
+          currentWordIndex={props.currentWordIndex}
+        />
+      }
+      {!props.endGame() && renderText()}
+      {!props.endGame() && renderTypingBox()}
+      {!props.endGame() && renderTimer()}
+      {
+        <GameStats
+          ID={props.ID}
+          endGame={props.endGame}
+          words={props.words}
+          finishTime={props.finishTime}
+          incorrectLetters={props.incorrectLetters}
+          updateStats={props.updateStats}
+          statsState={props.statsState}
+        />
+      }
+    </>
   );
 };
