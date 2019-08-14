@@ -4,7 +4,7 @@ export const createRoomAPI = (
   setError: any
 ) => {
   return (event: React.MouseEvent) => {
-    fetch("https://typinggame-server.herokuapp.com/api/rooms", {
+    fetch("http://localhost:3000/api/rooms", {
       method: "POST",
       mode: "cors"
     })

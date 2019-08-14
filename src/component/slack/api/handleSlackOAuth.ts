@@ -15,7 +15,7 @@ const getSlackOAuth = (code: any, setAuthenticated: any) => {
   var entryURL = "http://" + window.location.host + window.location.pathname;
   var data: any = { code: code, redirectURI: entryURL };
 
-  fetch("https://typinggame-server.herokuapp.com/api/slack/oauth", {
+  fetch("http://localhost:3000/api/slack/oauth", {
     method: "POST",
     mode: "cors",
     headers: { "Content-Type": "application/json" },

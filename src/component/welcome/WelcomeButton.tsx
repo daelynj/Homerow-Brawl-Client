@@ -5,7 +5,5 @@ interface Props {
 }
 
 export const WelcomeButton = (props: Props) => (
-  <div>
-    <button onClick={props.handleEvent}>Generate lobby</button>
-  </div>
+  <button onClick={props.handleEvent}>Generate lobby</button>
 );
