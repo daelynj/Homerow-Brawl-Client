@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./css/TypingBox.css";
 
 interface Props {
   value: string;
@@ -41,6 +42,7 @@ export const TypingBox = (props: Props) => {
 
   return (
     <input
+      className="box"
       type="text"
       value={props.value}
       onKeyUp={detectBackspace}

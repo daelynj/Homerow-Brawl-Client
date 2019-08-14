@@ -1,0 +1,7 @@
+.box {
+  padding: 1%;
+  margin: 1%;
+  font-size: 20px;
+  width: 90%;
+  border: 5px solid goldenrod;
+}
