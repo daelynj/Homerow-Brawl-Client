@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Letter } from "./Letter";
-import "./css/Word.css";
 
 interface Props {
   word: String;
@@ -38,5 +37,5 @@ export const Word = (props: Props) => {
     }
   };
 
-  return <span className="Word">{generateLetters()}</span>;
+  return <span>{generateLetters()}</span>;
 };

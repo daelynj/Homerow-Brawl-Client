@@ -15,7 +15,7 @@ export const Text = (props: Props) => {
         key={index}
         onCurrentWord={index === props.currentWordIndex}
         onPastWords={index < props.currentWordIndex}
-        word={word}
+        word={word + " "}
         currentWordSubstring={props.currentWordSubstring}
         input={props.input}
       />
