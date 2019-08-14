@@ -1,0 +1,27 @@
+.app {
+  margin: 2%;
+  border: 2px solid red;
+  height: 55em;
+}
+
+.app__title {
+  text-align: center;
+  font-size: 32pt;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  border: 5px solid green;
+  padding: 5%;
+}
+
+.app__bottom {
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid blue;
+  height: 60%;
+  width: 75%;
+}
+
+.app__bottom--button {
+  text-align: center;
+}
