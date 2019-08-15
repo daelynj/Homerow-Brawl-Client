@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GameStats renders the expected game stats 1`] = `
-<span>
-  <div>
+<span
+  className="player"
+>
+  <div
+    className="player__name"
+  >
     name: octane
   </div>
   <div>
@@ -25,8 +29,12 @@ exports[`GameStats renders the expected game stats 1`] = `
 
 exports[`GameStats renders two stat blocks 1`] = `
 Array [
-  <span>
-    <div>
+  <span
+    className="player"
+  >
+    <div
+      className="player__name"
+    >
       name: octane
     </div>
     <div>
@@ -45,8 +53,12 @@ Array [
       mistakes: 3
     </div>
   </span>,
-  <span>
-    <div>
+  <span
+    className="player"
+  >
+    <div
+      className="player__name"
+    >
       name: dominus
     </div>
     <div>

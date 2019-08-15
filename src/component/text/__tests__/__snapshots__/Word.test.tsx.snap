@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Word generateLetters renders the expected letters in green and black 1`] = `
-<span
-  className="Word"
->
+<span>
   <span
     className="green"
   >
@@ -28,9 +26,7 @@ exports[`Word generateLetters renders the expected letters in green and black 1`
 `;
 
 exports[`Word generateLetters renders the expected letters in green and red 1`] = `
-<span
-  className="Word"
->
+<span>
   <span
     className="green"
   >
@@ -55,9 +51,7 @@ exports[`Word generateLetters renders the expected letters in green and red 1`] 
 `;
 
 exports[`Word generateLetters renders the expected letters in red and black 1`] = `
-<span
-  className="Word"
->
+<span>
   <span
     className="red"
   >
@@ -82,9 +76,7 @@ exports[`Word generateLetters renders the expected letters in red and black 1`] 
 `;
 
 exports[`Word generateLetters renders the expected word in black 1`] = `
-<span
-  className="Word"
->
+<span>
   <span
     className="black"
   >
@@ -109,9 +101,7 @@ exports[`Word generateLetters renders the expected word in black 1`] = `
 `;
 
 exports[`Word generateLetters renders the past words as green 1`] = `
-<span
-  className="Word"
->
+<span>
   <span
     className="green"
   >

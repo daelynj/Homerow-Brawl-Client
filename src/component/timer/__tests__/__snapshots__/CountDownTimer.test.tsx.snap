@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CountDownTimer renders the CountDownTimer 1`] = `
-<div>
+<div
+  className="countdown"
+>
+  <div>
+    Get ready to type!
+  </div>
   Timer: 
   5
 </div>

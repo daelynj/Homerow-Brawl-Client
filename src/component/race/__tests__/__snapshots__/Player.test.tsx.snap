@@ -1,15 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Player renders the described Player 1`] = `
-<div>
+<div
+  style={
+    Object {
+      "paddingLeft": "10%",
+      "textAlign": "left",
+    }
+  }
+>
   <img
     alt="Octane"
     src="octane.png"
-    style={
-      Object {
-        "paddingLeft": "10%",
-      }
-    }
   />
+  <div />
 </div>
 `;
