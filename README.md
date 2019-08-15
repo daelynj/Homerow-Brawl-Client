@@ -1,4 +1,4 @@
-## Homerow Brawl
+# Homerow Brawl
 
 Homerow Brawl is a React.js web application written in TypeScript using functional components and React hooks exclusively.
 The game also employs websockets to a [Hanami web server](https://github.com/daelynj/Homerow-Brawl-Server).
