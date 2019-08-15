@@ -9,10 +9,11 @@ interface Props {
 export const Player = (props: Props) => (
   <div
     style={{
+      textAlign: "left",
       paddingLeft: props.position + "%"
     }}
   >
-    {props.name}
     <img src={octane} alt="Octane" />
+    <div>{props.name}</div>
   </div>
 );
