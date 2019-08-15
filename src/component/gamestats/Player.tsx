@@ -11,8 +11,8 @@ interface Props {
 }
 
 export const Player = (props: Props) => (
-  <span className="Player">
-    <div>{"name: " + props.name}</div>
+  <span className="player">
+    <div className="player__name">{"name: " + props.name}</div>
     <div>{"WPM: " + props.WPM}</div>
     <div>{"accuracy: " + props.accuracy + "%"}</div>
     <div>{"words typed: " + props.wordsTyped}</div>
