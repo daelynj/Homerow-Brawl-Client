@@ -2,6 +2,7 @@ import * as React from "react";
 import { Game } from "../Game";
 import Websocket from "react-websocket";
 import { useState } from "react";
+import "./css/WebsocketController.css";
 
 interface Props {
   socketOpen: boolean;
@@ -108,7 +109,7 @@ export const WebsocketController = (props: Props) => {
           setRefWebSocket(Websocket);
         }}
       />
-      {gameInProgress && "Game in progress"}
+      <div className="progress">{gameInProgress && "Game in progress"}</div>
       {!gameInProgress && socketOpen && (
         <Game
           statsState={statsState}
