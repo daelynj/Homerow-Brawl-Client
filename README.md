@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/daelynj/Homerow-Brawl-Client.svg?branch=master)](https://travis-ci.com/daelynj/Homerow-Brawl-Client)
+
 # Homerow Brawl
 
 Homerow Brawl is a React.js web application written in TypeScript using functional components and React hooks exclusively.
