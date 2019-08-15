@@ -1,3 +1,10 @@
+Homerow Brawl is a React.js web application written in TypeScript using functional components and React hooks exclusively.
+The game also employs websockets to a [Hanami web server](https://github.com/daelynj/Homerow-Brawl-Server).
+
+Authentication for persistent user accounts are through Slack OAuth and maintined in the [Hanami project](https://github.com/daelynj/Homerow-Brawl-Server).
+
+The idea for this application is to provide a typing competition between geographically separate offices in an organization. By integrating with Slack through OAuth with a [Slack application](https://typinggame.slack.com/apps), your workspace can compete in typing races against each other in different rooms and groups at any time.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
