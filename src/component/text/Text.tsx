@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Word } from "./Word";
+import "./css/Text.css";
 
 interface Props {
   words: String[];
@@ -21,5 +22,5 @@ export const Text = (props: Props) => {
       />
     ));
 
-  return <div className="Words">{generateWords()}</div>;
+  return <div className="text">{generateWords()}</div>;
 };
