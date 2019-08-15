@@ -2,11 +2,9 @@
 
 exports[`Text renders the expected text 1`] = `
 <div
-  className="Words"
+  className="text"
 >
-  <span
-    className="Word"
-  >
+  <span>
     <span
       className="black"
     >
@@ -27,10 +25,13 @@ exports[`Text renders the expected text 1`] = `
     >
       s
     </span>
+    <span
+      className="black"
+    >
+       
+    </span>
   </span>
-  <span
-    className="Word"
-  >
+  <span>
     <span
       className="black"
     >
@@ -41,10 +42,13 @@ exports[`Text renders the expected text 1`] = `
     >
       s
     </span>
+    <span
+      className="black"
+    >
+       
+    </span>
   </span>
-  <span
-    className="Word"
-  >
+  <span>
     <span
       className="black"
     >
@@ -64,6 +68,11 @@ exports[`Text renders the expected text 1`] = `
       className="black"
     >
       t
+    </span>
+    <span
+      className="black"
+    >
+       
     </span>
   </span>
 </div>

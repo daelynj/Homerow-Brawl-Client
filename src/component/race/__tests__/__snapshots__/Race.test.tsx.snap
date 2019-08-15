@@ -1,56 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Race renders an image at position 0 1`] = `
-<div>
-  <img
-    alt="Octane"
-    src="octane.png"
+<div
+  className="race"
+>
+  <div
     style={
       Object {
         "paddingLeft": "0%",
+        "textAlign": "left",
       }
     }
-  />
+  >
+    <img
+      alt="Octane"
+      src="octane.png"
+    />
+    <div />
+  </div>
 </div>
 `;
 
 exports[`Race renders an image at position 10% 1`] = `
-<div>
-  <img
-    alt="Octane"
-    src="octane.png"
+<div
+  className="race"
+>
+  <div
     style={
       Object {
         "paddingLeft": "0%",
+        "textAlign": "left",
       }
     }
-  />
+  >
+    <img
+      alt="Octane"
+      src="octane.png"
+    />
+    <div />
+  </div>
 </div>
 `;
 
 exports[`Race renders two images 1`] = `
-Array [
-  <div>
+<div
+  className="race"
+>
+  <div
+    style={
+      Object {
+        "paddingLeft": "0%",
+        "textAlign": "left",
+      }
+    }
+  >
     <img
       alt="Octane"
       src="octane.png"
-      style={
-        Object {
-          "paddingLeft": "0%",
-        }
-      }
     />
-  </div>,
-  <div>
+    <div />
+  </div>
+  <div
+    style={
+      Object {
+        "paddingLeft": "0%",
+        "textAlign": "left",
+      }
+    }
+  >
     <img
       alt="Octane"
       src="octane.png"
-      style={
-        Object {
-          "paddingLeft": "0%",
-        }
-      }
     />
-  </div>,
-]
+    <div />
+  </div>
+</div>
 `;

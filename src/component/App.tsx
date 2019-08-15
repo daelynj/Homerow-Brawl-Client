@@ -2,7 +2,9 @@ import * as React from "react";
 import { useState } from "react";
 import { SignOn } from "./welcome/SignOn";
 import { SlackButton } from "./slack/SlackButton";
+import { Authenticate } from "./slack/Authenticate";
 import * as slack from "./slack/api/handleSlackOAuth";
+import "./css/App.css";
 
 export const App = () => {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
@@ -17,17 +19,21 @@ export const App = () => {
   };
 
   return (
-    <>
-      {!sessionStorage.getItem("authenticated") &&
-        window.location.href.length < 45 && (
-          <SlackButton handleEvent={slackSignIn} />
-        )}
-      {!sessionStorage.getItem("authenticated") &&
-        slack.handleURL(setAuthenticated)}
-      {!sessionStorage.getItem("authenticated") &&
-        window.location.href.length > 45 &&
-        "authenticating..."}
-      {sessionStorage.getItem("authenticated") && <SignOn />}
-    </>
+    <div className="app">
+      <div className="app__title">Welcome to Homerow Brawl</div>
+      <div className="app__bottom">
+        <div className="app__bottom--button">
+          {!sessionStorage.getItem("authenticated") &&
+            window.location.href.length < 45 && (
+              <SlackButton handleEvent={slackSignIn} />
+            )}
+        </div>
+        {!sessionStorage.getItem("authenticated") &&
+          slack.handleURL(setAuthenticated)}
+        {!sessionStorage.getItem("authenticated") &&
+          window.location.href.length > 45 && <Authenticate />}
+        {sessionStorage.getItem("authenticated") && <SignOn />}
+      </div>
+    </div>
   );
 };

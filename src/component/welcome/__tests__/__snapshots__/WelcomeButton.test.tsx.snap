@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WelcomeButton The button render renders a Generate lobby button 1`] = `
-<div>
-  <button
-    onClick={[MockFunction]}
-  >
-    Generate lobby
-  </button>
-</div>
+<button
+  onClick={[MockFunction]}
+>
+  Generate lobby
+</button>
 `;

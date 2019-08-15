@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Player } from "./Player";
+import "./css/Race.css";
 
 interface Props {
   wordsLength: number;
@@ -40,9 +41,9 @@ export const Race = (props: Props) => {
   };
 
   return (
-    <>
+    <div className="race">
       {raceStart() && generateRace()}
       {raceStart() && updatePosition()}
-    </>
+    </div>
   );
 };

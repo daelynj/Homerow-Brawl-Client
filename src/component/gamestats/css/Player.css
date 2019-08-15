@@ -1,5 +1,9 @@
-.Player {
+.player {
   float: left;
   padding-top: 10px;
   padding-left: 10px;
+}
+
+.player__name {
+  color: green;
 }

@@ -1,0 +1,10 @@
+.text {
+  font-size: 20px;
+  padding: 1%;
+  text-align: left;
+  border: 5px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  word-break: break-word;
+}

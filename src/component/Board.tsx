@@ -4,6 +4,7 @@ import { Text } from "./text/Text";
 import { TypingBox } from "./typingbox/TypingBox";
 import { Timer } from "./timer/Timer";
 import { GameStats } from "./gamestats/GameStats";
+import "./css/Board.css";
 
 interface Props {
   setCurrentInput: (newInput: string) => void;
@@ -76,7 +77,7 @@ export const Board = (props: Props) => {
         />
       }
       {!props.endGame() && renderText()}
-      {!props.endGame() && renderTypingBox()}
+      <div className="input"> {!props.endGame() && renderTypingBox()} </div>
       {!props.endGame() && renderTimer()}
       {
         <GameStats

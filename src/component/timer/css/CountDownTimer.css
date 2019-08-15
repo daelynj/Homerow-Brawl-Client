@@ -1,0 +1,8 @@
+.countdown {
+  font-size: 20pt;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  border: 5px solid red;
+  text-align: center;
+}
