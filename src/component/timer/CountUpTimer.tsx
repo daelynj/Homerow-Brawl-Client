@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import "./css/CountUpTimer.css";
 
 interface Props {
   setFinishTime: (newTime: number) => void;
@@ -21,9 +22,9 @@ export const CountUpTimer = (props: Props) => {
   };
 
   return (
-    <>
+    <div className="countup">
       <div>Go!</div>
       Timer: {seconds}
-    </>
+    </div>
   );
 };
