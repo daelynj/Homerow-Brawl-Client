@@ -4,6 +4,9 @@ exports[`Player renders the described Player 1`] = `
 <span
   className="player"
 >
+  <div>
+    1st
+  </div>
   <div
     className="player__name"
   >

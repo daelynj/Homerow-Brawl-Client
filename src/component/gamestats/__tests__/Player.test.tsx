@@ -13,6 +13,7 @@ describe("Player", () => {
           wordsTyped={50}
           time={50}
           mistakes={3}
+          place={0}
         />
       )
       .toJSON();

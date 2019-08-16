@@ -16,6 +16,7 @@ export const GameStats = (props: Props) => {
     props.statsState.players.map((player: any, index: number) => (
       <Player
         key={index}
+        place={index}
         name={player.name}
         WPM={player.wpm}
         accuracy={player.accuracy}
