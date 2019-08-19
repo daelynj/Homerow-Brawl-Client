@@ -9,7 +9,6 @@ describe("App", () => {
   it("renders without crashing", () => {
     const wrapper = mount(<App />);
 
-    expect(wrapper.find("WebsocketController").length).toEqual(0);
-    expect(wrapper.find("Welcome").length).toEqual(0);
+    expect(wrapper.find("Authentication").length).toEqual(1);
   });
 });
