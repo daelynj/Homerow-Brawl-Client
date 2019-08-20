@@ -1,37 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GameStats renders the expected game stats 1`] = `
-<span
-  className="player"
+<div
+  className="stats"
 >
-  <div>
-    1st
-  </div>
-  <div
-    className="player__name"
-  >
-    name: octane
-  </div>
-  <div>
-    WPM: 120
-  </div>
-  <div>
-    accuracy: 86%
-  </div>
-  <div>
-    words typed: 11
-  </div>
-  <div>
-    time: 7 seconds
-  </div>
-  <div>
-    mistakes: 3
-  </div>
-</span>
-`;
-
-exports[`GameStats renders two stat blocks 1`] = `
-Array [
   <span
     className="player"
   >
@@ -58,7 +30,41 @@ Array [
     <div>
       mistakes: 3
     </div>
-  </span>,
+  </span>
+</div>
+`;
+
+exports[`GameStats renders two stat blocks 1`] = `
+<div
+  className="stats"
+>
+  <span
+    className="player"
+  >
+    <div>
+      1st
+    </div>
+    <div
+      className="player__name"
+    >
+      name: octane
+    </div>
+    <div>
+      WPM: 120
+    </div>
+    <div>
+      accuracy: 86%
+    </div>
+    <div>
+      words typed: 11
+    </div>
+    <div>
+      time: 7 seconds
+    </div>
+    <div>
+      mistakes: 3
+    </div>
+  </span>
   <span
     className="player"
   >
@@ -85,6 +91,6 @@ Array [
     <div>
       mistakes: 0
     </div>
-  </span>,
-]
+  </span>
+</div>
 `;
