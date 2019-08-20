@@ -41,6 +41,10 @@
     ]
   },
   "devDependencies": {
+    "jest-localstorage-mock": "^2.4.0",
     "prettier": "1.18.2"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./src/setupTests.js"
   }
 }
