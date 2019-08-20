@@ -15,6 +15,7 @@ describe("Race", () => {
     updatePosition,
     raceState: { players: [{ id: 1, position: 0 }] },
     ID: 1,
+    name: "octane",
     ...newProps
   });
 
