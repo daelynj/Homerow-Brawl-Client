@@ -1,0 +1,14 @@
+.title {
+  border: 5px solid turquoise;
+}
+
+.history {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid orange;
+  width: 75%;
+}
