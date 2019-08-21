@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { fetchGlobalStatsAPI } from "./api/fetchGlobalStatsAPI";
 import { Game } from "./Game";
+import { Graph } from "./Graph";
 import "./css/Stats.css";
 
 export const Stats = () => {
@@ -42,6 +43,9 @@ export const Stats = () => {
       {globalStats && displayStats()}
       <div className="title">{globalStats && "Game History"}</div>
       <div className="history">{globalStats && displayGameHistory()}</div>
+      <div className="graph">
+        {globalStats && <Graph gamesPlayed={globalStats.games_played} />}
+      </div>
     </>
   );
 };
