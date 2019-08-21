@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game renders a game 1`] = `
+<span
+  className="game"
+>
+  <div>
+    date: Monday
+  </div>
+  <div>
+    time taken: 3 seconds
+  </div>
+  <div>
+    WPM: 15
+  </div>
+  <div>
+    accuracy: 100%
+  </div>
+  <div>
+    mistakes: 0
+  </div>
+  <div>
+    words typed: 4
+  </div>
+  <div>
+    letters typed: 20
+  </div>
+</span>
+`;
