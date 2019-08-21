@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { fetchRoomAPI } from "../api/fetchRoomAPI";
+import { fetchRoomAPI } from "./api/fetchRoomAPI";
 import { WebsocketController } from "../websocket/WebsocketController";
 import { Welcome } from "./Welcome";
 
