@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Player } from "./Player";
+import "./css/GameStats.css";
 
 interface Props {
   updateStats: (newStats: any) => void;
@@ -38,11 +39,6 @@ export const GameStats = (props: Props) => {
       props.updateStats(new_stats);
     } else if (typeof props.statsState.players.find(byID) === "undefined") {
       props.updateStats(new_stats);
-      // let old_stats = props.statsState.players.find(byID).words_typed;
-
-      // if (old_stats !== new_stats.wordsTyped) {
-      //   props.updateStats(new_stats);
-      // }
     }
   };
 
@@ -54,7 +50,9 @@ export const GameStats = (props: Props) => {
 
   return (
     <>
-      {props.statsState !== null && generateStats()}
+      <div className="stats">
+        {props.statsState !== null && generateStats()}
+      </div>
       {props.endGame() && updateStats()}
     </>
   );
