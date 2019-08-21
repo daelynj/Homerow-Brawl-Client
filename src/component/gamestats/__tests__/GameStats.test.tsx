@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GameStats } from "../GameStats";
 import renderer from "react-test-renderer";
-import { mount, configure } from "enzyme";
+import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });

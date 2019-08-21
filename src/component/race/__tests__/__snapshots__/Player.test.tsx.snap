@@ -13,6 +13,8 @@ exports[`Player renders the described Player 1`] = `
     alt="Octane"
     src="octane.png"
   />
-  <div />
+  <div>
+    octane
+  </div>
 </div>
 `;
