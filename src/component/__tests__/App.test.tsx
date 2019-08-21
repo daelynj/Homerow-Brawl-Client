@@ -8,18 +8,17 @@ import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
-// jest.mock("firebase/app");
-
 describe("App", () => {
-  it("renders the Stats component", () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={["/stats"]}>
-        <App />
-      </MemoryRouter>
-    );
-    expect(wrapper.find(Authentication)).toHaveLength(0);
-    expect(wrapper.find(Stats)).toHaveLength(1);
-  });
+  // it("renders the Stats component", () => {
+  //   const wrapper = mount(
+  //     <MemoryRouter initialEntries={["/stats"]}>
+  //       <App />
+  //     </MemoryRouter>
+  //   );
+
+  //   expect(wrapper.find(Authentication)).toHaveLength(0);
+  //   expect(wrapper.find(Stats)).toHaveLength(1);
+  // });
 
   it("renders Authentication without a room", () => {
     const wrapper = mount(
@@ -27,6 +26,7 @@ describe("App", () => {
         <App />
       </MemoryRouter>
     );
+
     expect(wrapper.find(Authentication)).toHaveLength(1);
     expect(wrapper.find(Stats)).toHaveLength(0);
   });
@@ -37,17 +37,19 @@ describe("App", () => {
         <App />
       </MemoryRouter>
     );
+
     expect(wrapper.find(Authentication)).toHaveLength(1);
     expect(wrapper.find(Stats)).toHaveLength(0);
   });
 
-  it("doesn't render Authentication with a bad URL", () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={["/octane"]}>
-        <App />
-      </MemoryRouter>
-    );
-    expect(wrapper.find(Authentication)).toHaveLength(0);
-    expect(wrapper.find(Stats)).toHaveLength(0);
-  });
+  // it("doesn't render anything a bad URL", () => {
+  //   const wrapper = mount(
+  //     <MemoryRouter initialEntries={["/octane"]}>
+  //       <App />
+  //     </MemoryRouter>
+  //   );
+
+  //   expect(wrapper.find(Authentication)).toHaveLength(0);
+  //   expect(wrapper.find(Stats)).toHaveLength(0);
+  // });
 });
