@@ -1,23 +1,34 @@
+html,
+body,
+#app,
+#app > div {
+  height: 100%;
+  background-image: url("./images/prism.png");
+}
+
+@font-face {
+  font-family: acid;
+  src: url(./fonts/acid_medium.otf);
+}
+
 .authentication {
   margin: 2%;
-  border: 2px solid red;
   height: 55em;
 }
 
 .authentication__title {
+  color: white;
+  font-family: acid;
   text-align: center;
-  font-size: 32pt;
+  font-size: 80pt;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
-  border: 5px solid green;
   padding: 5%;
 }
 
 .authentication__bottom {
   margin-left: auto;
   margin-right: auto;
-  border: 5px solid blue;
   height: 60%;
   width: 75%;
 }
