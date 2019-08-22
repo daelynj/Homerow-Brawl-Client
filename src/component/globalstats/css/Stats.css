@@ -1,5 +1,10 @@
 .title {
+  font-size: 25pt;
   border: 5px solid turquoise;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }
 
 .history {
@@ -11,4 +16,11 @@
   margin-right: auto;
   border: 5px solid orange;
   width: 75%;
+}
+
+.graph {
+  border: 5px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
