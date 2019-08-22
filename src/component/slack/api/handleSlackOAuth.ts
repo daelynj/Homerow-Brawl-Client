@@ -12,10 +12,10 @@ export function handleURL(setAuthenticated: any) {
 }
 
 const getSlackOAuth = (code: any, setAuthenticated: any) => {
-  var entryURL = "http://" + window.location.host + window.location.pathname;
+  var entryURL = "https://" + window.location.host + window.location.pathname;
   var data: any = { code: code, redirectURI: entryURL };
 
-  fetch("http://localhost:3000/api/slack/oauth", {
+  fetch("https://homerow-brawl-server.herokuapp.com/api/slack/oauth", {
     method: "POST",
     mode: "cors",
     headers: { "Content-Type": "application/json" },

@@ -16,7 +16,7 @@ interface Props {
 
 export const Game = (props: Props) => {
   const [words] = useState<String[]>(
-    "This is text that you are typing in a typing game! This is text that you are typing in a typing game! This is text that you are typing in a typing game!".split(
+    "This is text that you are typing in a typing game! This project took 4 months to build with no previous developer experience outside of University. How did I learn so much you ask? Well let me tell you... coffee and ping pong".split(
       " "
     )
   );
