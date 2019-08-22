@@ -1,6 +1,8 @@
 .race {
   margin-left: auto;
   margin-right: auto;
-  width: 99%;
-  border: 5px solid pink;
+  width: 62%;
+  padding-right: 10%;
+  background-color: white;
+  border: 5px solid black;
 }
