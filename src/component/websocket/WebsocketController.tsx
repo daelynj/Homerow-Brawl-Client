@@ -109,7 +109,7 @@ export const WebsocketController = (props: Props) => {
           setRefWebSocket(Websocket);
         }}
       />
-      <div className="progress">{gameInProgress && "Game in progress"}</div>
+      <div className="busy">{gameInProgress && "Game in progress"}</div>
       {!gameInProgress && socketOpen && (
         <Game
           statsState={statsState}
