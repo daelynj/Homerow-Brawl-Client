@@ -1,10 +1,27 @@
 .title {
-  font-size: 25pt;
-  border: 5px solid turquoise;
+  color: white;
+  font-family: acid;
   text-align: center;
+  font-size: 80pt;
   margin-left: auto;
   margin-right: auto;
+}
+
+.globalstats {
+  background-color: white;
+  border: 5px solid black;
+  text-align: center;
   width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.individualstats {
+  padding: 10px;
 }
 
 .history {
@@ -14,11 +31,13 @@
   text-align: left;
   margin-left: auto;
   margin-right: auto;
-  border: 5px solid orange;
+  border: 5px solid black;
   width: 75%;
+  background-color: white;
 }
 
 .graph {
+  background-color: white;
   border: 5px solid black;
   margin-left: auto;
   margin-right: auto;

@@ -1,6 +1,6 @@
 .welcome {
-  margin-left: 40%;
-  margin-right: 40%;
-  border: 5px solid orange;
+  color: white;
+  font-family: acid;
+  font-size: 40pt;
   text-align: center;
 }

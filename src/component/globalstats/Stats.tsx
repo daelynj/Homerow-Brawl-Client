@@ -17,32 +17,40 @@ export const Stats = () => {
       <Game key={index} game={game} />
     ));
 
-  const displayStats = () => {
-    return (
-      <>
-        <div>{"average accuracy: " + globalStats.stats.average_accuracy}</div>
-        <div>
-          {"average letters typed: " + globalStats.stats.average_letters_typed}
-        </div>
-        <div>{"average mistakes: " + globalStats.stats.average_mistakes}</div>
-        <div>
-          {"average words typed: " + globalStats.stats.average_words_typed}
-        </div>
-        <div>{"average WPM: " + globalStats.stats.average_wpm}</div>
-        <div>
-          {"total letters typed: " + globalStats.stats.total_letters_typed}
-        </div>
-        <div>{"total mistakes: " + globalStats.stats.total_mistakes}</div>
-        <div>{"total words typed: " + globalStats.stats.total_words_typed}</div>
-      </>
-    );
-  };
+  const displayStats = () => (
+    <>
+      <span className="individualstats">
+        {"average accuracy: " + globalStats.stats.average_accuracy + "%"}
+      </span>
+      <span className="individualstats">
+        {"average letters typed: " + globalStats.stats.average_letters_typed}
+      </span>
+      <span className="individualstats">
+        {"average mistakes: " + globalStats.stats.average_mistakes}
+      </span>
+      <span className="individualstats">
+        {"average words typed: " + globalStats.stats.average_words_typed}
+      </span>
+      <span className="individualstats">
+        {"average WPM: " + globalStats.stats.average_wpm}
+      </span>
+      <span className="individualstats">
+        {"total letters typed: " + globalStats.stats.total_letters_typed}
+      </span>
+      <span className="individualstats">
+        {"total mistakes: " + globalStats.stats.total_mistakes}
+      </span>
+      <span className="individualstats">
+        {"total words typed: " + globalStats.stats.total_words_typed}
+      </span>
+    </>
+  );
 
   return (
     <>
-      {globalStats && displayStats()}
       <div className="title">{globalStats && "Game History"}</div>
       <div className="history">{globalStats && displayGameHistory()}</div>
+      <div className="globalstats">{globalStats && displayStats()}</div>
       <div className="graph">
         {globalStats && <Graph gamesPlayed={globalStats.games_played} />}
       </div>
