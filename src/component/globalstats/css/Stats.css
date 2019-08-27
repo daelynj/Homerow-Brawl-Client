@@ -26,6 +26,7 @@
 }
 
 .history {
+  overflow: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -34,6 +35,7 @@
   margin-right: auto;
   border: 5px solid black;
   width: 75%;
+  height: 200px;
   background-color: white;
 }
 
