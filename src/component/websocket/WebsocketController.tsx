@@ -22,7 +22,7 @@ export const WebsocketController = (props: Props) => {
   const [makeRequests, setMakeRequests] = useState<boolean>(false);
 
   useEffect(() => {
-    const interval = setInterval(() => makeRequests && requestState(), 2000);
+    const interval = setInterval(() => makeRequests && requestState(), 1000);
     return () => clearInterval(interval);
   });
 

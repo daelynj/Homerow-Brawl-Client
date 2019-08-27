@@ -17,7 +17,9 @@ interface Props {
 
 export const Game = (props: Props) => {
   const [words] = useState<String[]>(
-    "This is text that you are typing in a typing game!".split(" ")
+    "This is text that you are typing in a typing game! Hopefully now that there is some rate-limiting things won't be so slow. Every 2 seconds we ask the server for the state of the race and only send our new positions every 10% of text typed.".split(
+      " "
+    )
   );
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
   const [currentInput, setCurrentInput] = useState<string>("");
