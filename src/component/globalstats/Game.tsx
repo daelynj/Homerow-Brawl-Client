@@ -7,14 +7,26 @@ interface Props {
 
 export const Game = (props: Props) => {
   return (
-    <span className="game">
-      <div>{"date: " + props.game.created_at}</div>
-      <div>{"time taken: " + props.game.time + " seconds"}</div>
-      <div>{"WPM: " + props.game.wpm}</div>
-      <div>{"accuracy: " + props.game.accuracy + "%"}</div>
-      <div>{"mistakes: " + props.game.mistakes}</div>
-      <div>{"words typed: " + props.game.words_typed}</div>
-      <div>{"letters typed: " + props.game.letters_typed}</div>
-    </span>
+    <div className="game">
+      <span className="individualhistory">
+        {"date: " + props.game.created_at}
+      </span>
+      <span className="individualhistory">
+        {"time taken: " + props.game.time + " seconds"}
+      </span>
+      <span className="individualhistory">{"WPM: " + props.game.wpm}</span>
+      <span className="individualhistory">
+        {"accuracy: " + props.game.accuracy + "%"}
+      </span>
+      <span className="individualhistory">
+        {"mistakes: " + props.game.mistakes}
+      </span>
+      <span className="individualhistory">
+        {"words typed: " + props.game.words_typed}
+      </span>
+      <span className="individualhistory">
+        {"letters typed: " + props.game.letters_typed}
+      </span>
+    </div>
   );
 };
