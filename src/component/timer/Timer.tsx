@@ -10,6 +10,7 @@ interface Props {
   countDown: boolean;
   countUp: boolean;
   setFinishTime: (newFinishTime: number) => void;
+  setMakeRequests: (newRequest: boolean) => void;
 }
 
 export const Timer = (props: Props) => {
@@ -18,7 +19,10 @@ export const Timer = (props: Props) => {
   );
 
   const renderCountUpTimer = () => (
-    <CountUpTimer setFinishTime={props.setFinishTime} />
+    <CountUpTimer
+      setMakeRequests={props.setMakeRequests}
+      setFinishTime={props.setFinishTime}
+    />
   );
 
   const handleEvent = () => {

@@ -12,6 +12,7 @@ describe("Timer", () => {
   const setCountDown = jest.fn();
   const setCountUp = jest.fn();
   const updateCountDown = jest.fn();
+  const setMakeRequests = jest.fn();
 
   const buildProps = (newProps = {}) => ({
     setCountDown,
@@ -20,6 +21,7 @@ describe("Timer", () => {
     countDown: false,
     countUp: false,
     setFinishTime,
+    setMakeRequests,
     ...newProps
   });
 
