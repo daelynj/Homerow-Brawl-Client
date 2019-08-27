@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Game } from "../Game";
 import Websocket from "react-websocket";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./css/WebsocketController.css";
 
 interface Props {
@@ -19,6 +19,22 @@ export const WebsocketController = (props: Props) => {
   const [countDown, setCountDown] = useState<boolean>(false);
   const [uuid] = useState<any>(sessionStorage.getItem("uuid"));
   const [gameInProgress, setGameInProgress] = useState<boolean>(false);
+  const [makeRequests, setMakeRequests] = useState<boolean>(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => makeRequests && requestState(), 2000);
+    return () => clearInterval(interval);
+  });
+
+  const requestState = () => {
+    console.log("in state  request)");
+    var stateRequest = {
+      type: "state_request",
+      uuid: uuid
+    };
+
+    sendMessage(stateRequest);
+  };
 
   const handleData = (data: any) => {
     let update = JSON.parse(data);
@@ -32,6 +48,7 @@ export const WebsocketController = (props: Props) => {
       setCountDown(update.countdown);
     } else if (update.type === "stats") {
       setStatsState(update);
+      setMakeRequests(false);
     } else if (update.type === "game_started") {
       setGameInProgress(true);
     }
@@ -121,6 +138,7 @@ export const WebsocketController = (props: Props) => {
           name={name}
           raceState={raceState}
           ID={ID}
+          setMakeRequests={setMakeRequests}
         />
       )}
     </>

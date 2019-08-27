@@ -7,6 +7,7 @@ interface Props {
   setCountDown: (newCountDown: boolean) => void;
   updateCountDown: (newCountDown: boolean) => void;
   updateStats: (newStats: any) => void;
+  setMakeRequests: (newRequest: boolean) => void;
   raceState: any;
   statsState: any;
   name: string;
@@ -83,6 +84,7 @@ export const Game = (props: Props) => {
           ID={props.ID}
           updateStats={props.updateStats}
           statsState={props.statsState}
+          setMakeRequests={props.setMakeRequests}
         />
       }
     </>

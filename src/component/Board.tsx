@@ -17,6 +17,7 @@ interface Props {
   endGame: () => boolean;
   checkLetter: () => void;
   updateStats: (newStats: any) => void;
+  setMakeRequests: (newRequest: boolean) => void;
   currentWordIndex: number;
   finishTime: number;
   incorrectLetters: number;
@@ -59,6 +60,7 @@ export const Board = (props: Props) => {
       updateCountDown={props.updateCountDown}
       countUp={props.countUp}
       setCountUp={props.setCountUp}
+      setMakeRequests={props.setMakeRequests}
       countDown={props.countDown}
       setCountDown={props.setCountDown}
     />
