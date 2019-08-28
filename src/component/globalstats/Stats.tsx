@@ -49,7 +49,11 @@ export const Stats = () => {
   return (
     <>
       <div className="title">{globalStats && "Game History"}</div>
-      <div className="history">{globalStats && displayGameHistory()}</div>
+      <div className="scrolltable">
+        <table className="scrolltable__history">
+          {globalStats && displayGameHistory()}
+        </table>
+      </div>
       <div className="globalstats">{globalStats && displayStats()}</div>
       <div className="graph">
         {globalStats && <Graph gamesPlayed={globalStats.games_played} />}

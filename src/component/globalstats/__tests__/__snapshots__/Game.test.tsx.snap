@@ -1,43 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Game renders a game 1`] = `
-<div
-  className="game"
->
-  <span
-    className="individualhistory"
-  >
-    date: Monday
-  </span>
-  <span
-    className="individualhistory"
-  >
-    time taken: 3 seconds
-  </span>
-  <span
-    className="individualhistory"
-  >
-    WPM: 15
-  </span>
-  <span
-    className="individualhistory"
-  >
-    accuracy: 100%
-  </span>
-  <span
-    className="individualhistory"
-  >
-    mistakes: 0
-  </span>
-  <span
-    className="individualhistory"
-  >
-    words typed: 4
-  </span>
-  <span
-    className="individualhistory"
-  >
-    letters typed: 20
-  </span>
-</div>
+Array [
+  <tr>
+    <th>
+      <div>
+        Date
+      </div>
+    </th>
+    <th>
+      <div>
+        Time
+      </div>
+    </th>
+    <th>
+      <div>
+        WPM
+      </div>
+    </th>
+    <th>
+      <div>
+        Accuracy
+      </div>
+    </th>
+    <th>
+      <div>
+        Mistakes
+      </div>
+    </th>
+    <th>
+      <div>
+        Words
+      </div>
+    </th>
+    <th>
+      <div>
+        Letters
+      </div>
+    </th>
+  </tr>,
+  <tr>
+    <td>
+      Monday
+    </td>
+    <td>
+      3 seconds
+    </td>
+    <td>
+      15
+    </td>
+    <td>
+      100%
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      4
+    </td>
+    <td>
+      20
+    </td>
+  </tr>,
+]
 `;

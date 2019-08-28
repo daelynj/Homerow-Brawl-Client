@@ -1,12 +1,9 @@
-.game {
-  float: right;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding-top: 10px;
-  padding-right: 6px;
-  padding-bottom: 10px;
+th {
+  width: 15%;
+  padding-top: 0.3%;
 }
 
-.individualhistory {
-  padding: 8px;
+td {
+  padding-bottom: 0.3%;
+  border-bottom: 1px solid black;
 }
