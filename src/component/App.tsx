@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Authentication } from "./Authentication";
 import { Stats } from "./globalstats/Stats";
 import { Navbar, Nav } from "react-bootstrap";
