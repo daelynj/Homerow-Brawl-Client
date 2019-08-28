@@ -19,10 +19,10 @@ export const Authentication = () => {
   };
 
   return (
-    <div className="authentication">
-      <div className="authentication__title">Welcome to Homerow Brawl</div>
-      <div className="authentication__bottom">
-        <div className="authentication__bottom--button">
+    <div>
+      <div className="title">Welcome to Homerow Brawl</div>
+      <div className="bottom">
+        <div className="bottom__button">
           {!sessionStorage.getItem("authenticated") &&
             window.location.href.length < 45 && (
               <SlackButton handleEvent={slackSignIn} />
