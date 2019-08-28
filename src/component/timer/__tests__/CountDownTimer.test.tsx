@@ -19,11 +19,9 @@ describe("CountDownTimer", () => {
     );
 
     expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
-    expect(setTimeout).toHaveBeenCalledTimes(1);
 
     TimerComponent.update(<CountDownTimer setCountUp={setCountUp} />);
 
     expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
-    expect(setTimeout).toHaveBeenCalledTimes(2);
   });
 });

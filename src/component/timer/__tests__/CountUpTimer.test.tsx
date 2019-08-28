@@ -28,7 +28,6 @@ describe("CountUpTimer", () => {
     );
 
     expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
-    expect(setTimeout).toHaveBeenCalledTimes(1);
 
     TimerComponent.update(
       <CountUpTimer
@@ -38,7 +37,6 @@ describe("CountUpTimer", () => {
     );
 
     expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 1000);
-    expect(setTimeout).toHaveBeenCalledTimes(2);
   });
 
   it("sets the finish time when unmounted", () => {
