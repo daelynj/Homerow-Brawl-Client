@@ -5,28 +5,39 @@ interface Props {
   game: any;
 }
 
-export const Game = (props: Props) => {
-  return (
-    <div className="game">
-      <span className="individualhistory">
-        {"date: " + props.game.created_at}
-      </span>
-      <span className="individualhistory">
-        {"time taken: " + props.game.time + " seconds"}
-      </span>
-      <span className="individualhistory">{"WPM: " + props.game.wpm}</span>
-      <span className="individualhistory">
-        {"accuracy: " + props.game.accuracy + "%"}
-      </span>
-      <span className="individualhistory">
-        {"mistakes: " + props.game.mistakes}
-      </span>
-      <span className="individualhistory">
-        {"words typed: " + props.game.words_typed}
-      </span>
-      <span className="individualhistory">
-        {"letters typed: " + props.game.letters_typed}
-      </span>
-    </div>
-  );
-};
+export const Game = (props: Props) => (
+  <>
+    <tr>
+      <th>
+        <div>Date</div>
+      </th>
+      <th>
+        <div>Time</div>
+      </th>
+      <th>
+        <div>WPM</div>
+      </th>
+      <th>
+        <div>Accuracy</div>
+      </th>
+      <th>
+        <div>Mistakes</div>
+      </th>
+      <th>
+        <div>Words</div>
+      </th>
+      <th>
+        <div>Letters</div>
+      </th>
+    </tr>
+    <tr>
+      <td>{props.game.created_at}</td>
+      <td>{props.game.time + " seconds"}</td>
+      <td>{props.game.wpm}</td>
+      <td>{props.game.accuracy + "%"}</td>
+      <td>{props.game.mistakes}</td>
+      <td>{props.game.words_typed}</td>
+      <td>{props.game.letters_typed}</td>
+    </tr>
+  </>
+);

@@ -25,18 +25,19 @@
   padding: 10px;
 }
 
-.history {
+.scrolltable {
   overflow: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  text-align: left;
+  height: 250px;
+  width: 75%;
   margin-left: auto;
   margin-right: auto;
-  border: 5px solid black;
-  width: 75%;
-  height: 200px;
   background-color: white;
+  border: 5px solid black;
+  text-align: center;
+}
+
+.scrolltable__history {
+  width: 100%;
 }
 
 .graph {
