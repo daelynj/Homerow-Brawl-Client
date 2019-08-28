@@ -10,19 +10,13 @@
 .globalstats {
   background-color: white;
   border: 5px solid black;
-  text-align: center;
   width: 75%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1%;
   margin-bottom: 1%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.individualstats {
-  padding: 10px;
+  text-align: center;
+  table-layout: fixed;
 }
 
 .scrolltable {

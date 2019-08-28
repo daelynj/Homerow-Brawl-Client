@@ -18,32 +18,28 @@ export const Stats = () => {
     ));
 
   const displayStats = () => (
-    <>
-      <span className="individualstats">
-        {"average accuracy: " + globalStats.stats.average_accuracy + "%"}
-      </span>
-      <span className="individualstats">
-        {"average letters typed: " + globalStats.stats.average_letters_typed}
-      </span>
-      <span className="individualstats">
-        {"average mistakes: " + globalStats.stats.average_mistakes}
-      </span>
-      <span className="individualstats">
-        {"average words typed: " + globalStats.stats.average_words_typed}
-      </span>
-      <span className="individualstats">
-        {"average WPM: " + globalStats.stats.average_wpm}
-      </span>
-      <span className="individualstats">
-        {"total letters typed: " + globalStats.stats.total_letters_typed}
-      </span>
-      <span className="individualstats">
-        {"total mistakes: " + globalStats.stats.total_mistakes}
-      </span>
-      <span className="individualstats">
-        {"total words typed: " + globalStats.stats.total_words_typed}
-      </span>
-    </>
+    <table className="globalstats">
+      <tr>
+        <th>Average accuracy</th>
+        <th>Average mistakes</th>
+        <th>Average words</th>
+        <th>Average letters</th>
+        <th>Average WPM</th>
+        <th>Total words</th>
+        <th>Total letters</th>
+        <th>Total mistakes</th>
+      </tr>
+      <tr>
+        <td>{globalStats.stats.average_accuracy + "%"}</td>
+        <td>{globalStats.stats.average_mistakes}</td>
+        <td>{globalStats.stats.average_words_typed}</td>
+        <td>{globalStats.stats.average_letters_typed}</td>
+        <td>{globalStats.stats.average_wpm}</td>
+        <td>{globalStats.stats.total_words_typed}</td>
+        <td>{globalStats.stats.total_letters_typed}</td>
+        <td>{globalStats.stats.total_mistakes}</td>
+      </tr>
+    </table>
   );
 
   return (
@@ -54,7 +50,7 @@ export const Stats = () => {
           {globalStats && displayGameHistory()}
         </table>
       </div>
-      <div className="globalstats">{globalStats && displayStats()}</div>
+      {globalStats && displayStats()}
       <div className="graph">
         {globalStats && <Graph gamesPlayed={globalStats.games_played} />}
       </div>
