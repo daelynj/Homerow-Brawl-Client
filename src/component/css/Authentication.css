@@ -20,13 +20,6 @@ body,
   margin-right: auto;
 }
 
-.bottom {
-  margin-left: auto;
-  margin-right: auto;
-  height: 60%;
-  width: 75%;
-}
-
-.bottom__button {
+.button {
   text-align: center;
 }
