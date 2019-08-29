@@ -3,8 +3,8 @@ export const createRoomAPI = (
   setIsLoaded: any,
   setError: any
 ) => {
-  return (event: React.MouseEvent) => {
-    fetch("http://localhost:3000/api/rooms", {
+  return async (event: React.MouseEvent) => {
+    await fetch("http://localhost:3000/api/rooms", {
       method: "POST",
       mode: "cors"
     })
@@ -19,6 +19,5 @@ export const createRoomAPI = (
           setError(error);
         }
       );
-    event.preventDefault();
   };
 };
