@@ -11,28 +11,15 @@ body,
   src: url(./fonts/acid_medium.otf);
 }
 
-.authentication {
-  margin: 2%;
-  height: 55em;
-}
-
-.authentication__title {
+.title {
   color: white;
   font-family: acid;
   text-align: center;
   font-size: 80pt;
   margin-left: auto;
   margin-right: auto;
-  padding: 5%;
 }
 
-.authentication__bottom {
-  margin-left: auto;
-  margin-right: auto;
-  height: 60%;
-  width: 75%;
-}
-
-.authentication__bottom--button {
+.button {
   text-align: center;
 }

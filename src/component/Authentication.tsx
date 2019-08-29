@@ -19,21 +19,19 @@ export const Authentication = () => {
   };
 
   return (
-    <div className="authentication">
-      <div className="authentication__title">Welcome to Homerow Brawl</div>
-      <div className="authentication__bottom">
-        <div className="authentication__bottom--button">
-          {!sessionStorage.getItem("authenticated") &&
-            window.location.href.length < 45 && (
-              <SlackButton handleEvent={slackSignIn} />
-            )}
-        </div>
+    <div>
+      <div className="title">Welcome to Homerow Brawl</div>
+      <div className="button">
         {!sessionStorage.getItem("authenticated") &&
-          slack.handleURL(setAuthenticated)}
-        {!sessionStorage.getItem("authenticated") &&
-          window.location.href.length > 45 && <Authenticate />}
-        {sessionStorage.getItem("authenticated") && <SignOn />}
+          window.location.href.length < 45 && (
+            <SlackButton handleEvent={slackSignIn} />
+          )}
       </div>
+      {!sessionStorage.getItem("authenticated") &&
+        slack.handleURL(setAuthenticated)}
+      {!sessionStorage.getItem("authenticated") &&
+        window.location.href.length > 45 && <Authenticate />}
+      {sessionStorage.getItem("authenticated") && <SignOn />}
     </div>
   );
 };
