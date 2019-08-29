@@ -19,26 +19,28 @@ export const Stats = () => {
 
   const displayStats = () => (
     <table className="globalstats">
-      <tr>
-        <th>Average accuracy</th>
-        <th>Average mistakes</th>
-        <th>Average words</th>
-        <th>Average letters</th>
-        <th>Average WPM</th>
-        <th>Total words</th>
-        <th>Total letters</th>
-        <th>Total mistakes</th>
-      </tr>
-      <tr>
-        <td>{globalStats.stats.average_accuracy + "%"}</td>
-        <td>{globalStats.stats.average_mistakes}</td>
-        <td>{globalStats.stats.average_words_typed}</td>
-        <td>{globalStats.stats.average_letters_typed}</td>
-        <td>{globalStats.stats.average_wpm}</td>
-        <td>{globalStats.stats.total_words_typed}</td>
-        <td>{globalStats.stats.total_letters_typed}</td>
-        <td>{globalStats.stats.total_mistakes}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <th>Average accuracy</th>
+          <th>Average mistakes</th>
+          <th>Average words</th>
+          <th>Average letters</th>
+          <th>Average WPM</th>
+          <th>Total words</th>
+          <th>Total letters</th>
+          <th>Total mistakes</th>
+        </tr>
+        <tr>
+          <td>{globalStats.stats.average_accuracy + "%"}</td>
+          <td>{globalStats.stats.average_mistakes}</td>
+          <td>{globalStats.stats.average_words_typed}</td>
+          <td>{globalStats.stats.average_letters_typed}</td>
+          <td>{globalStats.stats.average_wpm}</td>
+          <td>{globalStats.stats.total_words_typed}</td>
+          <td>{globalStats.stats.total_letters_typed}</td>
+          <td>{globalStats.stats.total_mistakes}</td>
+        </tr>
+      </tbody>
     </table>
   );
 
