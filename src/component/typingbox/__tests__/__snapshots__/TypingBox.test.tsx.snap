@@ -3,6 +3,7 @@
 exports[`TypingBox renders an input field 1`] = `
 <input
   className="box"
+  maxLength={11}
   onChange={[Function]}
   onKeyDown={[Function]}
   onKeyUp={[Function]}

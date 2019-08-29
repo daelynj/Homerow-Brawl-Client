@@ -52,7 +52,10 @@ export const Game = (props: Props) => {
   };
 
   const checkLetter = () => {
-    if (currentInput !== getCurrentWordSubstring()) {
+    if (
+      currentInput !== getCurrentWordSubstring() &&
+      currentInput.length !== 11
+    ) {
       setIncorrectLetters(incorrectLetters + 1);
     }
     return;

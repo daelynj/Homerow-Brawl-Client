@@ -48,6 +48,7 @@ export const TypingBox = (props: Props) => {
       onKeyUp={detectBackspace}
       onKeyDown={detectSpace}
       onChange={handleChange}
+      maxLength={11}
     />
   );
 };
