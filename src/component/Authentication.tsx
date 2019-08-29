@@ -10,8 +10,7 @@ export const Authentication = () => {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
 
   useEffect(() => {
-    !sessionStorage.getItem("authenticated") &&
-      slack.handleURL(setAuthenticated);
+    slack.handleURL(setAuthenticated);
   }, []);
 
   const slackSignIn = () => {
