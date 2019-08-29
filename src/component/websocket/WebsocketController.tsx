@@ -27,7 +27,6 @@ export const WebsocketController = (props: Props) => {
   });
 
   const requestState = () => {
-    console.log("in state  request)");
     var stateRequest = {
       type: "state_request",
       uuid: uuid
@@ -48,6 +47,7 @@ export const WebsocketController = (props: Props) => {
       setCountDown(update.countdown);
     } else if (update.type === "stats") {
       setStatsState(update);
+      requestState();
       setMakeRequests(false);
     } else if (update.type === "game_started") {
       setGameInProgress(true);
