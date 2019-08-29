@@ -117,9 +117,5 @@ export const Graph = (props: Props) => {
     return [WPMDataPoints, mistakesDataPoints, accuraciesDataPoints];
   };
 
-  return (
-    <>
-      <Line data={data} />
-    </>
-  );
+  return <Line data={data} />;
 };
