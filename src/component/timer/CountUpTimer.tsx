@@ -15,6 +15,7 @@ export const CountUpTimer = (props: Props) => {
     let timerID = setTimeout(tick, 1000);
 
     return function cleanup() {
+      clearTimeout(timerID);
       props.setFinishTime(seconds);
     };
   });
