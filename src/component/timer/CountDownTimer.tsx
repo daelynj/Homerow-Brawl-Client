@@ -14,7 +14,7 @@ export const CountDownTimer = (props: Props) => {
   });
 
   const tick = () => {
-    if (seconds > 0) {
+    if (seconds > 1) {
       setSeconds(seconds - 1);
     } else {
       props.setCountUp(true);

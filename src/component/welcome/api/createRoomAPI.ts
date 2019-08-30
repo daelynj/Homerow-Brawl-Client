@@ -4,7 +4,7 @@ export const createRoomAPI = (
   setError: any
 ) => {
   return async (event: React.MouseEvent) => {
-    await fetch("http://localhost:3000/api/rooms", {
+    await fetch("https://homerow-brawl-server.herokuapp.com/api/rooms", {
       method: "POST",
       mode: "cors"
     })

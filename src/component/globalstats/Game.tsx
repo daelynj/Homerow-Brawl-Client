@@ -8,7 +8,7 @@ interface Props {
 export const Game = (props: Props) => {
   const buildDate = () => {
     let timestamp = new Date(Date.parse(props.game.created_at));
-    return timestamp.toDateString() + "\n" + timestamp.toLocaleTimeString();
+    return timestamp.toDateString();
   };
   return (
     <tbody>

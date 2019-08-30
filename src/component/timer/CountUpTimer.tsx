@@ -12,10 +12,12 @@ export const CountUpTimer = (props: Props) => {
 
   useEffect(() => {
     props.setMakeRequests(true);
+  }, []);
+
+  useEffect(() => {
     let timerID = setTimeout(tick, 1000);
 
     return function cleanup() {
-      clearTimeout(timerID);
       props.setFinishTime(seconds);
     };
   });

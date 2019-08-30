@@ -7,10 +7,10 @@ export function handleURL(setAuthenticated: any) {
   var error = search_params.get("error");
 
   if (code !== null && state === "goodtimes" && error !== "access_denied") {
-    var entryURL = "http://" + window.location.host + window.location.pathname;
+    var entryURL = "https://" + window.location.host + window.location.pathname;
     var data: any = { code: code, redirectURI: entryURL };
 
-    fetch("http://localhost:3000/api/slack/oauth", {
+    fetch("https://homerow-brawl-server.herokuapp.com/api/slack/oauth", {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },

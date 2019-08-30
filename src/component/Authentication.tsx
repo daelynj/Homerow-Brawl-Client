@@ -27,12 +27,12 @@ export const Authentication = () => {
       <div className="title">Welcome to Homerow Brawl</div>
       <div className="button">
         {!sessionStorage.getItem("authenticated") &&
-          window.location.href.length < 45 && (
+          window.location.href.length < 47 && (
             <SlackButton handleEvent={slackSignIn} />
           )}
       </div>
       {!sessionStorage.getItem("authenticated") &&
-        window.location.href.length > 45 && <Authenticate />}
+        window.location.href.length > 47 && <Authenticate />}
       {sessionStorage.getItem("authenticated") && <SignOn />}
     </div>
   );
