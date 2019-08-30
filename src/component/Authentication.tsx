@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SignOn } from "./welcome/SignOn";
 import { SlackButton } from "./slack/SlackButton";
 import { Authenticate } from "./slack/Authenticate";
@@ -8,6 +8,10 @@ import "./css/Authentication.css";
 
 export const Authentication = () => {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
+
+  useEffect(() => {
+    slack.handleURL(setAuthenticated);
+  }, []);
 
   const slackSignIn = () => {
     var entryURL = "http://" + window.location.host + window.location.pathname;
@@ -27,8 +31,6 @@ export const Authentication = () => {
             <SlackButton handleEvent={slackSignIn} />
           )}
       </div>
-      {!sessionStorage.getItem("authenticated") &&
-        slack.handleURL(setAuthenticated)}
       {!sessionStorage.getItem("authenticated") &&
         window.location.href.length > 45 && <Authenticate />}
       {sessionStorage.getItem("authenticated") && <SignOn />}
